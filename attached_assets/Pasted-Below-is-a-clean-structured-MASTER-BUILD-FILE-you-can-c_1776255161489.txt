@@ -1,0 +1,256 @@
+Below is a clean, structured “MASTER BUILD FILE” you can copy and paste directly into Replit.
+
+⸻
+
+📄 SLOKA HUB — MASTER BUILD SPEC (FOR REPLIT)
+
+⸻
+
+🧭 PROJECT NAME
+
+Sloka Hub
+
+⸻
+
+🎯 PROJECT PURPOSE
+
+Build a web-based application (MVP) that helps ISKCON devotees:
+	•	Learn slokas
+	•	Improve pronunciation
+	•	Understand meanings
+	•	Memorize effectively
+
+This is Phase 1 MVP only (no BBT content yet).
+
+⸻
+
+🔥 CORE PRODUCT IDEA
+
+Transform users from repeating slokas → to understanding and confidently reciting them.
+
+⸻
+
+🧱 TECH STACK (REPLIT FRIENDLY)
+
+Frontend:
+	•	React (preferred) OR simple HTML/CSS/JS (if needed)
+	•	Tailwind CSS (for clean UI)
+
+Backend:
+	•	Node.js (Express)
+
+Storage:
+	•	JSON (initial version)
+	•	Later upgrade to database
+
+⸻
+
+📱 MVP FEATURES (PHASE 1 ONLY)
+
+⸻
+
+1. HOME SCREEN
+
+Display:
+	•	App name: Sloka Hub
+	•	Tagline: Learn it. Live it. Lead it.
+
+Buttons:
+	•	Start Learning
+	•	My Slokas
+	•	Settings
+
+⸻
+
+2. SLOKA LIST SCREEN
+
+Display list of slokas:
+
+Each item shows:
+	•	Sloka title (e.g., BG 2.13)
+	•	First line (transliteration)
+
+⸻
+
+3. SLOKA DETAIL SCREEN
+
+Each sloka contains:
+
+A. Devanagari (optional for MVP)
+
+B. Transliteration (main)
+
+C. Word-by-word breakdown
+
+⸻
+
+4. TAP-TO-REVEAL WORD MEANING (CORE FEATURE)
+
+Example:
+
+aham → [tap] → "I"
+sarvasya → [tap] → "of everything"
+
+Behavior:
+	•	Click word → show meaning below or flip card
+
+⸻
+
+5. AUDIO PLAYBACK
+
+Feature:
+	•	Play pronunciation audio
+	•	Loop button
+	•	Slow playback (optional)
+
+⸻
+
+6. REPETITION MODE
+
+Buttons:
+	•	Play full sloka
+	•	Play line-by-line
+	•	Repeat mode ON/OFF
+
+⸻
+
+7. SAVE TO “MY SLOKAS”
+
+User can:
+	•	Add sloka to personal list
+
+⸻
+
+8. SIMPLE PROGRESS TRACKING
+	•	Mark sloka as:
+	•	Learning
+	•	Learned
+
+⸻
+
+🧠 DATA STRUCTURE (IMPORTANT)
+
+Use JSON format:
+
+{
+  "id": "bg_2_13",
+  "title": "Bhagavad Gita 2.13",
+  "transliteration": [
+    "dehino 'smin yatha dehe",
+    "kaumaram yauvanam jara"
+  ],
+  "word_by_word": [
+    { "word": "dehinah", "meaning": "of the embodied soul" },
+    { "word": "asmin", "meaning": "in this" }
+  ],
+  "audio_url": "path/to/audio.mp3"
+}
+
+
+⸻
+
+🎨 UI DESIGN GUIDELINES
+
+Theme:
+	•	Deep blue background
+	•	Gold highlights
+	•	Clean devotional aesthetic
+
+Style:
+	•	Minimal
+	•	Calm
+	•	Not cluttered
+
+⸻
+
+🖼️ APP ICON (REFERENCE)
+
+Use:
+	•	Srila Prabhupada reading śāstra
+	•	Book visible
+	•	Soft golden glow
+
+⸻
+
+🚫 EXCLUDE (FOR MVP)
+
+Do NOT build yet:
+	•	AI pronunciation scoring
+	•	Community features
+	•	Gamification
+	•	Kirtan module
+	•	BBT content
+
+⸻
+
+🧭 FUTURE PHASE PLACEHOLDERS
+
+Add menu placeholders (inactive):
+	•	Kirtan Learning (Coming Soon)
+	•	AI Tutor (Coming Soon)
+	•	Group Learning (Coming Soon)
+
+⸻
+
+🧪 TESTING FLOW
+
+After build:
+	1.	Deploy web version (Replit URL)
+	2.	Share with small devotee group
+	3.	Collect feedback
+
+⸻
+
+🍎 APPLE PIPELINE PLAN
+
+After MVP is stable:
+	1.	Export code (ZIP)
+	2.	Convert to iOS app wrapper
+	3.	Upload to TestFlight
+	4.	Internal testing
+
+⸻
+
+🧠 PRODUCT PRINCIPLES
+
+The app must feel:
+	•	Simple
+	•	Encouraging
+	•	Devotional
+	•	Useful immediately
+
+⸻
+
+🎯 SUCCESS METRIC (MVP)
+
+User can:
+	•	Open app
+	•	Learn one sloka
+	•	Understand word meanings
+	•	Repeat it confidently
+
+⸻
+
+🔥 FINAL INSTRUCTION TO REPLIT AGENT
+
+Build a clean, simple, responsive web application implementing the above features.
+Focus on usability and clarity over complexity.
+Ensure mobile responsiveness (primary usage).
+Use modular code for future expansion.
+
+⸻
+
+🚀 NEXT STEP
+
+After you paste this into Replit:
+
+👉 Let it generate the first build
+👉 Test immediately
+👉 Then come back and I’ll help you:
+	•	Refine UI
+	•	Add Phase 2 features
+	•	Prepare TestFlight submission
+
+⸻
+
+You’re now officially moving from idea → product.
