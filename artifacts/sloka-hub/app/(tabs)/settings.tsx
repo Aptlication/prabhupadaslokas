@@ -2,7 +2,7 @@ import { Feather } from "@expo/vector-icons";
 import { useAuth, useUser } from "@clerk/expo";
 import { useRouter } from "expo-router";
 import React from "react";
-import { Alert, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useApp } from "@/context/AppContext";
@@ -32,16 +32,7 @@ export default function SettingsScreen() {
     { icon: "target", label: "Completion", value: `${Math.round((learned / total) * 100)}%` },
   ];
 
-  const handleSignOut = () => {
-    Alert.alert("Sign Out", "Are you sure you want to sign out?", [
-      { text: "Cancel", style: "cancel" },
-      {
-        text: "Sign Out",
-        style: "destructive",
-        onPress: () => signOut(),
-      },
-    ]);
-  };
+  const handleSignOut = () => signOut();
 
   return (
     <ScrollView
@@ -75,8 +66,9 @@ export default function SettingsScreen() {
                 ✓ Progress synced to cloud
               </Text>
             </View>
-            <Pressable onPress={handleSignOut} style={styles.signOutBtn}>
-              <Feather name="log-out" size={18} color={colors.destructive} />
+            <Pressable onPress={handleSignOut} style={[styles.signOutBtn, { borderColor: colors.destructive }]}>
+              <Feather name="log-out" size={14} color={colors.destructive} />
+              <Text style={[styles.signOutText, { color: colors.destructive }]}>Sign Out</Text>
             </Pressable>
           </View>
         ) : (
@@ -176,7 +168,16 @@ const styles = StyleSheet.create({
   accountName: { fontSize: 15, fontFamily: "Inter_600SemiBold" },
   accountEmail: { fontSize: 12, fontFamily: "Inter_400Regular", marginTop: 2 },
   syncBadge: { fontSize: 11, fontFamily: "Inter_500Medium", marginTop: 4 },
-  signOutBtn: { padding: 8 },
+  signOutBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 5,
+    paddingHorizontal: 10,
+    paddingVertical: 7,
+    borderRadius: 8,
+    borderWidth: 1,
+  },
+  signOutText: { fontSize: 12, fontFamily: "Inter_600SemiBold" },
   signInBtn: {
     paddingHorizontal: 14,
     paddingVertical: 8,
