@@ -18,7 +18,17 @@
     },
     "android": {},
     "web": {
-      "favicon": "./assets/images/icon.png"
+      "favicon": "./assets/images/icon.png",
+      "backgroundColor": "#0D1B3E",
+      "themeColor": "#C9A84C",
+      "description": "Learn, understand and memorise slokas from Srila Prabhupada's books. Learn it. Live it. Lead it.",
+      "lang": "en",
+      "name": "Sloka Hub",
+      "shortName": "Sloka Hub",
+      "display": "standalone",
+      "orientation": "portrait",
+      "scope": "/",
+      "startUrl": "/"
     },
     "plugins": [
       [

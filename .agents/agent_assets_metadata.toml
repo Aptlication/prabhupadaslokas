@@ -11,3 +11,45 @@ id = "eHPr6B84KpSGgeMLepo-C"
 uri = "file://attached_assets/BBT_Permission_Request.md"
 type = "text"
 title = "Sloka Hub — BBT Permission Request & Executive Summary"
+
+[[outputs]]
+id = "IqxbX-ED5xRNhfNOYUia7"
+uri = "file://attached_assets/image_search/prabhupada_1.jpg"
+type = "image"
+title = "Option 1 — Square close-up (1280×1280)"
+
+[[outputs]]
+id = "2E3OYpqCXoh-GafSjkcKT"
+uri = "file://attached_assets/image_search/prabhupada_2.jpg"
+type = "image"
+title = "Option 2 — Face close-up (700×794)"
+
+[[outputs]]
+id = "n6UAv3Cn_kNJNWksz0iuH"
+uri = "file://attached_assets/image_search/prabhupada_3.jpg"
+type = "image"
+title = "Option 3 — Portrait photo (839×1000)"
+
+[[outputs]]
+id = "yWM1jE8mxHNI-17n1iuRc"
+uri = "file://attached_assets/image_search/prabhupada_4.jpg"
+type = "image"
+title = "Option 4 — Painting portrait (600×600 square)"
+
+[[outputs]]
+id = "1JqgvKTviqeFmRTGfR3JS"
+uri = "file://attached_assets/image_search/prabhupada_glasses_2.jpg"
+type = "image"
+title = "Option A — Square (720×720)"
+
+[[outputs]]
+id = "Y02Zj1IBRPXPvFWpK7yKe"
+uri = "file://attached_assets/image_search/prabhupada_glasses_3.jpg"
+type = "image"
+title = "Option B — Seated with flowers (720×560)"
+
+[[outputs]]
+id = "vBRZDqYm-89c7Y9Atvu5T"
+uri = "file://attached_assets/image_search/prabhupada_glasses_4.jpg"
+type = "image"
+title = "Option C — Close-up with glasses (600×523)"
