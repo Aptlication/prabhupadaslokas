@@ -14,6 +14,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useApp } from "@/context/AppContext";
+import { APP_NAME, APP_TAGLINE } from "@/constants/app";
 import { slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
@@ -44,9 +45,9 @@ export default function HomeScreen() {
             resizeMode="contain"
           />
           <View>
-            <Text style={[styles.appName, { color: colors.primary }]}>Prabhupada Slokas</Text>
+            <Text style={[styles.appName, { color: colors.primary }]}>{APP_NAME}</Text>
             <Text style={[styles.tagline, { color: colors.mutedForeground }]}>
-              Learn it. Live it. Lead it.
+              {APP_TAGLINE}
             </Text>
           </View>
         </View>

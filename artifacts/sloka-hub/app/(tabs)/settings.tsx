@@ -4,6 +4,7 @@ import { Platform, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useApp } from "@/context/AppContext";
+import { APP_DESCRIPTION, APP_NAME, APP_TAGLINE, APP_VERSION_LABEL } from "@/constants/app";
 import { slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
@@ -62,15 +63,15 @@ export default function SettingsScreen() {
       <View style={{ paddingHorizontal: 16, gap: 10 }}>
         <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>ABOUT</Text>
         <View style={[styles.aboutCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
-          <Text style={[styles.aboutTitle, { color: colors.primary }]}>Prabhupada Slokas</Text>
+          <Text style={[styles.aboutTitle, { color: colors.primary }]}>{APP_NAME}</Text>
           <Text style={[styles.aboutTagline, { color: colors.mutedForeground }]}>
-            Learn it. Live it. Lead it.
+            {APP_TAGLINE}
           </Text>
           <Text style={[styles.aboutDesc, { color: colors.mutedForeground }]}>
-            Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.
+            {APP_DESCRIPTION}
           </Text>
           <View style={[styles.divider, { backgroundColor: colors.border }]} />
-          <Text style={[styles.version, { color: colors.mutedForeground }]}>Version 1.0.0 — Phase 1 MVP</Text>
+          <Text style={[styles.version, { color: colors.mutedForeground }]}>{APP_VERSION_LABEL}</Text>
         </View>
       </View>
     </ScrollView>
