@@ -1,10 +1,10 @@
 import { ExpoConfig, ConfigContext } from "expo/config";
-import {
-  APP_NAME,
-  APP_TAGLINE,
-  APP_DESCRIPTION,
-  APP_VERSION,
-} from "./constants/app";
+
+const APP_NAME = "Prabhupada Slokas";
+const APP_TAGLINE = "Learn it. Live it. Lead it.";
+const APP_DESCRIPTION =
+  "Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.";
+const APP_VERSION = "1.0.0";
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
