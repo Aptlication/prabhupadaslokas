@@ -59,3 +59,9 @@ id = "7JpwB4GsQVGhutrZfKWxg"
 uri = "file://artifacts/sloka-hub/assets/images/icon.png"
 type = "image"
 title = "Prabhupada Slokas — App Icon"
+
+[[outputs]]
+id = "6UNNs6BxmT1-QmO6IabMW"
+uri = "file://attached_assets/prabhupada_slokas_qr.png"
+type = "image"
+title = "Prabhupada Slokas — QR Code (slokahub.replit.app)"
