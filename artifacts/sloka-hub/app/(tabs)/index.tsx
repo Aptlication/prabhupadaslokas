@@ -44,7 +44,7 @@ export default function HomeScreen() {
             resizeMode="contain"
           />
           <View>
-            <Text style={[styles.appName, { color: colors.primary }]}>Sloka Hub</Text>
+            <Text style={[styles.appName, { color: colors.primary }]}>Prabhupada Slokas</Text>
             <Text style={[styles.tagline, { color: colors.mutedForeground }]}>
               Learn it. Live it. Lead it.
             </Text>

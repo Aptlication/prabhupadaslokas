@@ -62,12 +62,12 @@ export default function SettingsScreen() {
       <View style={{ paddingHorizontal: 16, gap: 10 }}>
         <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>ABOUT</Text>
         <View style={[styles.aboutCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
-          <Text style={[styles.aboutTitle, { color: colors.primary }]}>Sloka Hub</Text>
+          <Text style={[styles.aboutTitle, { color: colors.primary }]}>Prabhupada Slokas</Text>
           <Text style={[styles.aboutTagline, { color: colors.mutedForeground }]}>
             Learn it. Live it. Lead it.
           </Text>
           <Text style={[styles.aboutDesc, { color: colors.mutedForeground }]}>
-            Sloka Hub helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.
+            Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.
           </Text>
           <View style={[styles.divider, { backgroundColor: colors.border }]} />
           <Text style={[styles.version, { color: colors.mutedForeground }]}>Version 1.0.0 — Phase 1 MVP</Text>
