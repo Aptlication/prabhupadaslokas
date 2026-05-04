@@ -22,7 +22,7 @@ title = "Option 1 — Square close-up (1280×1280)"
 id = "2E3OYpqCXoh-GafSjkcKT"
 uri = "file://attached_assets/image_search/prabhupada_2.jpg"
 type = "image"
-title = "Option 2 — Face close-up (700×794)"
+title = "Option 2 — prabhupada_2.jpg"
 
 [[outputs]]
 id = "n6UAv3Cn_kNJNWksz0iuH"
@@ -40,7 +40,7 @@ title = "Option 4 — Painting portrait (600×600 square)"
 id = "1JqgvKTviqeFmRTGfR3JS"
 uri = "file://attached_assets/image_search/prabhupada_glasses_2.jpg"
 type = "image"
-title = "Option A — Square (720×720)"
+title = "Option 2 (glasses) — prabhupada_glasses_2.jpg (current icon)"
 
 [[outputs]]
 id = "Y02Zj1IBRPXPvFWpK7yKe"

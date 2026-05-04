@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Sloka Hub",
+    "name": "Prabhupada Slokas",
     "slug": "sloka-hub",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,8 +23,8 @@
       "themeColor": "#C9A84C",
       "description": "Learn, understand and memorise slokas from Srila Prabhupada's books. Learn it. Live it. Lead it.",
       "lang": "en",
-      "name": "Sloka Hub",
-      "shortName": "Sloka Hub",
+      "name": "Prabhupada Slokas",
+      "shortName": "Prabhupada Slokas",
       "display": "standalone",
       "orientation": "portrait",
       "scope": "/",
