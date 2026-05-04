@@ -4,7 +4,7 @@ uploads = []
 id = "IQBloTNMd92dgFkAb7jd9"
 uri = "file://artifacts/sloka-hub/assets/images/icon.png"
 type = "image"
-title = "generated_image"
+title = "prabhupada silhouette icon clean"
 
 [[outputs]]
 id = "eHPr6B84KpSGgeMLepo-C"
@@ -53,3 +53,9 @@ id = "vBRZDqYm-89c7Y9Atvu5T"
 uri = "file://attached_assets/image_search/prabhupada_glasses_4.jpg"
 type = "image"
 title = "Option C — Close-up with glasses (600×523)"
+
+[[outputs]]
+id = "7JpwB4GsQVGhutrZfKWxg"
+uri = "file://artifacts/sloka-hub/assets/images/icon.png"
+type = "image"
+title = "Prabhupada Slokas — App Icon"
