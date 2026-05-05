@@ -16,6 +16,7 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { LoadingScreen } from "@/components/LoadingScreen";
 import { AppProvider } from "@/context/AppContext";
 
 SplashScreen.preventAutoHideAsync();
@@ -56,7 +57,7 @@ export default function RootLayout() {
     return () => clearTimeout(t);
   }, []);
 
-  if (!fontsLoaded && !fontError && !fontTimeout) return null;
+  if (!fontsLoaded && !fontError && !fontTimeout) return <LoadingScreen />;
 
   return (
     <ClerkProvider
