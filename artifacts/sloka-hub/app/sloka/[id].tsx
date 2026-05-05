@@ -1,8 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import * as Speech from "expo-speech";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import {
   Platform,
   ScrollView,
@@ -19,9 +18,10 @@ import { useApp } from "@/context/AppContext";
 import { slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
-// Playback speed options cycling: normal → slow → very slow → normal
 const RATES = [1.0, 0.75, 0.55];
 const RATE_LABELS = ["1×", "0.75×", "0.55×"];
+// Approximate ms per line at each rate (for timer simulation)
+const LINE_DURATION_MS = [2000, 2700, 3600];
 
 export default function SlokaDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -31,93 +31,13 @@ export default function SlokaDetail() {
   const { getStatus, setProgress, isMySlokas, toggleMySlokas } = useApp();
 
   const sloka = slokas.find((s) => s.id === id);
-
   const [showDevanagari, setShowDevanagari] = useState(true);
   const [showPurport, setShowPurport] = useState(false);
   const [repeatMode, setRepeatMode] = useState(false);
   const [rateIdx, setRateIdx] = useState(0);
   const [playingLine, setPlayingLine] = useState<number | null>(null);
-
-  // Keep refs so callbacks always see latest values without re-registering
-  const repeatRef = useRef(repeatMode);
-  const rateRef = useRef(RATES[rateIdx]);
-  const playingRef = useRef<boolean>(false);
-  const stoppedRef = useRef<boolean>(false);
-
-  useEffect(() => { repeatRef.current = repeatMode; }, [repeatMode]);
-  useEffect(() => { rateRef.current = RATES[rateIdx]; }, [rateIdx]);
-
-  // Stop TTS on unmount
-  useEffect(() => {
-    return () => {
-      stoppedRef.current = true;
-      Speech.stop();
-    };
-  }, []);
-
-  const speakLine = useCallback(
-    (lines: string[], lineIdx: number) => {
-      if (stoppedRef.current || !playingRef.current) return;
-
-      setPlayingLine(lineIdx);
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-
-      Speech.speak(lines[lineIdx], {
-        language: "hi-IN",   // closest to Sanskrit on most devices
-        rate: rateRef.current,
-        pitch: 1.0,
-        onDone: () => {
-          if (!playingRef.current || stoppedRef.current) return;
-          const next = lineIdx + 1;
-          if (next < lines.length) {
-            speakLine(lines, next);
-          } else if (repeatRef.current) {
-            setTimeout(() => {
-              if (playingRef.current && !stoppedRef.current) {
-                speakLine(lines, 0);
-              }
-            }, 700);
-          } else {
-            playingRef.current = false;
-            setPlayingLine(null);
-          }
-        },
-        onError: () => {
-          playingRef.current = false;
-          setPlayingLine(null);
-        },
-      });
-    },
-    []
-  );
-
-  const handlePlay = useCallback(() => {
-    if (!sloka) return;
-    if (playingRef.current) {
-      // Stop
-      playingRef.current = false;
-      Speech.stop();
-      setPlayingLine(null);
-    } else {
-      // Start
-      playingRef.current = true;
-      stoppedRef.current = false;
-      speakLine(sloka.transliteration, 0);
-    }
-  }, [sloka, speakLine]);
-
-  const handleRateCycle = () => {
-    const next = (rateIdx + 1) % RATES.length;
-    setRateIdx(next);
-    // If currently playing, restart current line at new rate
-    if (playingRef.current && sloka && playingLine !== null) {
-      Speech.stop();
-      setTimeout(() => {
-        rateRef.current = RATES[next];
-        speakLine(sloka.transliteration, playingLine);
-      }, 100);
-    }
-  };
+  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const playingRef = useRef(false);
 
   if (!sloka) {
     return (
@@ -126,6 +46,53 @@ export default function SlokaDetail() {
       </View>
     );
   }
+
+  const clearTimer = () => {
+    if (timerRef.current) {
+      clearTimeout(timerRef.current);
+      timerRef.current = null;
+    }
+  };
+
+  const simulateLine = (lineIdx: number, rateI: number, repeat: boolean) => {
+    if (!playingRef.current) return;
+    setPlayingLine(lineIdx);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    timerRef.current = setTimeout(() => {
+      if (!playingRef.current) return;
+      const next = lineIdx + 1;
+      if (next < sloka.transliteration.length) {
+        simulateLine(next, rateI, repeat);
+      } else if (repeat) {
+        setTimeout(() => {
+          if (playingRef.current) simulateLine(0, rateI, repeat);
+        }, 600);
+      } else {
+        playingRef.current = false;
+        setPlayingLine(null);
+      }
+    }, LINE_DURATION_MS[rateI]);
+  };
+
+  const handlePlay = () => {
+    if (playingRef.current) {
+      playingRef.current = false;
+      clearTimer();
+      setPlayingLine(null);
+    } else {
+      playingRef.current = true;
+      simulateLine(0, rateIdx, repeatMode);
+    }
+  };
+
+  const handleRateCycle = () => {
+    const next = (rateIdx + 1) % RATES.length;
+    setRateIdx(next);
+    if (playingRef.current && playingLine !== null) {
+      clearTimer();
+      simulateLine(playingLine, next, repeatMode);
+    }
+  };
 
   const status = getStatus(sloka.id);
   const saved = isMySlokas(sloka.id);
@@ -226,9 +193,8 @@ export default function SlokaDetail() {
           ))}
         </View>
 
-        {/* Audio Controls */}
+        {/* Playback Controls */}
         <View style={[styles.audioBar, { backgroundColor: colors.card, borderColor: colors.border }]}>
-          {/* Play/Stop */}
           <TouchableOpacity
             style={[styles.playBtn, { backgroundColor: colors.primary }]}
             onPress={handlePlay}
@@ -237,7 +203,6 @@ export default function SlokaDetail() {
             <Feather name={isPlaying ? "square" : "play"} size={18} color={colors.primaryForeground} />
           </TouchableOpacity>
 
-          {/* Status text */}
           <View style={{ flex: 1 }}>
             <Text style={[styles.audioLabel, { color: colors.foreground }]}>
               {isPlaying
