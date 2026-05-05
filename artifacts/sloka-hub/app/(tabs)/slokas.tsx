@@ -1,8 +1,9 @@
 import { Feather } from "@expo/vector-icons";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import {
   FlatList,
   Platform,
+  SectionList,
   StyleSheet,
   Text,
   TextInput,
@@ -12,39 +13,73 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { SlokaCard } from "@/components/SlokaCard";
-import { categories, slokas } from "@/data/slokas";
+import { Sloka, groupBySource, sourceTexts, slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
 export default function SlokasScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedSource, setSelectedSource] = useState<string | null>(null);
+  const sectionListRef = useRef<SectionList<Sloka>>(null);
 
   const filtered = useMemo(() => {
+    const q = search.toLowerCase();
     return slokas.filter((s) => {
       const matchSearch =
-        !search ||
-        s.title.toLowerCase().includes(search.toLowerCase()) ||
-        s.transliteration.join(" ").toLowerCase().includes(search.toLowerCase()) ||
-        s.source.toLowerCase().includes(search.toLowerCase());
-      const matchCat = !selectedCategory || s.category === selectedCategory;
-      return matchSearch && matchCat;
+        !q ||
+        s.title.toLowerCase().includes(q) ||
+        s.transliteration.join(" ").toLowerCase().includes(q) ||
+        s.source.toLowerCase().includes(q) ||
+        s.translation.toLowerCase().includes(q) ||
+        (s.chapter_verse ?? "").toLowerCase().includes(q);
+      const matchSource = !selectedSource || s.source === selectedSource;
+      return matchSearch && matchSource;
     });
-  }, [search, selectedCategory]);
+  }, [search, selectedSource]);
+
+  const sections = useMemo(() => groupBySource(filtered), [filtered]);
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
 
+  const jumpToSource = (src: string) => {
+    setSelectedSource(src === selectedSource ? null : src);
+    const idx = sections.findIndex((s) => s.title === src);
+    if (idx >= 0) {
+      sectionListRef.current?.scrollToLocation({
+        sectionIndex: idx,
+        itemIndex: 0,
+        animated: true,
+        viewOffset: 0,
+      });
+    }
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
-      {/* Search */}
-      <View style={[styles.searchContainer, { paddingTop: topPad + 8, backgroundColor: colors.background, borderBottomColor: colors.border }]}>
-        <View style={[styles.searchBox, { backgroundColor: colors.card, borderColor: colors.border }]}>
+      {/* Fixed top bar: search + source pills */}
+      <View
+        style={[
+          styles.header,
+          {
+            paddingTop: topPad + 8,
+            backgroundColor: colors.background,
+            borderBottomColor: colors.border,
+          },
+        ]}
+      >
+        {/* Search bar */}
+        <View
+          style={[
+            styles.searchBox,
+            { backgroundColor: colors.card, borderColor: colors.border },
+          ]}
+        >
           <Feather name="search" size={16} color={colors.mutedForeground} />
           <TextInput
             style={[styles.searchInput, { color: colors.foreground }]}
-            placeholder="Search slokas..."
+            placeholder="Search slokas…"
             placeholderTextColor={colors.mutedForeground}
             value={search}
             onChangeText={setSearch}
@@ -56,32 +91,44 @@ export default function SlokasScreen() {
           )}
         </View>
 
-        {/* Category filter */}
+        {/* Source-text quick-jump pills */}
         <FlatList
           horizontal
-          data={["All", ...categories]}
+          data={["All", ...sourceTexts]}
           keyExtractor={(item) => item}
           showsHorizontalScrollIndicator={false}
-          style={styles.categories}
-          contentContainerStyle={styles.categoriesContent}
+          style={styles.pills}
+          contentContainerStyle={styles.pillsContent}
           renderItem={({ item }) => {
-            const active = item === "All" ? !selectedCategory : selectedCategory === item;
+            const active =
+              item === "All" ? !selectedSource : selectedSource === item;
             return (
               <TouchableOpacity
                 style={[
-                  styles.categoryPill,
+                  styles.pill,
                   {
                     backgroundColor: active ? colors.primary : colors.card,
                     borderColor: active ? colors.primary : colors.border,
                   },
                 ]}
-                onPress={() => setSelectedCategory(item === "All" ? null : item)}
+                onPress={() => {
+                  if (item === "All") {
+                    setSelectedSource(null);
+                  } else {
+                    jumpToSource(item);
+                  }
+                }}
               >
                 <Text
                   style={[
-                    styles.categoryText,
-                    { color: active ? colors.primaryForeground : colors.mutedForeground },
+                    styles.pillText,
+                    {
+                      color: active
+                        ? colors.primaryForeground
+                        : colors.mutedForeground,
+                    },
                   ]}
+                  numberOfLines={1}
                 >
                   {item}
                 </Text>
@@ -91,19 +138,51 @@ export default function SlokasScreen() {
         />
       </View>
 
-      <FlatList
-        data={filtered}
+      <SectionList
+        ref={sectionListRef}
+        sections={sections}
         keyExtractor={(item) => item.id}
+        stickySectionHeadersEnabled
+        renderSectionHeader={({ section }) => (
+          <View
+            style={[
+              styles.sectionHeader,
+              {
+                backgroundColor: colors.navyDeep,
+                borderBottomColor: colors.border,
+              },
+            ]}
+          >
+            <Text
+              style={[styles.sectionTitle, { color: colors.primary }]}
+              numberOfLines={1}
+            >
+              {section.title}
+            </Text>
+            <View
+              style={[
+                styles.countBadge,
+                { backgroundColor: colors.secondary },
+              ]}
+            >
+              <Text style={[styles.countText, { color: colors.mutedForeground }]}>
+                {section.data.length}{" "}
+                {section.data.length === 1 ? "sloka" : "slokas"}
+              </Text>
+            </View>
+          </View>
+        )}
         renderItem={({ item }) => <SlokaCard sloka={item} />}
-        contentContainerStyle={{ paddingTop: 8, paddingBottom: bottomPad }}
-        scrollEnabled={!!filtered.length}
+        contentContainerStyle={{ paddingBottom: bottomPad }}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
           <View style={styles.empty}>
             <Feather name="search" size={36} color={colors.mutedForeground} />
-            <Text style={[styles.emptyTitle, { color: colors.foreground }]}>No slokas found</Text>
+            <Text style={[styles.emptyTitle, { color: colors.foreground }]}>
+              No slokas found
+            </Text>
             <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
-              Try a different search or category
+              Try a different search
             </Text>
           </View>
         }
@@ -114,7 +193,7 @@ export default function SlokasScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  searchContainer: {
+  header: {
     paddingHorizontal: 16,
     paddingBottom: 10,
     borderBottomWidth: 1,
@@ -135,19 +214,44 @@ const styles = StyleSheet.create({
     fontFamily: "Inter_400Regular",
     padding: 0,
   },
-  categories: {},
-  categoriesContent: {
+  pills: {},
+  pillsContent: {
     gap: 8,
     paddingRight: 8,
   },
-  categoryPill: {
+  pill: {
     paddingHorizontal: 14,
     paddingVertical: 6,
     borderRadius: 20,
     borderWidth: 1,
+    maxWidth: 160,
   },
-  categoryText: {
+  pillText: {
     fontSize: 13,
+    fontFamily: "Inter_500Medium",
+  },
+  sectionHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    gap: 10,
+  },
+  sectionTitle: {
+    flex: 1,
+    fontSize: 13,
+    fontFamily: "Inter_700Bold",
+    letterSpacing: 0.4,
+    textTransform: "uppercase",
+  },
+  countBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+  countText: {
+    fontSize: 11,
     fontFamily: "Inter_500Medium",
   },
   empty: {

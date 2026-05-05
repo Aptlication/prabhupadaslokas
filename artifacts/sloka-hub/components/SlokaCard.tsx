@@ -11,11 +11,74 @@ interface SlokaCardProps {
   sloka: Sloka;
 }
 
-export function SlokaCard({ sloka }: SlokaCardProps) {
-  const colors = useColors();
-  const router = useRouter();
+function PPSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
   const { getStatus, isMySlokas } = useApp();
+  const status = getStatus(sloka.id);
+  const saved = isMySlokas(sloka.id);
 
+  const statusColors: Record<string, string> = {
+    learned: colors.learned,
+    learning: colors.learning,
+    unstarted: colors.unstarted,
+  };
+
+  return (
+    <TouchableOpacity
+      style={[styles.ppCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+      activeOpacity={0.75}
+      onPress={() => router.push(`/sloka/${sloka.id}` as never)}
+      testID={`sloka-card-${sloka.id}`}
+    >
+      <View style={styles.ppRow}>
+        {/* Rank badge */}
+        <View style={[styles.rankBadge, { backgroundColor: colors.secondary }]}>
+          <Text style={[styles.rankText, { color: colors.primary }]}>
+            #{sloka.rank}
+          </Text>
+        </View>
+
+        {/* Content */}
+        <View style={styles.ppContent}>
+          <View style={styles.ppTitleRow}>
+            <Text
+              style={[styles.ppIncipit, { color: colors.foreground }]}
+              numberOfLines={1}
+            >
+              {sloka.title}
+            </Text>
+            {saved && (
+              <Feather name="bookmark" size={13} color={colors.primary} />
+            )}
+          </View>
+
+          {sloka.chapter_verse ? (
+            <Text style={[styles.ppRef, { color: colors.mutedForeground }]}>
+              {sloka.chapter_verse}
+            </Text>
+          ) : null}
+
+          <Text
+            style={[styles.ppTheme, { color: colors.mutedForeground }]}
+            numberOfLines={1}
+          >
+            {sloka.translation}
+          </Text>
+        </View>
+
+        {/* Status + chevron */}
+        <View style={styles.ppRight}>
+          <View
+            style={[styles.statusDot, { backgroundColor: statusColors[status] }]}
+          />
+          <Feather name="chevron-right" size={16} color={colors.mutedForeground} />
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+}
+
+function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
+  const { getStatus, isMySlokas } = useApp();
   const status = getStatus(sloka.id);
   const saved = isMySlokas(sloka.id);
 
@@ -64,7 +127,18 @@ export function SlokaCard({ sloka }: SlokaCardProps) {
   );
 }
 
+export function SlokaCard({ sloka }: SlokaCardProps) {
+  const colors = useColors();
+  const router = useRouter();
+
+  if (sloka.id.startsWith("pp_")) {
+    return <PPSlokaCard sloka={sloka} colors={colors} router={router} />;
+  }
+  return <FullSlokaCard sloka={sloka} colors={colors} router={router} />;
+}
+
 const styles = StyleSheet.create({
+  // Full BGAII card
   card: {
     borderRadius: 14,
     borderWidth: 1,
@@ -73,14 +147,8 @@ const styles = StyleSheet.create({
     marginVertical: 6,
     gap: 10,
   },
-  header: {
-    gap: 4,
-  },
-  titleRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-  },
+  header: { gap: 4 },
+  titleRow: { flexDirection: "row", alignItems: "center", gap: 6 },
   category: {
     fontSize: 11,
     fontFamily: "Inter_600SemiBold",
@@ -88,32 +156,72 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
   },
   bookmark: {},
-  title: {
-    fontSize: 17,
-    fontFamily: "Inter_700Bold",
-  },
+  title: { fontSize: 17, fontFamily: "Inter_700Bold" },
   firstLine: {
     fontSize: 13,
     fontFamily: "Inter_400Regular",
     fontStyle: "italic",
     lineHeight: 20,
   },
-  footer: {
+  footer: { flexDirection: "row", alignItems: "center", gap: 6, marginTop: 2 },
+  statusDot: { width: 7, height: 7, borderRadius: 4 },
+  statusText: { fontSize: 12, fontFamily: "Inter_500Medium" },
+  spacer: { flex: 1 },
+
+  // PP compact card
+  ppCard: {
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    marginHorizontal: 16,
+    marginVertical: 4,
+  },
+  ppRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+  },
+  rankBadge: {
+    width: 40,
+    height: 40,
+    borderRadius: 8,
+    alignItems: "center",
+    justifyContent: "center",
+    flexShrink: 0,
+  },
+  rankText: {
+    fontSize: 12,
+    fontFamily: "Inter_700Bold",
+  },
+  ppContent: {
+    flex: 1,
+    gap: 2,
+  },
+  ppTitleRow: {
     flexDirection: "row",
     alignItems: "center",
     gap: 6,
-    marginTop: 2,
   },
-  statusDot: {
-    width: 7,
-    height: 7,
-    borderRadius: 4,
-  },
-  statusText: {
-    fontSize: 12,
-    fontFamily: "Inter_500Medium",
-  },
-  spacer: {
+  ppIncipit: {
     flex: 1,
+    fontSize: 14,
+    fontFamily: "Inter_600SemiBold",
+    fontStyle: "italic",
+  },
+  ppRef: {
+    fontSize: 11,
+    fontFamily: "Inter_400Regular",
+    letterSpacing: 0.2,
+  },
+  ppTheme: {
+    fontSize: 12,
+    fontFamily: "Inter_400Regular",
+  },
+  ppRight: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    flexShrink: 0,
   },
 });

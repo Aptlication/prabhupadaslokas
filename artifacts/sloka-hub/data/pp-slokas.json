@@ -1,0 +1,2502 @@
+[
+  {
+    "id": "pp_001",
+    "title": "hare krsna hare krsna",
+    "source": "Kali-Santarana Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "hare krsna hare krsna"
+    ],
+    "translation": "Maha-mantra",
+    "word_by_word": [],
+    "category": "Kali-Santarana Upanisad",
+    "rank": 1
+  },
+  {
+    "id": "pp_002",
+    "title": "sarva-dharman parityajya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "sarva-dharman parityajya"
+    ],
+    "translation": "Surrender to Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 2,
+    "chapter_verse": "18.66"
+  },
+  {
+    "id": "pp_003",
+    "title": "janma karma ca me divyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "janma karma ca me divyam"
+    ],
+    "translation": "Knowing Lord's appearance",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 3,
+    "chapter_verse": "4.9"
+  },
+  {
+    "id": "pp_004",
+    "title": "isvarah paramah krsnah",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "isvarah paramah krsnah"
+    ],
+    "translation": "Supreme Lord is Krishna",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 4,
+    "chapter_verse": "5.1"
+  },
+  {
+    "id": "pp_005",
+    "title": "bahunam janmanam ante",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "bahunam janmanam ante"
+    ],
+    "translation": "Surrender after many births",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 5,
+    "chapter_verse": "7.19"
+  },
+  {
+    "id": "pp_006",
+    "title": "brahma-bhutah prasannatma",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "brahma-bhutah prasannatma"
+    ],
+    "translation": "Transcendental platform",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 6,
+    "chapter_verse": "18.54"
+  },
+  {
+    "id": "pp_007",
+    "title": "dehino 'smin yatha dehe",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "dehino 'smin yatha dehe"
+    ],
+    "translation": "Transmigration of the soul",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 7,
+    "chapter_verse": "2.13"
+  },
+  {
+    "id": "pp_008",
+    "title": "daivi hy esa guna-mayi",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "daivi hy esa guna-mayi"
+    ],
+    "translation": "Overcoming maya by surrender",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 8,
+    "chapter_verse": "7.14"
+  },
+  {
+    "id": "pp_009",
+    "title": "man-mana bhava mad-bhakto",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "man-mana bhava mad-bhakto"
+    ],
+    "translation": "Always think of Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 9,
+    "chapter_verse": "9.34 / 18.65"
+  },
+  {
+    "id": "pp_010",
+    "title": "prakrteh kriyamanani",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "prakrteh kriyamanani"
+    ],
+    "translation": "False ego as doer",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 10,
+    "chapter_verse": "3.27"
+  },
+  {
+    "id": "pp_011",
+    "title": "janmady asya yatah",
+    "source": "Vedanta-sutra",
+    "devanagari": [],
+    "transliteration": [
+      "janmady asya yatah"
+    ],
+    "translation": "Brahman as source of all",
+    "word_by_word": [],
+    "category": "Vedanta-sutra",
+    "rank": 11,
+    "chapter_verse": "1.1.2"
+  },
+  {
+    "id": "pp_012",
+    "title": "isvarah sarva-bhutanam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "isvarah sarva-bhutanam"
+    ],
+    "translation": "Supersoul in the heart",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 12,
+    "chapter_verse": "18.61"
+  },
+  {
+    "id": "pp_013",
+    "title": "sarvasya caham hrdi sannivisto",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "sarvasya caham hrdi sannivisto"
+    ],
+    "translation": "Krishna in everyone's heart",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 13,
+    "chapter_verse": "15.15"
+  },
+  {
+    "id": "pp_014",
+    "title": "na te viduh svartha-gatim hi visnum",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "na te viduh svartha-gatim hi visnum"
+    ],
+    "translation": "Misguided leaders",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 14,
+    "chapter_verse": "7.5.31"
+  },
+  {
+    "id": "pp_015",
+    "title": "athato brahma-jijnasa",
+    "source": "Vedanta-sutra",
+    "devanagari": [],
+    "transliteration": [
+      "athato brahma-jijnasa"
+    ],
+    "translation": "Inquiry into Brahman",
+    "word_by_word": [],
+    "category": "Vedanta-sutra",
+    "rank": 15,
+    "chapter_verse": "1.1.1"
+  },
+  {
+    "id": "pp_016",
+    "title": "na mam duskrtino mudhah",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "na mam duskrtino mudhah"
+    ],
+    "translation": "Four types of miscreants",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 16,
+    "chapter_verse": "7.15"
+  },
+  {
+    "id": "pp_017",
+    "title": "aham sarvasya prabhavo",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "aham sarvasya prabhavo"
+    ],
+    "translation": "Krishna as source of all",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 17,
+    "chapter_verse": "10.8"
+  },
+  {
+    "id": "pp_018",
+    "title": "na jayate mriyate va kadacin",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "na jayate mriyate va kadacin"
+    ],
+    "translation": "Eternal nature of the soul",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 18,
+    "chapter_verse": "2.20"
+  },
+  {
+    "id": "pp_019",
+    "title": "ceto-darpana-marjanam",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "ceto-darpana-marjanam"
+    ],
+    "translation": "Cleansing the heart by chanting",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 19,
+    "chapter_verse": "Antya 20.12"
+  },
+  {
+    "id": "pp_020",
+    "title": "aham brahmasmi",
+    "source": "Brhad-aranyaka Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "aham brahmasmi"
+    ],
+    "translation": "I am Brahman",
+    "word_by_word": [],
+    "category": "Brhad-aranyaka Upanisad",
+    "rank": 20
+  },
+  {
+    "id": "pp_021",
+    "title": "sarvopadhi-vinirmuktam",
+    "source": "Narada-pancaratra",
+    "devanagari": [],
+    "transliteration": [
+      "sarvopadhi-vinirmuktam"
+    ],
+    "translation": "Freed from all designations",
+    "word_by_word": [],
+    "category": "Narada-pancaratra",
+    "rank": 21
+  },
+  {
+    "id": "pp_022",
+    "title": "sa vai pumsam paro dharmo",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "sa vai pumsam paro dharmo"
+    ],
+    "translation": "Highest religion is pure bhakti",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 22,
+    "chapter_verse": "1.2.6"
+  },
+  {
+    "id": "pp_023",
+    "title": "sravanam kirtanam visnoh",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "sravanam kirtanam visnoh"
+    ],
+    "translation": "Nine processes of devotional service",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 23,
+    "chapter_verse": "7.5.23"
+  },
+  {
+    "id": "pp_024",
+    "title": "nityo nityanam cetanas cetananam",
+    "source": "Katha Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "nityo nityanam cetanas cetananam"
+    ],
+    "translation": "The supreme eternal among eternals",
+    "word_by_word": [],
+    "category": "Katha Upanisad",
+    "rank": 24
+  },
+  {
+    "id": "pp_025",
+    "title": "mam ca yo 'vyabhicarena",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mam ca yo 'vyabhicarena"
+    ],
+    "translation": "Transcending the three modes",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 25,
+    "chapter_verse": "14.26"
+  },
+  {
+    "id": "pp_026",
+    "title": "bhoktaram yajna-tapasam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "bhoktaram yajna-tapasam"
+    ],
+    "translation": "Krishna as supreme enjoyer",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 26,
+    "chapter_verse": "5.29"
+  },
+  {
+    "id": "pp_027",
+    "title": "anyabhilasita-sunyam",
+    "source": "Bhakti-rasamrta-sindhu",
+    "devanagari": [],
+    "transliteration": [
+      "anyabhilasita-sunyam"
+    ],
+    "translation": "Pure devotional service defined",
+    "word_by_word": [],
+    "category": "Bhakti-rasamrta-sindhu",
+    "rank": 27,
+    "chapter_verse": "1.1.11"
+  },
+  {
+    "id": "pp_028",
+    "title": "harer nama harer nama",
+    "source": "Brhad-naradiya Purana",
+    "devanagari": [],
+    "transliteration": [
+      "harer nama harer nama"
+    ],
+    "translation": "Chanting as only means in Kali-yuga",
+    "word_by_word": [],
+    "category": "Brhad-naradiya Purana",
+    "rank": 28
+  },
+  {
+    "id": "pp_029",
+    "title": "manusyanam sahasresu",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "manusyanam sahasresu"
+    ],
+    "translation": "Rare souls who know Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 29,
+    "chapter_verse": "7.3"
+  },
+  {
+    "id": "pp_030",
+    "title": "tad-vijnanartham sa gurum evabhigacchet",
+    "source": "Mundaka Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "tad-vijnanartham sa gurum evabhigacchet"
+    ],
+    "translation": "Approaching a bona fide guru",
+    "word_by_word": [],
+    "category": "Mundaka Upanisad",
+    "rank": 30
+  },
+  {
+    "id": "pp_031",
+    "title": "yasyatma-buddhih kunape tri-dhatuke",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "yasyatma-buddhih kunape tri-dhatuke"
+    ],
+    "translation": "Misidentifying body as self",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 31,
+    "chapter_verse": "10.84.13"
+  },
+  {
+    "id": "pp_032",
+    "title": "evam parampara-praptam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "evam parampara-praptam"
+    ],
+    "translation": "Disciplic succession",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 32,
+    "chapter_verse": "4.2"
+  },
+  {
+    "id": "pp_033",
+    "title": "indriyarthesu vairagyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "indriyarthesu vairagyam"
+    ],
+    "translation": "Renunciation of sense objects",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 33,
+    "chapter_verse": "13.9"
+  },
+  {
+    "id": "pp_034",
+    "title": "catur-varnyam maya srstam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "catur-varnyam maya srstam"
+    ],
+    "translation": "Four social divisions created by Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 34,
+    "chapter_verse": "4.13"
+  },
+  {
+    "id": "pp_035",
+    "title": "mamaivamso jiva-loke",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mamaivamso jiva-loke"
+    ],
+    "translation": "Living entities as Krishna's parts",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 35,
+    "chapter_verse": "15.7"
+  },
+  {
+    "id": "pp_036",
+    "title": "yada yada hi dharmasya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yada yada hi dharmasya"
+    ],
+    "translation": "Krishna's periodic descents",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 36,
+    "chapter_verse": "4.7"
+  },
+  {
+    "id": "pp_037",
+    "title": "bhaktya mam abhijanati",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "bhaktya mam abhijanati"
+    ],
+    "translation": "Knowing Krishna only by devotion",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 37,
+    "chapter_verse": "18.55"
+  },
+  {
+    "id": "pp_038",
+    "title": "na tasya karyam karanam ca vidyate",
+    "source": "Svetasvatara Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "na tasya karyam karanam ca vidyate"
+    ],
+    "translation": "No work or organ for the Supreme",
+    "word_by_word": [],
+    "category": "Svetasvatara Upanisad",
+    "rank": 38
+  },
+  {
+    "id": "pp_039",
+    "title": "atah sri-krsna namadi",
+    "source": "Padma Purana",
+    "devanagari": [],
+    "transliteration": [
+      "atah sri-krsna namadi"
+    ],
+    "translation": "Senses cannot perceive Krishna",
+    "word_by_word": [],
+    "category": "Padma Purana",
+    "rank": 39
+  },
+  {
+    "id": "pp_040",
+    "title": "mayadhyaksena prakrtih",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mayadhyaksena prakrtih"
+    ],
+    "translation": "Material nature under Krishna's supervision",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 40,
+    "chapter_verse": "9.10"
+  },
+  {
+    "id": "pp_041",
+    "title": "mattah parataram nanyat",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mattah parataram nanyat"
+    ],
+    "translation": "Nothing superior to Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 41,
+    "chapter_verse": "7.7"
+  },
+  {
+    "id": "pp_042",
+    "title": "vadanti tat tattva-vidas",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "vadanti tat tattva-vidas"
+    ],
+    "translation": "Three features of Absolute Truth",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 42,
+    "chapter_verse": "1.2.11"
+  },
+  {
+    "id": "pp_043",
+    "title": "paritranaya sadhunam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "paritranaya sadhunam"
+    ],
+    "translation": "Lord's purpose of descent",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 43,
+    "chapter_verse": "4.8"
+  },
+  {
+    "id": "pp_044",
+    "title": "yare dekha tare kaha krsna upadesa",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "yare dekha tare kaha krsna upadesa"
+    ],
+    "translation": "Preaching mission of Lord Caitanya",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 44,
+    "chapter_verse": "Madhya 7.128"
+  },
+  {
+    "id": "pp_045",
+    "title": "sarva-yonisu kaunteya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "sarva-yonisu kaunteya"
+    ],
+    "translation": "Krishna as seed-giving father",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 45,
+    "chapter_verse": "14.4"
+  },
+  {
+    "id": "pp_046",
+    "title": "ete camsa-kalah pumsam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "ete camsa-kalah pumsam"
+    ],
+    "translation": "Avatars as plenary expansions",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 46,
+    "chapter_verse": "1.3.28"
+  },
+  {
+    "id": "pp_047",
+    "title": "ye 'nye 'ravindaksa vimukta-maninas",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "ye 'nye 'ravindaksa vimukta-maninas"
+    ],
+    "translation": "Impersonalists fall down",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 47,
+    "chapter_verse": "10.2.32"
+  },
+  {
+    "id": "pp_048",
+    "title": "yoginam api sarvesam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yoginam api sarvesam"
+    ],
+    "translation": "Devotee as highest yogi",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 48,
+    "chapter_verse": "6.47"
+  },
+  {
+    "id": "pp_049",
+    "title": "tad viddhi pranipatena",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "tad viddhi pranipatena"
+    ],
+    "translation": "Approaching the spiritual master",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 49,
+    "chapter_verse": "4.34"
+  },
+  {
+    "id": "pp_050",
+    "title": "patram puspam phalam toyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "patram puspam phalam toyam"
+    ],
+    "translation": "Simple offering with devotion",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 50,
+    "chapter_verse": "9.26"
+  },
+  {
+    "id": "pp_051",
+    "title": "vidya-vinaya-sampanne",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "vidya-vinaya-sampanne"
+    ],
+    "translation": "Equal vision of the wise",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 51,
+    "chapter_verse": "5.18"
+  },
+  {
+    "id": "pp_052",
+    "title": "param brahma param dhama",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "param brahma param dhama"
+    ],
+    "translation": "Arjuna's declaration of Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 52,
+    "chapter_verse": "10.12"
+  },
+  {
+    "id": "pp_053",
+    "title": "trnad api sunicena",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "trnad api sunicena"
+    ],
+    "translation": "Humility in chanting",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 53,
+    "chapter_verse": "Antya 20.21"
+  },
+  {
+    "id": "pp_054",
+    "title": "isavasyam idam sarvam",
+    "source": "Sri Isopanisad",
+    "devanagari": [],
+    "transliteration": [
+      "isavasyam idam sarvam"
+    ],
+    "translation": "Everything belongs to the Lord",
+    "word_by_word": [],
+    "category": "Sri Isopanisad",
+    "rank": 54,
+    "chapter_verse": "Mantra 1"
+  },
+  {
+    "id": "pp_055",
+    "title": "tesam satata-yuktanam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "tesam satata-yuktanam"
+    ],
+    "translation": "Krishna gives intelligence to devotees",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 55,
+    "chapter_verse": "10.10"
+  },
+  {
+    "id": "pp_056",
+    "title": "dharmah svanusthitah pumsam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "dharmah svanusthitah pumsam"
+    ],
+    "translation": "Religion meant to awaken love of God",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 56,
+    "chapter_verse": "1.2.8"
+  },
+  {
+    "id": "pp_057",
+    "title": "mayy asakta-manah partha",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mayy asakta-manah partha"
+    ],
+    "translation": "Hearing from Krishna attentively",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 57,
+    "chapter_verse": "7.1"
+  },
+  {
+    "id": "pp_058",
+    "title": "purusah prakrti-stho hi",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "purusah prakrti-stho hi"
+    ],
+    "translation": "Soul in material nature",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 58,
+    "chapter_verse": "13.22"
+  },
+  {
+    "id": "pp_059",
+    "title": "yajnarthat karmano 'yatra",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yajnarthat karmano 'yatra"
+    ],
+    "translation": "Work for Vishnu to avoid bondage",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 59,
+    "chapter_verse": "3.9"
+  },
+  {
+    "id": "pp_060",
+    "title": "bhumir apo 'nalo vayuh",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "bhumir apo 'nalo vayuh"
+    ],
+    "translation": "Eight material elements",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 60,
+    "chapter_verse": "7.4"
+  },
+  {
+    "id": "pp_061",
+    "title": "nayam deho deha-bhajam nrloke",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "nayam deho deha-bhajam nrloke"
+    ],
+    "translation": "Human life meant for austerity",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 61,
+    "chapter_verse": "5.5.1"
+  },
+  {
+    "id": "pp_062",
+    "title": "janmady asya yato 'nvayad",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "janmady asya yato 'nvayad"
+    ],
+    "translation": "Krishna as source of everything",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 62,
+    "chapter_verse": "1.1.1"
+  },
+  {
+    "id": "pp_063",
+    "title": "mam upetya punar janma",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mam upetya punar janma"
+    ],
+    "translation": "No return from Krishna's abode",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 63,
+    "chapter_verse": "8.15"
+  },
+  {
+    "id": "pp_064",
+    "title": "imam vivasvate yogam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "imam vivasvate yogam"
+    ],
+    "translation": "Bhagavad-gita spoken to sun-god",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 64,
+    "chapter_verse": "4.1"
+  },
+  {
+    "id": "pp_065",
+    "title": "yasyasti bhaktir bhagavaty akincana",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "yasyasti bhaktir bhagavaty akincana"
+    ],
+    "translation": "True knowledge through devotion",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 65,
+    "chapter_verse": "5.18.12"
+  },
+  {
+    "id": "pp_066",
+    "title": "avajananti mam mudha",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "avajananti mam mudha"
+    ],
+    "translation": "Fools deride Krishna's form",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 66,
+    "chapter_verse": "9.11"
+  },
+  {
+    "id": "pp_067",
+    "title": "yanti deva-vrata devan",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yanti deva-vrata devan"
+    ],
+    "translation": "Destination according to worship",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 67,
+    "chapter_verse": "9.25"
+  },
+  {
+    "id": "pp_068",
+    "title": "premanjana-cchurita bhakti-vilocanena",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "premanjana-cchurita bhakti-vilocanena"
+    ],
+    "translation": "Seeing Krishna with eyes of devotion",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 68,
+    "chapter_verse": "5.38"
+  },
+  {
+    "id": "pp_069",
+    "title": "srnvatam sva-kathah krsnah",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "srnvatam sva-kathah krsnah"
+    ],
+    "translation": "Krishna destroys sinful reactions",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 69,
+    "chapter_verse": "1.2.17"
+  },
+  {
+    "id": "pp_070",
+    "title": "matir na krsne paratah svato va",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "matir na krsne paratah svato va"
+    ],
+    "translation": "Cannot understand Krishna without devotion",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 70,
+    "chapter_verse": "7.5.30"
+  },
+  {
+    "id": "pp_071",
+    "title": "bharata-bhumite haila manusya-janma-yara",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "bharata-bhumite haila manusya-janma-yara"
+    ],
+    "translation": "Duty of those born in India",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 71,
+    "chapter_verse": "Adi 9.41"
+  },
+  {
+    "id": "pp_072",
+    "title": "krsna-varnam tvisakrsnam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "krsna-varnam tvisakrsnam"
+    ],
+    "translation": "Lord Caitanya's golden complexion",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 72,
+    "chapter_verse": "11.5.32"
+  },
+  {
+    "id": "pp_073",
+    "title": "advaitam acyutam anadim ananta-rupam",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "advaitam acyutam anadim ananta-rupam"
+    ],
+    "translation": "Krishna's unlimited forms",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 73,
+    "chapter_verse": "5.33"
+  },
+  {
+    "id": "pp_074",
+    "title": "ye yatha mam prapadyante",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "ye yatha mam prapadyante"
+    ],
+    "translation": "Krishna responds to all surrender",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 74,
+    "chapter_verse": "4.11"
+  },
+  {
+    "id": "pp_075",
+    "title": "tarko 'pratisthah srutayo vibhinna",
+    "source": "Mahabharata",
+    "devanagari": [],
+    "transliteration": [
+      "tarko 'pratisthah srutayo vibhinna"
+    ],
+    "translation": "Need for a great devotee's conclusion",
+    "word_by_word": [],
+    "category": "Mahabharata",
+    "rank": 75
+  },
+  {
+    "id": "pp_076",
+    "title": "karmana daiva-netrena",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "karmana daiva-netrena"
+    ],
+    "translation": "Soul enters womb by karma",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 76,
+    "chapter_verse": "3.31.1"
+  },
+  {
+    "id": "pp_077",
+    "title": "jivera svarupa haya--krsnera nitya-dasa",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "jivera svarupa haya--krsnera nitya-dasa"
+    ],
+    "translation": "Jiva is eternal servant of Krishna",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 77,
+    "chapter_verse": "Madhya 20.108"
+  },
+  {
+    "id": "pp_078",
+    "title": "bhuta-gramah sa evayam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "bhuta-gramah sa evayam"
+    ],
+    "translation": "Repeated creation and dissolution",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 78,
+    "chapter_verse": "8.19"
+  },
+  {
+    "id": "pp_079",
+    "title": "mam hi partha vyapasritya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mam hi partha vyapasritya"
+    ],
+    "translation": "Anyone can return to Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 79,
+    "chapter_verse": "9.32"
+  },
+  {
+    "id": "pp_080",
+    "title": "atah pumbhir dvija-srestha",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "atah pumbhir dvija-srestha"
+    ],
+    "translation": "All duties meant to please Krishna",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 80,
+    "chapter_verse": "1.2.13"
+  },
+  {
+    "id": "pp_081",
+    "title": "ananda-cinmaya-rasa-pratibhavitabhis",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "ananda-cinmaya-rasa-pratibhavitabhis"
+    ],
+    "translation": "Gopis as spiritual energy",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 81,
+    "chapter_verse": "5.37"
+  },
+  {
+    "id": "pp_082",
+    "title": "dharmam tu saksat bhagavat-pranitam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "dharmam tu saksat bhagavat-pranitam"
+    ],
+    "translation": "Religion given by God directly",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 82,
+    "chapter_verse": "6.3.19"
+  },
+  {
+    "id": "pp_083",
+    "title": "maya tatam idam sarvam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "maya tatam idam sarvam"
+    ],
+    "translation": "Krishna pervades everything unmanifest",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 83,
+    "chapter_verse": "9.4"
+  },
+  {
+    "id": "pp_084",
+    "title": "brahmanda bhramite kona bhagyavan jiva",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "brahmanda bhramite kona bhagyavan jiva"
+    ],
+    "translation": "Rare soul meets guru by Krishna's mercy",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 84,
+    "chapter_verse": "Madhya 19.151"
+  },
+  {
+    "id": "pp_085",
+    "title": "nunam pramattah kurute vikarma",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "nunam pramattah kurute vikarma"
+    ],
+    "translation": "Madman acts sinfully for family",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 85,
+    "chapter_verse": "5.5.4"
+  },
+  {
+    "id": "pp_086",
+    "title": "pumsah striya mithuni-bhavam etam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "pumsah striya mithuni-bhavam etam"
+    ],
+    "translation": "Sex attraction as material bondage",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 86,
+    "chapter_verse": "5.5.8"
+  },
+  {
+    "id": "pp_087",
+    "title": "eko 'py asau racayitum jagad-anda-kotim",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "eko 'py asau racayitum jagad-anda-kotim"
+    ],
+    "translation": "Govinda expands into all universes",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 87,
+    "chapter_verse": "5.35"
+  },
+  {
+    "id": "pp_088",
+    "title": "ahara-nidra-bhaya-maithunam ca",
+    "source": "Hitopadesa",
+    "devanagari": [],
+    "transliteration": [
+      "ahara-nidra-bhaya-maithunam ca"
+    ],
+    "translation": "Animals also eat sleep mate defend",
+    "word_by_word": [],
+    "category": "Hitopadesa",
+    "rank": 88
+  },
+  {
+    "id": "pp_089",
+    "title": "na tad bhasayate suryo",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "na tad bhasayate suryo"
+    ],
+    "translation": "No need of sun in Krishna's abode",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 89,
+    "chapter_verse": "15.6"
+  },
+  {
+    "id": "pp_090",
+    "title": "dharmah projjhita-kaitavo 'tra",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "dharmah projjhita-kaitavo 'tra"
+    ],
+    "translation": "Bhagavatam rejects cheating religion",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 90,
+    "chapter_verse": "1.1.2"
+  },
+  {
+    "id": "pp_091",
+    "title": "kaumara acaret prajno",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "kaumara acaret prajno"
+    ],
+    "translation": "Begin spiritual life from childhood",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 91,
+    "chapter_verse": "7.6.1"
+  },
+  {
+    "id": "pp_092",
+    "title": "vasudeve bhagavati",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "vasudeve bhagavati"
+    ],
+    "translation": "Devotion to Vasudeva is highest good",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 92,
+    "chapter_verse": "1.2.7"
+  },
+  {
+    "id": "pp_093",
+    "title": "samo damas tapah saucam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "samo damas tapah saucam"
+    ],
+    "translation": "Brahminical qualities",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 93,
+    "chapter_verse": "18.42"
+  },
+  {
+    "id": "pp_094",
+    "title": "yesam tv anta-gatam papam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yesam tv anta-gatam papam"
+    ],
+    "translation": "Pious persons free from sin worship",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 94,
+    "chapter_verse": "7.28"
+  },
+  {
+    "id": "pp_095",
+    "title": "tasmad gurum prapadyeta",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "tasmad gurum prapadyeta"
+    ],
+    "translation": "Must surrender to a guru",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 95,
+    "chapter_verse": "11.3.21"
+  },
+  {
+    "id": "pp_096",
+    "title": "a-brahma-bhuvanal lokah",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "a-brahma-bhuvanal lokah"
+    ],
+    "translation": "All planets subject to rebirth",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 96,
+    "chapter_verse": "8.16"
+  },
+  {
+    "id": "pp_097",
+    "title": "yasya prabha prabhavato jagad-anda-koti",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "yasya prabha prabhavato jagad-anda-koti"
+    ],
+    "translation": "Brahmajyoti as Krishna's effulgence",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 97,
+    "chapter_verse": "5.40"
+  },
+  {
+    "id": "pp_098",
+    "title": "tasyaiva hetoh prayateta kovido",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "tasyaiva hetoh prayateta kovido"
+    ],
+    "translation": "Strive only for transcendence",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 98,
+    "chapter_verse": "1.5.18"
+  },
+  {
+    "id": "pp_099",
+    "title": "cintamani-prakara-sadmasu kalpa-vrksa",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "cintamani-prakara-sadmasu kalpa-vrksa"
+    ],
+    "translation": "Description of Goloka Vrndavana",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 99,
+    "chapter_verse": "5.29"
+  },
+  {
+    "id": "pp_100",
+    "title": "jnane prayasam udapasya namanta eva",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "jnane prayasam udapasya namanta eva"
+    ],
+    "translation": "Give up speculative knowledge",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 100,
+    "chapter_verse": "10.14.3"
+  },
+  {
+    "id": "pp_101",
+    "title": "urdhvam gacchanti sattva-stha",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "urdhvam gacchanti sattva-stha"
+    ],
+    "translation": "Mode of goodness elevates",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 101,
+    "chapter_verse": "14.18"
+  },
+  {
+    "id": "pp_102",
+    "title": "apareyam itas tv anyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "apareyam itas tv anyam"
+    ],
+    "translation": "Superior energy — living entities",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 102,
+    "chapter_verse": "7.5"
+  },
+  {
+    "id": "pp_103",
+    "title": "yasya prasadad bhagavat-prasado",
+    "source": "Gurv-astaka",
+    "devanagari": [],
+    "transliteration": [
+      "yasya prasadad bhagavat-prasado"
+    ],
+    "translation": "Guru's mercy is Krishna's mercy",
+    "word_by_word": [],
+    "category": "Gurv-astaka",
+    "rank": 103,
+    "chapter_verse": "8"
+  },
+  {
+    "id": "pp_104",
+    "title": "raso 'ham apsu kaunteya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "raso 'ham apsu kaunteya"
+    ],
+    "translation": "Krishna as taste of water",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 104,
+    "chapter_verse": "7.8"
+  },
+  {
+    "id": "pp_105",
+    "title": "satatam kirtayanto mam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "satatam kirtayanto mam"
+    ],
+    "translation": "Great souls always chant",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 105,
+    "chapter_verse": "9.14"
+  },
+  {
+    "id": "pp_106",
+    "title": "ksipram bhavati dharmatma",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "ksipram bhavati dharmatma"
+    ],
+    "translation": "Quickly becomes righteous",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 106,
+    "chapter_verse": "9.31"
+  },
+  {
+    "id": "pp_107",
+    "title": "brahma satyam jagan mithya",
+    "source": "Shankara",
+    "devanagari": [],
+    "transliteration": [
+      "brahma satyam jagan mithya"
+    ],
+    "translation": "World is illusion — Shankara",
+    "word_by_word": [],
+    "category": "Shankara",
+    "rank": 107
+  },
+  {
+    "id": "pp_108",
+    "title": "yam yam vapi smaran bhavam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yam yam vapi smaran bhavam"
+    ],
+    "translation": "State of mind at death",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 108,
+    "chapter_verse": "8.6"
+  },
+  {
+    "id": "pp_109",
+    "title": "mahatmanas tu mam partha",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "mahatmanas tu mam partha"
+    ],
+    "translation": "Great souls always worship Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 109,
+    "chapter_verse": "9.13"
+  },
+  {
+    "id": "pp_110",
+    "title": "api cet su-duracaro",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "api cet su-duracaro"
+    ],
+    "translation": "Even a miscreant is saintly if devoted",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 110,
+    "chapter_verse": "9.30"
+  },
+  {
+    "id": "pp_111",
+    "title": "annad bhavanti bhutani",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "annad bhavanti bhutani"
+    ],
+    "translation": "Food from rain from sacrifice",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 111,
+    "chapter_verse": "3.14"
+  },
+  {
+    "id": "pp_112",
+    "title": "jalaja nava-laksani",
+    "source": "Padma Purana",
+    "devanagari": [],
+    "transliteration": [
+      "jalaja nava-laksani"
+    ],
+    "translation": "8.4 million species of life",
+    "word_by_word": [],
+    "category": "Padma Purana",
+    "rank": 112
+  },
+  {
+    "id": "pp_113",
+    "title": "prayen alpayusah sabhya",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "prayen alpayusah sabhya"
+    ],
+    "translation": "Short lives in Kali-yuga",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 113,
+    "chapter_verse": "1.1.10"
+  },
+  {
+    "id": "pp_114",
+    "title": "yan maithunadi-grhamedhi-sukham",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "yan maithunadi-grhamedhi-sukham"
+    ],
+    "translation": "Householder happiness is trivial",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 114,
+    "chapter_verse": "7.9.45"
+  },
+  {
+    "id": "pp_115",
+    "title": "paras tasmat tu bhavo 'nyo",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "paras tasmat tu bhavo 'nyo"
+    ],
+    "translation": "Unmanifest eternal beyond the unmanifest",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 115,
+    "chapter_verse": "8.20"
+  },
+  {
+    "id": "pp_116",
+    "title": "yam brahma-varunendra-rudra-marutah",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "yam brahma-varunendra-rudra-marutah"
+    ],
+    "translation": "Srimad-Bhagavatam glorified",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 116,
+    "chapter_verse": "12.13.1"
+  },
+  {
+    "id": "pp_117",
+    "title": "sa vai manah krsna-padaravindayor",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "sa vai manah krsna-padaravindayor"
+    ],
+    "translation": "Maharaja Ambarisa fixed mind on Krishna",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 117,
+    "chapter_verse": "9.4.18"
+  },
+  {
+    "id": "pp_118",
+    "title": "matra-sparsas tu kaunteya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "matra-sparsas tu kaunteya"
+    ],
+    "translation": "Tolerate happiness and distress",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 118,
+    "chapter_verse": "2.14"
+  },
+  {
+    "id": "pp_119",
+    "title": "acintya-bhedabheda-tattva",
+    "source": "Sandarbhas (Jiva Gosvami)",
+    "devanagari": [],
+    "transliteration": [
+      "acintya-bhedabheda-tattva"
+    ],
+    "translation": "Inconceivable simultaneous difference and oneness",
+    "word_by_word": [],
+    "category": "Sandarbhas (Jiva Gosvami)",
+    "rank": 119
+  },
+  {
+    "id": "pp_120",
+    "title": "krsi-go-raksya-vanijyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "krsi-go-raksya-vanijyam"
+    ],
+    "translation": "Vaisya duties — farming cow protection trade",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 120,
+    "chapter_verse": "18.44"
+  },
+  {
+    "id": "pp_121",
+    "title": "sa evayam maya te 'dya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "sa evayam maya te 'dya"
+    ],
+    "translation": "That same ancient yoga revealed to you",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 121,
+    "chapter_verse": "4.3"
+  },
+  {
+    "id": "pp_122",
+    "title": "na dhanam na janam na sundarim",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "na dhanam na janam na sundarim"
+    ],
+    "translation": "Lord Caitanya's prayer — desire only devotion",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 122,
+    "chapter_verse": "Antya 20.29"
+  },
+  {
+    "id": "pp_123",
+    "title": "tat sadhu manye 'sura-varya dehinam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "tat sadhu manye 'sura-varya dehinam"
+    ],
+    "translation": "Prahlada challenges Hiranyakasipu",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 123,
+    "chapter_verse": "7.5.5"
+  },
+  {
+    "id": "pp_124",
+    "title": "yasyaika-nisvasita-kalam athavalambhya",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "yasyaika-nisvasita-kalam athavalambhya"
+    ],
+    "translation": "Maha-Vishnu breathes out universes",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 124,
+    "chapter_verse": "5.48"
+  },
+  {
+    "id": "pp_125",
+    "title": "srotavyadini rajendra",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "srotavyadini rajendra"
+    ],
+    "translation": "Hearing about Krishna is topmost",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 125,
+    "chapter_verse": "2.1.2"
+  },
+  {
+    "id": "pp_126",
+    "title": "atha va bahunaitena",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "atha va bahunaitena"
+    ],
+    "translation": "Krishna pervades entire universe with fragment",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 126,
+    "chapter_verse": "10.42"
+  },
+  {
+    "id": "pp_127",
+    "title": "kaler dosa-nidhe rajan",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "kaler dosa-nidhe rajan"
+    ],
+    "translation": "One great quality in Kali-yuga — chanting",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 127,
+    "chapter_verse": "12.3.51"
+  },
+  {
+    "id": "pp_128",
+    "title": "namo maha-vadanyaya",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "namo maha-vadanyaya"
+    ],
+    "translation": "Lord Caitanya as most munificent avatar",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 128,
+    "chapter_verse": "Madhya 19.53"
+  },
+  {
+    "id": "pp_129",
+    "title": "visaya vinivartante",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "visaya vinivartante"
+    ],
+    "translation": "Sense objects withdrawn by higher taste",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 129,
+    "chapter_verse": "2.59"
+  },
+  {
+    "id": "pp_130",
+    "title": "nehabhikrama-naso 'sti",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "nehabhikrama-naso 'sti"
+    ],
+    "translation": "No loss in devotional service",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 130,
+    "chapter_verse": "2.40"
+  },
+  {
+    "id": "pp_131",
+    "title": "nasta-prayesu abhadresu",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "nasta-prayesu abhadresu"
+    ],
+    "translation": "Bhagavatam removes unwanted things",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 131,
+    "chapter_verse": "1.2.18"
+  },
+  {
+    "id": "pp_132",
+    "title": "samasrita ye pada-pallava-plavam",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "samasrita ye pada-pallava-plavam"
+    ],
+    "translation": "Lotus feet as boat to cross ocean of birth",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 132,
+    "chapter_verse": "10.14.58"
+  },
+  {
+    "id": "pp_133",
+    "title": "ksetra-jnam capi mam vidhi",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "ksetra-jnam capi mam vidhi"
+    ],
+    "translation": "Krishna as knower in all bodies",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 133,
+    "chapter_verse": "13.3"
+  },
+  {
+    "id": "pp_134",
+    "title": "na me viduh sura-ganah",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "na me viduh sura-ganah"
+    ],
+    "translation": "Neither gods nor sages know Krishna's origin",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 134,
+    "chapter_verse": "10.2"
+  },
+  {
+    "id": "pp_135",
+    "title": "asocyan anvasocas tvam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "asocyan anvasocas tvam"
+    ],
+    "translation": "Wise grieve for neither living nor dead",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 135,
+    "chapter_verse": "2.11"
+  },
+  {
+    "id": "pp_136",
+    "title": "janmana jayate sudrah",
+    "source": "Unknown",
+    "devanagari": [],
+    "transliteration": [
+      "janmana jayate sudrah"
+    ],
+    "translation": "Born a sudra — brahmin by quality",
+    "word_by_word": [],
+    "category": "Unknown",
+    "rank": 136
+  },
+  {
+    "id": "pp_137",
+    "title": "tapasa brahmacaryena",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "tapasa brahmacaryena"
+    ],
+    "translation": "Atonement must purify consciousness",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 137,
+    "chapter_verse": "6.1.13"
+  },
+  {
+    "id": "pp_138",
+    "title": "kamasya nendriya-pritir",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "kamasya nendriya-pritir"
+    ],
+    "translation": "Desire is not for sense enjoyment",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 138,
+    "chapter_verse": "1.2.10"
+  },
+  {
+    "id": "pp_139",
+    "title": "kamais tais tair hrta-jnanah",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "kamais tais tair hrta-jnanah"
+    ],
+    "translation": "Those whose judgment is stolen worship demigods",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 139,
+    "chapter_verse": "7.20"
+  },
+  {
+    "id": "pp_140",
+    "title": "naivodvije para duratyaya-vaitaranyas",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "naivodvije para duratyaya-vaitaranyas"
+    ],
+    "translation": "Prahlada unafraid of material conditions",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 140,
+    "chapter_verse": "7.9.43"
+  },
+  {
+    "id": "pp_141",
+    "title": "naham prakasah sarvasya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "naham prakasah sarvasya"
+    ],
+    "translation": "Krishna not manifest to all",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 141,
+    "chapter_verse": "7.25"
+  },
+  {
+    "id": "pp_142",
+    "title": "prapya punya-krtam lokan",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "prapya punya-krtam lokan"
+    ],
+    "translation": "Unsuccessful yogi returns to pious family",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 142,
+    "chapter_verse": "6.41"
+  },
+  {
+    "id": "pp_143",
+    "title": "prthivite ache yata nagaradi-grama",
+    "source": "Caitanya-bhagavata",
+    "devanagari": [],
+    "transliteration": [
+      "prthivite ache yata nagaradi-grama"
+    ],
+    "translation": "Chanting in every town and village",
+    "word_by_word": [],
+    "category": "Caitanya-bhagavata",
+    "rank": 143
+  },
+  {
+    "id": "pp_144",
+    "title": "anasaktasya visayan",
+    "source": "Bhakti-rasamrta-sindhu",
+    "devanagari": [],
+    "transliteration": [
+      "anasaktasya visayan"
+    ],
+    "translation": "Yukta-vairagya — use everything for Krishna",
+    "word_by_word": [],
+    "category": "Bhakti-rasamrta-sindhu",
+    "rank": 144,
+    "chapter_verse": "1.2.255"
+  },
+  {
+    "id": "pp_145",
+    "title": "aisvarasya samagrasya",
+    "source": "Visnu Purana",
+    "devanagari": [],
+    "transliteration": [
+      "aisvarasya samagrasya"
+    ],
+    "translation": "Six opulences of the Lord",
+    "word_by_word": [],
+    "category": "Visnu Purana",
+    "rank": 145
+  },
+  {
+    "id": "pp_146",
+    "title": "varnasramacaravata",
+    "source": "Visnu Purana",
+    "devanagari": [],
+    "transliteration": [
+      "varnasramacaravata"
+    ],
+    "translation": "Varnasrama meant to satisfy Vishnu",
+    "word_by_word": [],
+    "category": "Visnu Purana",
+    "rank": 146
+  },
+  {
+    "id": "pp_147",
+    "title": "yasya deve para bhaktir",
+    "source": "Svetasvatara Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "yasya deve para bhaktir"
+    ],
+    "translation": "Knowledge manifests for one devoted to God",
+    "word_by_word": [],
+    "category": "Svetasvatara Upanisad",
+    "rank": 147
+  },
+  {
+    "id": "pp_148",
+    "title": "catur-vidha bhajante mam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "catur-vidha bhajante mam"
+    ],
+    "translation": "Four kinds of pious who approach Krishna",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 148,
+    "chapter_verse": "7.16"
+  },
+  {
+    "id": "pp_149",
+    "title": "sarvam khalv idam brahma",
+    "source": "Chandogya Upanisad",
+    "devanagari": [],
+    "transliteration": [
+      "sarvam khalv idam brahma"
+    ],
+    "translation": "Everything is Brahman",
+    "word_by_word": [],
+    "category": "Chandogya Upanisad",
+    "rank": 149
+  },
+  {
+    "id": "pp_150",
+    "title": "kiba vipra kiba nyasi sudra kene naya",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "kiba vipra kiba nyasi sudra kene naya"
+    ],
+    "translation": "Anyone who knows Krishna is guru",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 150,
+    "chapter_verse": "Madhya 8.128"
+  },
+  {
+    "id": "pp_151",
+    "title": "yad yad acarati sresthah",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yad yad acarati sresthah"
+    ],
+    "translation": "Leaders set the standard for others",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 151,
+    "chapter_verse": "3.21"
+  },
+  {
+    "id": "pp_152",
+    "title": "anarthopasamam saksat",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "anarthopasamam saksat"
+    ],
+    "translation": "Bhagavatam destroys all inauspiciousness",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 152,
+    "chapter_verse": "1.7.6"
+  },
+  {
+    "id": "pp_153",
+    "title": "nitya-siddha krsna-prema",
+    "source": "Caitanya-caritamrta",
+    "devanagari": [],
+    "transliteration": [
+      "nitya-siddha krsna-prema"
+    ],
+    "translation": "Love of Krishna is eternally perfected",
+    "word_by_word": [],
+    "category": "Caitanya-caritamrta",
+    "rank": 153,
+    "chapter_verse": "Madhya 22.107"
+  },
+  {
+    "id": "pp_154",
+    "title": "amanitvam adambhitvam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "amanitvam adambhitvam"
+    ],
+    "translation": "Humility as knowledge",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 154,
+    "chapter_verse": "13.8"
+  },
+  {
+    "id": "pp_155",
+    "title": "nasto mohah smrtir labdha",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "nasto mohah smrtir labdha"
+    ],
+    "translation": "Arjuna's illusion dispelled",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 155,
+    "chapter_verse": "18.73"
+  },
+  {
+    "id": "pp_156",
+    "title": "kirata-hunandhra-pulinda-pulkasa",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "kirata-hunandhra-pulinda-pulkasa"
+    ],
+    "translation": "All can be purified by chanting",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 156,
+    "chapter_verse": "2.4.18"
+  },
+  {
+    "id": "pp_157",
+    "title": "mahat-sevam dvaram ahur vimuktes",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "mahat-sevam dvaram ahur vimuktes"
+    ],
+    "translation": "Serve great souls for liberation",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 157,
+    "chapter_verse": "5.5.2"
+  },
+  {
+    "id": "pp_158",
+    "title": "adau sraddha tatah sadhu-sanga",
+    "source": "Bhakti-rasamrta-sindhu",
+    "devanagari": [],
+    "transliteration": [
+      "adau sraddha tatah sadhu-sanga"
+    ],
+    "translation": "Stages of devotional development",
+    "word_by_word": [],
+    "category": "Bhakti-rasamrta-sindhu",
+    "rank": 158,
+    "chapter_verse": "1.4.15"
+  },
+  {
+    "id": "pp_159",
+    "title": "tada rajas-tamo-bhavah",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "tada rajas-tamo-bhavah"
+    ],
+    "translation": "Passion and ignorance vanish by hearing",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 159,
+    "chapter_verse": "1.2.19"
+  },
+  {
+    "id": "pp_160",
+    "title": "ajo 'pi sann avyayatma",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "ajo 'pi sann avyayatma"
+    ],
+    "translation": "Krishna appears though unborn",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 160,
+    "chapter_verse": "4.6"
+  },
+  {
+    "id": "pp_161",
+    "title": "asraddadhanah purusa",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "asraddadhanah purusa"
+    ],
+    "translation": "Without faith no devotional service",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 161,
+    "chapter_verse": "9.3"
+  },
+  {
+    "id": "pp_162",
+    "title": "yac-caksur esa savita sakala-grahanam",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "yac-caksur esa savita sakala-grahanam"
+    ],
+    "translation": "Sun as Krishna's eye",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 162,
+    "chapter_verse": "5.52"
+  },
+  {
+    "id": "pp_163",
+    "title": "sva-vid-varahostra-kharaih",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "sva-vid-varahostra-kharaih"
+    ],
+    "translation": "One who does not hear of Krishna is like animals",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 163,
+    "chapter_verse": "2.3.19"
+  },
+  {
+    "id": "pp_164",
+    "title": "ananyas cintayanto mam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "ananyas cintayanto mam"
+    ],
+    "translation": "Krishna provides for those always devoted",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 164,
+    "chapter_verse": "9.22"
+  },
+  {
+    "id": "pp_165",
+    "title": "akamah sarva-kamo va",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "akamah sarva-kamo va"
+    ],
+    "translation": "All should worship Krishna — desired or not",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 165,
+    "chapter_verse": "2.3.10"
+  },
+  {
+    "id": "pp_166",
+    "title": "satam prasangam mama virya-samvido",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "satam prasangam mama virya-samvido"
+    ],
+    "translation": "By hearing from saints love of God awakens",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 166,
+    "chapter_verse": "3.25.25"
+  },
+  {
+    "id": "pp_167",
+    "title": "krte yad dhyayato visnum",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "krte yad dhyayato visnum"
+    ],
+    "translation": "Kali-yuga achieved by chanting alone",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 167,
+    "chapter_verse": "12.3.52"
+  },
+  {
+    "id": "pp_168",
+    "title": "srsti-sthiti-pralaya-sadhana-saktir eka",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "srsti-sthiti-pralaya-sadhana-saktir eka"
+    ],
+    "translation": "Durga as shadow energy",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 168,
+    "chapter_verse": "5.44"
+  },
+  {
+    "id": "pp_169",
+    "title": "ittham satam brahma-sukhanubhutya",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "ittham satam brahma-sukhanubhutya"
+    ],
+    "translation": "Krishna enjoyed by brahmajyoti seekers and devotees",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 169,
+    "chapter_verse": "10.12.11"
+  },
+  {
+    "id": "pp_170",
+    "title": "svayambhur narada sambhuh",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "svayambhur narada sambhuh"
+    ],
+    "translation": "Pure devotees accept Srimad-Bhagavatam",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 170,
+    "chapter_verse": "6.3.20"
+  },
+  {
+    "id": "pp_171",
+    "title": "raja-vidya raja-guhyam",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "raja-vidya raja-guhyam"
+    ],
+    "translation": "King of knowledge king of secrets",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 171,
+    "chapter_verse": "9.2"
+  },
+  {
+    "id": "pp_172",
+    "title": "prapancikataya buddhya",
+    "source": "Bhakti-rasamrta-sindhu",
+    "devanagari": [],
+    "transliteration": [
+      "prapancikataya buddhya"
+    ],
+    "translation": "Not to be used for material purposes",
+    "word_by_word": [],
+    "category": "Bhakti-rasamrta-sindhu",
+    "rank": 172,
+    "chapter_verse": "1.2.256"
+  },
+  {
+    "id": "pp_173",
+    "title": "gurur na sa syat sva-jano na sa syat",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "gurur na sa syat sva-jano na sa syat"
+    ],
+    "translation": "Guru must deliver disciple from birth and death",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 173,
+    "chapter_verse": "5.5.18"
+  },
+  {
+    "id": "pp_174",
+    "title": "yah sastra-vidhim utsrjya",
+    "source": "Bhagavad-gita",
+    "devanagari": [],
+    "transliteration": [
+      "yah sastra-vidhim utsrjya"
+    ],
+    "translation": "Acting against scripture attains no perfection",
+    "word_by_word": [],
+    "category": "Bhagavad-gita",
+    "rank": 174,
+    "chapter_verse": "16.23"
+  },
+  {
+    "id": "pp_175",
+    "title": "ramadi-murtisu kala-niyamena tisthan",
+    "source": "Brahma-samhita",
+    "devanagari": [],
+    "transliteration": [
+      "ramadi-murtisu kala-niyamena tisthan"
+    ],
+    "translation": "Krishna expands as Rama etc. by His will",
+    "word_by_word": [],
+    "category": "Brahma-samhita",
+    "rank": 175,
+    "chapter_verse": "5.39"
+  },
+  {
+    "id": "pp_176",
+    "title": "saksad-dharitvena samasta-sastrair",
+    "source": "Gurv-astaka",
+    "devanagari": [],
+    "transliteration": [
+      "saksad-dharitvena samasta-sastrair"
+    ],
+    "translation": "Guru is honored as Krishna by scriptures",
+    "word_by_word": [],
+    "category": "Gurv-astaka",
+    "rank": 176,
+    "chapter_verse": "7"
+  },
+  {
+    "id": "pp_177",
+    "title": "bhaktih paresanubhavo viraktir",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "bhaktih paresanubhavo viraktir"
+    ],
+    "translation": "Symptoms of pure devotional service",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 177,
+    "chapter_verse": "11.2.42"
+  },
+  {
+    "id": "pp_178",
+    "title": "parabhavas tavad abodha-jato",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "parabhavas tavad abodha-jato"
+    ],
+    "translation": "Defeat continues until one inquires of Vishnu",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 178,
+    "chapter_verse": "5.5.5"
+  },
+  {
+    "id": "pp_179",
+    "title": "namo brahmanya-devaya",
+    "source": "Visnu Purana",
+    "devanagari": [],
+    "transliteration": [
+      "namo brahmanya-devaya"
+    ],
+    "translation": "Obeisances to Vishnu protector of brahmins",
+    "word_by_word": [],
+    "category": "Visnu Purana",
+    "rank": 179
+  },
+  {
+    "id": "pp_180",
+    "title": "titiksavah karunikah",
+    "source": "Srimad-Bhagavatam",
+    "devanagari": [],
+    "transliteration": [
+      "titiksavah karunikah"
+    ],
+    "translation": "Qualities of a Vaishnava",
+    "word_by_word": [],
+    "category": "Srimad-Bhagavatam",
+    "rank": 180,
+    "chapter_verse": "3.25.21"
+  }
+]
