@@ -39,6 +39,9 @@ See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and pa
   - Sloka Detail — devanagari, transliteration, tap-to-reveal word meanings, audio playback mode, translation, purport, progress tracking
   - My Slokas — personal bookmarked slokas
   - Settings — progress overview and app info
-- **Data**: 8 slokas from Bhagavad Gita and prayers stored in `data/slokas.ts`
+- **Data**: 880 slokas merged from two sources in `data/slokas.ts`:
+  - `data/slokas.json` — 700 Bhagavad Gita As It Is verses (primary, ~2 MB)
+  - `data/pp-slokas.json` — 180 Prabhupada-quoted slokas sourced from CSV import (ids `pp_001`–`pp_180`); each entry carries `rank`, optional `chapter_verse`, `source` (24 unique source texts)
+  - New imported datasets should follow the `pp-slokas.json` pattern: separate JSON file merged in `slokas.ts`, ids prefixed with a dataset key (e.g. `pp_`, `bs_`), `source` field = source text name
 - **State**: AsyncStorage via AppContext (progress tracking, bookmarks)
 - **Dependencies**: @react-native-async-storage/async-storage, expo-linear-gradient
