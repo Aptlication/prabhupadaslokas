@@ -1,7 +1,8 @@
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useRef, useState } from "react";
+import * as Speech from "expo-speech";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   Platform,
   ScrollView,
@@ -18,6 +19,10 @@ import { useApp } from "@/context/AppContext";
 import { slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
+// Playback speed options cycling: normal → slow → very slow → normal
+const RATES = [1.0, 0.75, 0.55];
+const RATE_LABELS = ["1×", "0.75×", "0.55×"];
+
 export default function SlokaDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
@@ -26,11 +31,93 @@ export default function SlokaDetail() {
   const { getStatus, setProgress, isMySlokas, toggleMySlokas } = useApp();
 
   const sloka = slokas.find((s) => s.id === id);
+
   const [showDevanagari, setShowDevanagari] = useState(true);
   const [showPurport, setShowPurport] = useState(false);
   const [repeatMode, setRepeatMode] = useState(false);
+  const [rateIdx, setRateIdx] = useState(0);
   const [playingLine, setPlayingLine] = useState<number | null>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Keep refs so callbacks always see latest values without re-registering
+  const repeatRef = useRef(repeatMode);
+  const rateRef = useRef(RATES[rateIdx]);
+  const playingRef = useRef<boolean>(false);
+  const stoppedRef = useRef<boolean>(false);
+
+  useEffect(() => { repeatRef.current = repeatMode; }, [repeatMode]);
+  useEffect(() => { rateRef.current = RATES[rateIdx]; }, [rateIdx]);
+
+  // Stop TTS on unmount
+  useEffect(() => {
+    return () => {
+      stoppedRef.current = true;
+      Speech.stop();
+    };
+  }, []);
+
+  const speakLine = useCallback(
+    (lines: string[], lineIdx: number) => {
+      if (stoppedRef.current || !playingRef.current) return;
+
+      setPlayingLine(lineIdx);
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+
+      Speech.speak(lines[lineIdx], {
+        language: "hi-IN",   // closest to Sanskrit on most devices
+        rate: rateRef.current,
+        pitch: 1.0,
+        onDone: () => {
+          if (!playingRef.current || stoppedRef.current) return;
+          const next = lineIdx + 1;
+          if (next < lines.length) {
+            speakLine(lines, next);
+          } else if (repeatRef.current) {
+            setTimeout(() => {
+              if (playingRef.current && !stoppedRef.current) {
+                speakLine(lines, 0);
+              }
+            }, 700);
+          } else {
+            playingRef.current = false;
+            setPlayingLine(null);
+          }
+        },
+        onError: () => {
+          playingRef.current = false;
+          setPlayingLine(null);
+        },
+      });
+    },
+    []
+  );
+
+  const handlePlay = useCallback(() => {
+    if (!sloka) return;
+    if (playingRef.current) {
+      // Stop
+      playingRef.current = false;
+      Speech.stop();
+      setPlayingLine(null);
+    } else {
+      // Start
+      playingRef.current = true;
+      stoppedRef.current = false;
+      speakLine(sloka.transliteration, 0);
+    }
+  }, [sloka, speakLine]);
+
+  const handleRateCycle = () => {
+    const next = (rateIdx + 1) % RATES.length;
+    setRateIdx(next);
+    // If currently playing, restart current line at new rate
+    if (playingRef.current && sloka && playingLine !== null) {
+      Speech.stop();
+      setTimeout(() => {
+        rateRef.current = RATES[next];
+        speakLine(sloka.transliteration, playingLine);
+      }, 100);
+    }
+  };
 
   if (!sloka) {
     return (
@@ -42,32 +129,7 @@ export default function SlokaDetail() {
 
   const status = getStatus(sloka.id);
   const saved = isMySlokas(sloka.id);
-
-  const simulateLine = (lineIdx: number) => {
-    setPlayingLine(lineIdx);
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    timerRef.current = setTimeout(() => {
-      if (lineIdx + 1 < sloka.transliteration.length) {
-        simulateLine(lineIdx + 1);
-      } else {
-        if (repeatMode) {
-          setTimeout(() => simulateLine(0), 600);
-        } else {
-          setPlayingLine(null);
-        }
-      }
-    }, 1800);
-  };
-
-  const handlePlay = () => {
-    if (playingLine !== null) {
-      if (timerRef.current) clearTimeout(timerRef.current);
-      setPlayingLine(null);
-    } else {
-      simulateLine(0);
-    }
-  };
-
+  const isPlaying = playingLine !== null;
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 : insets.bottom + 16;
 
@@ -95,7 +157,7 @@ export default function SlokaDetail() {
           testID="bookmark-btn"
         >
           <Feather
-            name={saved ? "bookmark" : "bookmark"}
+            name="bookmark"
             size={22}
             color={saved ? colors.primary : colors.mutedForeground}
           />
@@ -142,7 +204,11 @@ export default function SlokaDetail() {
               key={i}
               style={[
                 styles.transLine,
-                playingLine === i && { backgroundColor: colors.primary + "20", borderRadius: 8, paddingHorizontal: 8 },
+                playingLine === i && {
+                  backgroundColor: colors.primary + "20",
+                  borderRadius: 8,
+                  paddingHorizontal: 8,
+                },
               ]}
             >
               {playingLine === i && (
@@ -162,24 +228,45 @@ export default function SlokaDetail() {
 
         {/* Audio Controls */}
         <View style={[styles.audioBar, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          {/* Play/Stop */}
           <TouchableOpacity
             style={[styles.playBtn, { backgroundColor: colors.primary }]}
             onPress={handlePlay}
             testID="play-btn"
           >
-            <Feather name={playingLine !== null ? "square" : "play"} size={18} color={colors.primaryForeground} />
+            <Feather name={isPlaying ? "square" : "play"} size={18} color={colors.primaryForeground} />
           </TouchableOpacity>
+
+          {/* Status text */}
           <View style={{ flex: 1 }}>
             <Text style={[styles.audioLabel, { color: colors.foreground }]}>
-              {playingLine !== null
+              {isPlaying
                 ? `Line ${(playingLine ?? 0) + 1} of ${sloka.transliteration.length}`
                 : "Tap play to practice"}
             </Text>
-            <Text style={[styles.audioSub, { color: colors.mutedForeground }]}>Line-by-line mode</Text>
+            <Text style={[styles.audioSub, { color: colors.mutedForeground }]}>
+              Line-by-line · {RATE_LABELS[rateIdx]}
+            </Text>
           </View>
+
+          {/* Speed */}
           <TouchableOpacity
             style={[
-              styles.repeatBtn,
+              styles.controlBtn,
+              { borderColor: rateIdx !== 0 ? colors.primary : colors.border },
+              rateIdx !== 0 && { backgroundColor: colors.primary + "18" },
+            ]}
+            onPress={handleRateCycle}
+          >
+            <Text style={[styles.rateLabel, { color: rateIdx !== 0 ? colors.primary : colors.mutedForeground }]}>
+              {RATE_LABELS[rateIdx]}
+            </Text>
+          </TouchableOpacity>
+
+          {/* Repeat */}
+          <TouchableOpacity
+            style={[
+              styles.controlBtn,
               { borderColor: repeatMode ? colors.primary : colors.border },
               repeatMode && { backgroundColor: colors.primary + "18" },
             ]}
@@ -324,7 +411,7 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: "row",
     alignItems: "center",
-    gap: 12,
+    gap: 10,
   },
   playBtn: {
     width: 44,
@@ -342,13 +429,17 @@ const styles = StyleSheet.create({
     fontFamily: "Inter_400Regular",
     marginTop: 2,
   },
-  repeatBtn: {
+  controlBtn: {
     width: 38,
     height: 38,
     borderRadius: 10,
     borderWidth: 1,
     alignItems: "center",
     justifyContent: "center",
+  },
+  rateLabel: {
+    fontSize: 11,
+    fontFamily: "Inter_700Bold",
   },
   translation: {
     fontSize: 15,
