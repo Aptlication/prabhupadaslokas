@@ -20,8 +20,51 @@ import { useColors } from "@/hooks/useColors";
 
 const RATES = [1.0, 0.75, 0.55];
 const RATE_LABELS = ["1×", "0.75×", "0.55×"];
-// Approximate ms per line at each rate (for timer simulation)
 const LINE_DURATION_MS = [2000, 2700, 3600];
+
+function PPMetaRow({
+  rank,
+  timesQuoted,
+  source,
+  chapterVerse,
+}: {
+  rank: number;
+  timesQuoted?: number;
+  source: string;
+  chapterVerse?: string;
+}) {
+  const colors = useColors();
+  return (
+    <View style={[ppStyles.metaCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+      {/* Rank badge */}
+      <View style={[ppStyles.rankBadge, { backgroundColor: colors.primary + "22", borderColor: colors.primary }]}>
+        <Text style={[ppStyles.rankNum, { color: colors.primary }]}>#{rank}</Text>
+        <Text style={[ppStyles.rankLabel, { color: colors.mutedForeground }]}>rank</Text>
+      </View>
+
+      <View style={ppStyles.metaDivider} />
+
+      {/* Frequency */}
+      {timesQuoted != null && (
+        <>
+          <View style={ppStyles.metaCell}>
+            <Text style={[ppStyles.metaValue, { color: colors.foreground }]}>~{timesQuoted}×</Text>
+            <Text style={[ppStyles.metaKey, { color: colors.mutedForeground }]}>quoted</Text>
+          </View>
+          <View style={ppStyles.metaDivider} />
+        </>
+      )}
+
+      {/* Source + verse */}
+      <View style={[ppStyles.metaCell, { flex: 1 }]}>
+        <Text style={[ppStyles.metaValue, { color: colors.foreground }]} numberOfLines={1}>{source}</Text>
+        {chapterVerse ? (
+          <Text style={[ppStyles.metaKey, { color: colors.mutedForeground }]}>{chapterVerse}</Text>
+        ) : null}
+      </View>
+    </View>
+  );
+}
 
 export default function SlokaDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -46,6 +89,10 @@ export default function SlokaDetail() {
       </View>
     );
   }
+
+  const isPP = sloka.id.startsWith("pp_");
+  const hasDevanagari = sloka.devanagari.length > 0;
+  const hasWordByWord = sloka.word_by_word.length > 0;
 
   const clearTimer = () => {
     if (timerRef.current) {
@@ -135,24 +182,38 @@ export default function SlokaDetail() {
         contentContainerStyle={{ paddingBottom: bottomPad + 20 }}
         showsVerticalScrollIndicator={false}
       >
-        {/* Devanagari toggle */}
-        <View style={styles.toggleRow}>
-          <TouchableOpacity
-            style={[
-              styles.toggleBtn,
-              { borderColor: colors.border },
-              showDevanagari && { backgroundColor: colors.card },
-            ]}
-            onPress={() => setShowDevanagari(!showDevanagari)}
-          >
-            <Text style={[styles.toggleLabel, { color: colors.mutedForeground }]}>
-              {showDevanagari ? "Hide" : "Show"} Devanagari
-            </Text>
-          </TouchableOpacity>
-        </View>
+        {/* PP Metadata row */}
+        {isPP && sloka.rank != null && (
+          <View style={{ marginTop: 14, marginHorizontal: 16 }}>
+            <PPMetaRow
+              rank={sloka.rank}
+              timesQuoted={sloka.times_quoted_approx}
+              source={sloka.source}
+              chapterVerse={sloka.chapter_verse}
+            />
+          </View>
+        )}
+
+        {/* Devanagari toggle — only shown when there is Devanagari to display */}
+        {hasDevanagari && (
+          <View style={styles.toggleRow}>
+            <TouchableOpacity
+              style={[
+                styles.toggleBtn,
+                { borderColor: colors.border },
+                showDevanagari && { backgroundColor: colors.card },
+              ]}
+              onPress={() => setShowDevanagari(!showDevanagari)}
+            >
+              <Text style={[styles.toggleLabel, { color: colors.mutedForeground }]}>
+                {showDevanagari ? "Hide" : "Show"} Devanagari
+              </Text>
+            </TouchableOpacity>
+          </View>
+        )}
 
         {/* Devanagari */}
-        {showDevanagari && sloka.devanagari.length > 0 && (
+        {hasDevanagari && showDevanagari && (
           <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
             <Text style={[styles.sectionTag, { color: colors.mutedForeground }]}>Devanagari</Text>
             {sloka.devanagari.map((line, i) => (
@@ -164,7 +225,7 @@ export default function SlokaDetail() {
         )}
 
         {/* Transliteration */}
-        <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
+        <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border, marginTop: hasDevanagari ? 12 : 14 }]}>
           <Text style={[styles.sectionTag, { color: colors.mutedForeground }]}>Transliteration</Text>
           {sloka.transliteration.map((line, i) => (
             <View
@@ -214,7 +275,6 @@ export default function SlokaDetail() {
             </Text>
           </View>
 
-          {/* Speed */}
           <TouchableOpacity
             style={[
               styles.controlBtn,
@@ -228,7 +288,6 @@ export default function SlokaDetail() {
             </Text>
           </TouchableOpacity>
 
-          {/* Repeat */}
           <TouchableOpacity
             style={[
               styles.controlBtn,
@@ -250,19 +309,21 @@ export default function SlokaDetail() {
           <Text style={[styles.translation, { color: colors.foreground }]}>{sloka.translation}</Text>
         </View>
 
-        {/* Word-by-Word */}
-        <View style={styles.wordSection}>
-          <Text style={[styles.sectionTag, { color: colors.mutedForeground, paddingHorizontal: 16 }]}>
-            Word by Word — tap each word
-          </Text>
-          <View style={styles.wordGrid}>
-            {sloka.word_by_word.map((item, i) => (
-              <WordChip key={i} item={item} index={i} />
-            ))}
+        {/* Word-by-Word — only shown when data is present */}
+        {hasWordByWord && (
+          <View style={styles.wordSection}>
+            <Text style={[styles.sectionTag, { color: colors.mutedForeground, paddingHorizontal: 16 }]}>
+              Word by Word — tap each word
+            </Text>
+            <View style={styles.wordGrid}>
+              {sloka.word_by_word.map((item, i) => (
+                <WordChip key={i} item={item} index={i} />
+              ))}
+            </View>
           </View>
-        </View>
+        )}
 
-        {/* Purport */}
+        {/* Purport — only shown when data is present */}
         {sloka.purport && (
           <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
             <TouchableOpacity
@@ -430,5 +491,54 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "Inter_400Regular",
     lineHeight: 22,
+  },
+});
+
+const ppStyles = StyleSheet.create({
+  metaCard: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderRadius: 14,
+    borderWidth: 1,
+    padding: 12,
+    gap: 12,
+  },
+  rankBadge: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    paddingVertical: 6,
+    minWidth: 48,
+  },
+  rankNum: {
+    fontSize: 15,
+    fontFamily: "Inter_700Bold",
+    lineHeight: 18,
+  },
+  rankLabel: {
+    fontSize: 9,
+    fontFamily: "Inter_500Medium",
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  metaDivider: {
+    width: 1,
+    height: 32,
+    backgroundColor: "rgba(255,255,255,0.08)",
+  },
+  metaCell: {
+    gap: 2,
+  },
+  metaValue: {
+    fontSize: 13,
+    fontFamily: "Inter_600SemiBold",
+  },
+  metaKey: {
+    fontSize: 10,
+    fontFamily: "Inter_400Regular",
+    textTransform: "uppercase",
+    letterSpacing: 0.3,
   },
 });

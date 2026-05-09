@@ -3,298 +3,1214 @@
     "id": "pp_001",
     "title": "hare krsna hare krsna",
     "source": "Kali-Santarana Upanisad",
-    "devanagari": [],
+    "devanagari": [
+      "हरे कृष्ण हरे कृष्ण कृष्ण कृष्ण हरे हरे ।",
+      "हरे राम हरे राम राम राम हरे हरे ॥"
+    ],
     "transliteration": [
       "hare krsna hare krsna"
     ],
     "translation": "Maha-mantra",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "हरे",
+        "meaning": "O Hare (Lord's internal energy)"
+      },
+      {
+        "word": "कृष्ण",
+        "meaning": "O Krishna (all-attractive)"
+      },
+      {
+        "word": "राम",
+        "meaning": "O Rama (reservoir of pleasure)"
+      }
+    ],
     "category": "Kali-Santarana Upanisad",
-    "rank": 1
+    "rank": 1,
+    "times_quoted_approx": 220
   },
   {
     "id": "pp_002",
     "title": "sarva-dharman parityajya",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "सर्वधर्मान् परित्यज्य मामेकं शरणं व्रज ।",
+      "अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः ॥"
+    ],
     "transliteration": [
       "sarva-dharman parityajya"
     ],
     "translation": "Surrender to Krishna",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "सर्व-धर्मान्",
+        "meaning": "all varieties of religion"
+      },
+      {
+        "word": "परित्यज्य",
+        "meaning": "abandoning"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "एकम्",
+        "meaning": "only"
+      },
+      {
+        "word": "शरणम्",
+        "meaning": "surrender"
+      },
+      {
+        "word": "व्रज",
+        "meaning": "go"
+      },
+      {
+        "word": "अहम्",
+        "meaning": "I"
+      },
+      {
+        "word": "त्वाम्",
+        "meaning": "unto you"
+      },
+      {
+        "word": "सर्व-पापेभ्यः",
+        "meaning": "from all sinful reactions"
+      },
+      {
+        "word": "मोक्षयिष्यामि",
+        "meaning": "shall deliver"
+      },
+      {
+        "word": "मा",
+        "meaning": "do not"
+      },
+      {
+        "word": "शुचः",
+        "meaning": "fear"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 2,
-    "chapter_verse": "18.66"
+    "chapter_verse": "18.66",
+    "times_quoted_approx": 213
   },
   {
     "id": "pp_003",
     "title": "janma karma ca me divyam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "जन्म कर्म च मे दिव्यम् एवं यो वेत्ति तत्त्वतः ।",
+      "त्यक्त्वा देहं पुनर्जन्म नैति मामेति सोऽर्जुन ॥"
+    ],
     "transliteration": [
       "janma karma ca me divyam"
     ],
     "translation": "Knowing Lord's appearance",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "जन्म",
+        "meaning": "birth"
+      },
+      {
+        "word": "कर्म",
+        "meaning": "work"
+      },
+      {
+        "word": "च",
+        "meaning": "also"
+      },
+      {
+        "word": "मे",
+        "meaning": "My"
+      },
+      {
+        "word": "दिव्यम्",
+        "meaning": "transcendental"
+      },
+      {
+        "word": "यः",
+        "meaning": "one who"
+      },
+      {
+        "word": "वेत्ति",
+        "meaning": "knows"
+      },
+      {
+        "word": "तत्त्वतः",
+        "meaning": "in truth"
+      },
+      {
+        "word": "त्यक्त्वा",
+        "meaning": "leaving"
+      },
+      {
+        "word": "देहम्",
+        "meaning": "this body"
+      },
+      {
+        "word": "पुनः",
+        "meaning": "again"
+      },
+      {
+        "word": "जन्म",
+        "meaning": "birth"
+      },
+      {
+        "word": "न",
+        "meaning": "never"
+      },
+      {
+        "word": "एति",
+        "meaning": "takes"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "एति",
+        "meaning": "comes"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 3,
-    "chapter_verse": "4.9"
+    "chapter_verse": "4.9",
+    "times_quoted_approx": 205
   },
   {
     "id": "pp_004",
     "title": "isvarah paramah krsnah",
     "source": "Brahma-samhita",
-    "devanagari": [],
+    "devanagari": [
+      "ईश्वरः परमः कृष्णः सच्चिदानन्दविग्रहः ।",
+      "अनादिरादिर्गोविन्दः सर्वकारणकारणम् ॥"
+    ],
     "transliteration": [
       "isvarah paramah krsnah"
     ],
     "translation": "Supreme Lord is Krishna",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "ईश्वरः",
+        "meaning": "the controller"
+      },
+      {
+        "word": "परमः",
+        "meaning": "supreme"
+      },
+      {
+        "word": "कृष्णः",
+        "meaning": "Lord Krishna"
+      },
+      {
+        "word": "सत्-चित्-आनन्द",
+        "meaning": "eternal bliss and knowledge"
+      },
+      {
+        "word": "विग्रहः",
+        "meaning": "whose form"
+      },
+      {
+        "word": "अनादिः",
+        "meaning": "without beginning"
+      },
+      {
+        "word": "आदिः",
+        "meaning": "origin of all"
+      },
+      {
+        "word": "गोविन्दः",
+        "meaning": "Govinda, giver of pleasure to the senses"
+      },
+      {
+        "word": "सर्व-कारण-कारणम्",
+        "meaning": "cause of all causes"
+      }
+    ],
     "category": "Brahma-samhita",
     "rank": 4,
-    "chapter_verse": "5.1"
+    "chapter_verse": "5.1",
+    "times_quoted_approx": 198
   },
   {
     "id": "pp_005",
     "title": "bahunam janmanam ante",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "बहूनां जन्मनामन्ते ज्ञानवान्मां प्रपद्यते ।",
+      "वासुदेवः सर्वमिति स महात्मा सुदुर्लभः ॥"
+    ],
     "transliteration": [
       "bahunam janmanam ante"
     ],
     "translation": "Surrender after many births",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "बहूनाम्",
+        "meaning": "of many"
+      },
+      {
+        "word": "जन्मनाम्",
+        "meaning": "repeated births"
+      },
+      {
+        "word": "अन्ते",
+        "meaning": "at the end of"
+      },
+      {
+        "word": "ज्ञानवान्",
+        "meaning": "one who is in knowledge"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "प्रपद्यते",
+        "meaning": "surrenders"
+      },
+      {
+        "word": "वासुदेवः",
+        "meaning": "Krishna, son of Vasudeva"
+      },
+      {
+        "word": "सर्वम्",
+        "meaning": "everything"
+      },
+      {
+        "word": "इति",
+        "meaning": "thus"
+      },
+      {
+        "word": "सः",
+        "meaning": "such"
+      },
+      {
+        "word": "महात्मा",
+        "meaning": "great soul"
+      },
+      {
+        "word": "सुदुर्लभः",
+        "meaning": "very rare to find"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 5,
-    "chapter_verse": "7.19"
+    "chapter_verse": "7.19",
+    "times_quoted_approx": 192
   },
   {
     "id": "pp_006",
     "title": "brahma-bhutah prasannatma",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "ब्रह्मभूतः प्रसन्नात्मा न शोचति न काङ्क्षति ।",
+      "समः सर्वेषु भूतेषु मद्भक्तिं लभते पराम् ॥"
+    ],
     "transliteration": [
       "brahma-bhutah prasannatma"
     ],
     "translation": "Transcendental platform",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "ब्रह्मभूतः",
+        "meaning": "being one with the Absolute"
+      },
+      {
+        "word": "प्रसन्नात्मा",
+        "meaning": "fully joyful"
+      },
+      {
+        "word": "न",
+        "meaning": "never"
+      },
+      {
+        "word": "शोचति",
+        "meaning": "laments"
+      },
+      {
+        "word": "न",
+        "meaning": "nor"
+      },
+      {
+        "word": "काङ्क्षति",
+        "meaning": "desires"
+      },
+      {
+        "word": "समः",
+        "meaning": "equally disposed"
+      },
+      {
+        "word": "सर्वेषु",
+        "meaning": "to all"
+      },
+      {
+        "word": "भूतेषु",
+        "meaning": "living entities"
+      },
+      {
+        "word": "मद्-भक्तिम्",
+        "meaning": "devotional service to Me"
+      },
+      {
+        "word": "लभते",
+        "meaning": "gains"
+      },
+      {
+        "word": "पराम्",
+        "meaning": "transcendental, supreme"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 6,
-    "chapter_verse": "18.54"
+    "chapter_verse": "18.54",
+    "times_quoted_approx": 185
   },
   {
     "id": "pp_007",
     "title": "dehino 'smin yatha dehe",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "देहिनोऽस्मिन् यथा देहे कौमारं यौवनं जरा ।",
+      "तथा देहान्तरप्राप्तिः धीरस्तत्र न मुह्यति ॥"
+    ],
     "transliteration": [
       "dehino 'smin yatha dehe"
     ],
     "translation": "Transmigration of the soul",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "देहिनः",
+        "meaning": "of the embodied soul"
+      },
+      {
+        "word": "अस्मिन्",
+        "meaning": "in this"
+      },
+      {
+        "word": "यथा",
+        "meaning": "as"
+      },
+      {
+        "word": "देहे",
+        "meaning": "body"
+      },
+      {
+        "word": "कौमारम्",
+        "meaning": "boyhood"
+      },
+      {
+        "word": "यौवनम्",
+        "meaning": "youth"
+      },
+      {
+        "word": "जरा",
+        "meaning": "old age"
+      },
+      {
+        "word": "तथा",
+        "meaning": "similarly"
+      },
+      {
+        "word": "देह-अन्तर-प्राप्तिः",
+        "meaning": "transference to another body"
+      },
+      {
+        "word": "धीरः",
+        "meaning": "the sober"
+      },
+      {
+        "word": "तत्र",
+        "meaning": "thereupon"
+      },
+      {
+        "word": "न",
+        "meaning": "not"
+      },
+      {
+        "word": "मुह्यति",
+        "meaning": "is deluded"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 7,
-    "chapter_verse": "2.13"
+    "chapter_verse": "2.13",
+    "times_quoted_approx": 179
   },
   {
     "id": "pp_008",
     "title": "daivi hy esa guna-mayi",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "दैवी ह्येषा गुणमयी मम माया दुरत्यया ।",
+      "मामेव ये प्रपद्यन्ते मायामेतां तरन्ति ते ॥"
+    ],
     "transliteration": [
       "daivi hy esa guna-mayi"
     ],
     "translation": "Overcoming maya by surrender",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "दैवी",
+        "meaning": "divine, transcendental"
+      },
+      {
+        "word": "हि",
+        "meaning": "certainly"
+      },
+      {
+        "word": "एषा",
+        "meaning": "this"
+      },
+      {
+        "word": "गुणमयी",
+        "meaning": "made of three modes"
+      },
+      {
+        "word": "मम",
+        "meaning": "My"
+      },
+      {
+        "word": "माया",
+        "meaning": "external energy"
+      },
+      {
+        "word": "दुरत्यया",
+        "meaning": "very difficult to overcome"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "एव",
+        "meaning": "certainly"
+      },
+      {
+        "word": "ये",
+        "meaning": "those who"
+      },
+      {
+        "word": "प्रपद्यन्ते",
+        "meaning": "surrender"
+      },
+      {
+        "word": "मायाम् एताम्",
+        "meaning": "this illusory energy"
+      },
+      {
+        "word": "तरन्ति",
+        "meaning": "cross over"
+      },
+      {
+        "word": "ते",
+        "meaning": "they"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 8,
-    "chapter_verse": "7.14"
+    "chapter_verse": "7.14",
+    "times_quoted_approx": 173
   },
   {
     "id": "pp_009",
     "title": "man-mana bhava mad-bhakto",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु ।",
+      "मामेवैष्यसि युक्त्वैवम् आत्मानं मत्परायणः ॥"
+    ],
     "transliteration": [
       "man-mana bhava mad-bhakto"
     ],
     "translation": "Always think of Krishna",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "मत्-मनाः",
+        "meaning": "thinking of Me"
+      },
+      {
+        "word": "भव",
+        "meaning": "become"
+      },
+      {
+        "word": "मद्-भक्तः",
+        "meaning": "My devotee"
+      },
+      {
+        "word": "मद्-याजी",
+        "meaning": "My worshiper"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "नमस्कुरु",
+        "meaning": "offer your obeisances"
+      },
+      {
+        "word": "माम् एव",
+        "meaning": "unto Me surely"
+      },
+      {
+        "word": "एष्यसि",
+        "meaning": "you will come"
+      },
+      {
+        "word": "युक्त्वा",
+        "meaning": "engaging"
+      },
+      {
+        "word": "एवम्",
+        "meaning": "thus"
+      },
+      {
+        "word": "आत्मानम्",
+        "meaning": "your soul"
+      },
+      {
+        "word": "मत्-परायणः",
+        "meaning": "completely devoted to Me"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 9,
-    "chapter_verse": "9.34 / 18.65"
+    "chapter_verse": "9.34 / 18.65",
+    "times_quoted_approx": 167
   },
   {
     "id": "pp_010",
     "title": "prakrteh kriyamanani",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "प्रकृतेः क्रियमाणानि गुणैः कर्माणि सर्वशः ।",
+      "अहंकारविमूढात्मा कर्ताहमिति मन्यते ॥"
+    ],
     "transliteration": [
       "prakrteh kriyamanani"
     ],
     "translation": "False ego as doer",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "प्रकृतेः",
+        "meaning": "of material nature"
+      },
+      {
+        "word": "क्रियमाणानि",
+        "meaning": "being done"
+      },
+      {
+        "word": "गुणैः",
+        "meaning": "by the modes"
+      },
+      {
+        "word": "कर्माणि",
+        "meaning": "all activities"
+      },
+      {
+        "word": "सर्वशः",
+        "meaning": "in all respects"
+      },
+      {
+        "word": "अहंकार-विमूढ-आत्मा",
+        "meaning": "bewildered by false ego"
+      },
+      {
+        "word": "कर्ता",
+        "meaning": "the doer"
+      },
+      {
+        "word": "अहम्",
+        "meaning": "I"
+      },
+      {
+        "word": "इति",
+        "meaning": "thus"
+      },
+      {
+        "word": "मन्यते",
+        "meaning": "thinks"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 10,
-    "chapter_verse": "3.27"
+    "chapter_verse": "3.27",
+    "times_quoted_approx": 161
   },
   {
     "id": "pp_011",
     "title": "janmady asya yatah",
     "source": "Vedanta-sutra",
-    "devanagari": [],
+    "devanagari": [
+      "जन्माद्यस्य यतः"
+    ],
     "transliteration": [
       "janmady asya yatah"
     ],
     "translation": "Brahman as source of all",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "जन्म-आदि",
+        "meaning": "creation, maintenance, and dissolution"
+      },
+      {
+        "word": "अस्य",
+        "meaning": "of this (universe)"
+      },
+      {
+        "word": "यतः",
+        "meaning": "from whom"
+      }
+    ],
     "category": "Vedanta-sutra",
     "rank": 11,
-    "chapter_verse": "1.1.2"
+    "chapter_verse": "1.1.2",
+    "times_quoted_approx": 156
   },
   {
     "id": "pp_012",
     "title": "isvarah sarva-bhutanam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति ।",
+      "भ्रामयन् सर्वभूतानि यन्त्रारूढानि मायया ॥"
+    ],
     "transliteration": [
       "isvarah sarva-bhutanam"
     ],
     "translation": "Supersoul in the heart",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "ईश्वरः",
+        "meaning": "the Supreme Lord"
+      },
+      {
+        "word": "सर्व-भूतानाम्",
+        "meaning": "of all living entities"
+      },
+      {
+        "word": "हृद्-देशे",
+        "meaning": "in the location of the heart"
+      },
+      {
+        "word": "अर्जुन",
+        "meaning": "O Arjuna"
+      },
+      {
+        "word": "तिष्ठति",
+        "meaning": "dwells"
+      },
+      {
+        "word": "भ्रामयन्",
+        "meaning": "causing to wander"
+      },
+      {
+        "word": "यन्त्र-आरूढानि",
+        "meaning": "seated on a machine (body)"
+      },
+      {
+        "word": "मायया",
+        "meaning": "under the spell of material energy"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 12,
-    "chapter_verse": "18.61"
+    "chapter_verse": "18.61",
+    "times_quoted_approx": 150
   },
   {
     "id": "pp_013",
     "title": "sarvasya caham hrdi sannivisto",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "सर्वस्य चाहं हृदि सन्निविष्टो मत्तः स्मृतिर्ज्ञानमपोहनं च ।",
+      "वेदैश्च सर्वैरहमेव वेद्यो वेदान्तकृद् वेदविदेव चाहम् ॥"
+    ],
     "transliteration": [
       "sarvasya caham hrdi sannivisto"
     ],
     "translation": "Krishna in everyone's heart",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "सर्वस्य",
+        "meaning": "of all living beings"
+      },
+      {
+        "word": "च",
+        "meaning": "and"
+      },
+      {
+        "word": "अहम्",
+        "meaning": "I"
+      },
+      {
+        "word": "हृदि",
+        "meaning": "in the heart"
+      },
+      {
+        "word": "सन्निविष्टः",
+        "meaning": "situated"
+      },
+      {
+        "word": "मत्तः",
+        "meaning": "from Me"
+      },
+      {
+        "word": "स्मृतिः",
+        "meaning": "remembrance"
+      },
+      {
+        "word": "ज्ञानम्",
+        "meaning": "knowledge"
+      },
+      {
+        "word": "अपोहनम्",
+        "meaning": "forgetfulness"
+      },
+      {
+        "word": "वेदैः सर्वैः",
+        "meaning": "by all the Vedas"
+      },
+      {
+        "word": "अहम् एव",
+        "meaning": "I alone am"
+      },
+      {
+        "word": "वेद्यः",
+        "meaning": "to be known"
+      },
+      {
+        "word": "वेदान्त-कृत्",
+        "meaning": "compiler of Vedanta"
+      },
+      {
+        "word": "वेद-वित्",
+        "meaning": "knower of the Vedas"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 13,
-    "chapter_verse": "15.15"
+    "chapter_verse": "15.15",
+    "times_quoted_approx": 145
   },
   {
     "id": "pp_014",
     "title": "na te viduh svartha-gatim hi visnum",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "न ते विदुः स्वार्थगतिं हि विष्णुं दुराशया ये बहिरर्थमानिनः ।",
+      "अन्धा यथान्धैरुपनीयमानास् तेऽपीशतन्त्र्यामुरुदामनि बद्धाः ॥"
+    ],
     "transliteration": [
       "na te viduh svartha-gatim hi visnum"
     ],
     "translation": "Misguided leaders",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "न ते विदुः",
+        "meaning": "they do not know"
+      },
+      {
+        "word": "स्व-अर्थ-गतिम्",
+        "meaning": "their own self-interest"
+      },
+      {
+        "word": "हि",
+        "meaning": "indeed"
+      },
+      {
+        "word": "विष्णुम्",
+        "meaning": "Lord Vishnu"
+      },
+      {
+        "word": "दुराशयाः",
+        "meaning": "misguided"
+      },
+      {
+        "word": "बहिः-अर्थ-मानिनः",
+        "meaning": "interested in external, material energy"
+      },
+      {
+        "word": "अन्धाः यथा अन्धैः",
+        "meaning": "like the blind led by the blind"
+      },
+      {
+        "word": "उरु-दामनि",
+        "meaning": "by the great rope of maya"
+      },
+      {
+        "word": "बद्धाः",
+        "meaning": "bound"
+      }
+    ],
     "category": "Srimad-Bhagavatam",
     "rank": 14,
-    "chapter_verse": "7.5.31"
+    "chapter_verse": "7.5.31",
+    "times_quoted_approx": 140
   },
   {
     "id": "pp_015",
     "title": "athato brahma-jijnasa",
     "source": "Vedanta-sutra",
-    "devanagari": [],
+    "devanagari": [
+      "अथातो ब्रह्मजिज्ञासा"
+    ],
     "transliteration": [
       "athato brahma-jijnasa"
     ],
     "translation": "Inquiry into Brahman",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "अथ",
+        "meaning": "now"
+      },
+      {
+        "word": "अतः",
+        "meaning": "therefore"
+      },
+      {
+        "word": "ब्रह्म",
+        "meaning": "the Absolute Truth"
+      },
+      {
+        "word": "जिज्ञासा",
+        "meaning": "should be inquired into"
+      }
+    ],
     "category": "Vedanta-sutra",
     "rank": 15,
-    "chapter_verse": "1.1.1"
+    "chapter_verse": "1.1.1",
+    "times_quoted_approx": 136
   },
   {
     "id": "pp_016",
     "title": "na mam duskrtino mudhah",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "न मां दुष्कृतिनो मूढाः प्रपद्यन्ते नराधमाः ।",
+      "माययापहृतज्ञाना आसुरं भावमाश्रिताः ॥"
+    ],
     "transliteration": [
       "na mam duskrtino mudhah"
     ],
     "translation": "Four types of miscreants",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "न",
+        "meaning": "not"
+      },
+      {
+        "word": "माम्",
+        "meaning": "unto Me"
+      },
+      {
+        "word": "दुष्कृतिनः",
+        "meaning": "miscreants"
+      },
+      {
+        "word": "मूढाः",
+        "meaning": "foolish"
+      },
+      {
+        "word": "प्रपद्यन्ते",
+        "meaning": "surrender"
+      },
+      {
+        "word": "नर-अधमाः",
+        "meaning": "lowest of mankind"
+      },
+      {
+        "word": "माययाः",
+        "meaning": "by the illusory energy"
+      },
+      {
+        "word": "अपहृत-ज्ञानाः",
+        "meaning": "whose knowledge is stolen"
+      },
+      {
+        "word": "आसुरम्",
+        "meaning": "demonic"
+      },
+      {
+        "word": "भावम्",
+        "meaning": "nature"
+      },
+      {
+        "word": "आश्रिताः",
+        "meaning": "having taken shelter of"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 16,
-    "chapter_verse": "7.15"
+    "chapter_verse": "7.15",
+    "times_quoted_approx": 131
   },
   {
     "id": "pp_017",
     "title": "aham sarvasya prabhavo",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "अहं सर्वस्य प्रभवो मत्तः सर्वं प्रवर्तते ।",
+      "इति मत्वा भजन्ते मां बुधा भावसमन्विताः ॥"
+    ],
     "transliteration": [
       "aham sarvasya prabhavo"
     ],
     "translation": "Krishna as source of all",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "अहम्",
+        "meaning": "I"
+      },
+      {
+        "word": "सर्वस्य",
+        "meaning": "of all"
+      },
+      {
+        "word": "प्रभवः",
+        "meaning": "the source of generation"
+      },
+      {
+        "word": "मत्तः",
+        "meaning": "from Me"
+      },
+      {
+        "word": "सर्वम्",
+        "meaning": "everything"
+      },
+      {
+        "word": "प्रवर्तते",
+        "meaning": "emanates"
+      },
+      {
+        "word": "इति",
+        "meaning": "thus"
+      },
+      {
+        "word": "मत्वा",
+        "meaning": "knowing well"
+      },
+      {
+        "word": "भजन्ते",
+        "meaning": "worship"
+      },
+      {
+        "word": "माम्",
+        "meaning": "Me"
+      },
+      {
+        "word": "बुधाः",
+        "meaning": "the wise"
+      },
+      {
+        "word": "भाव-समन्विताः",
+        "meaning": "with devotion and attention"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 17,
-    "chapter_verse": "10.8"
+    "chapter_verse": "10.8",
+    "times_quoted_approx": 126
   },
   {
     "id": "pp_018",
     "title": "na jayate mriyate va kadacin",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "न जायते म्रियते वा कदाचिन् नायं भूत्वा भविता वा न भूयः ।",
+      "अजो नित्यः शाश्वतोऽयं पुराणो न हन्यते हन्यमाने शरीरे ॥"
+    ],
     "transliteration": [
       "na jayate mriyate va kadacin"
     ],
     "translation": "Eternal nature of the soul",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "न जायते",
+        "meaning": "is never born"
+      },
+      {
+        "word": "म्रियते",
+        "meaning": "nor does it die"
+      },
+      {
+        "word": "वा",
+        "meaning": "either"
+      },
+      {
+        "word": "कदाचिन्",
+        "meaning": "at any time"
+      },
+      {
+        "word": "न अयम्",
+        "meaning": "this soul never"
+      },
+      {
+        "word": "भूत्वा",
+        "meaning": "having come into being"
+      },
+      {
+        "word": "भविता",
+        "meaning": "will come to be"
+      },
+      {
+        "word": "वा",
+        "meaning": "or"
+      },
+      {
+        "word": "न भूयः",
+        "meaning": "not again"
+      },
+      {
+        "word": "अजः",
+        "meaning": "unborn"
+      },
+      {
+        "word": "नित्यः",
+        "meaning": "eternal"
+      },
+      {
+        "word": "शाश्वतः",
+        "meaning": "permanent, ever-existing"
+      },
+      {
+        "word": "पुराणः",
+        "meaning": "the oldest"
+      },
+      {
+        "word": "न हन्यते",
+        "meaning": "is not slain"
+      },
+      {
+        "word": "हन्यमाने",
+        "meaning": "when the body is slain"
+      },
+      {
+        "word": "शरीरे",
+        "meaning": "the body"
+      }
+    ],
     "category": "Bhagavad-gita",
     "rank": 18,
-    "chapter_verse": "2.20"
+    "chapter_verse": "2.20",
+    "times_quoted_approx": 122
   },
   {
     "id": "pp_019",
     "title": "ceto-darpana-marjanam",
     "source": "Caitanya-caritamrta",
-    "devanagari": [],
+    "devanagari": [
+      "चेतोदर्पणमार्जनं भवमहादावाग्निनिर्वापणं श्रेयःकैरवचन्द्रिकावितरणं विद्यावधूजीवनम् ।",
+      "आनन्दाम्बुधिवर्धनं प्रतिपदं पूर्णामृतास्वादनं सर्वात्मस्नपनं परं विजयते श्रीकृष्णसंकीर्तनम् ॥"
+    ],
     "transliteration": [
       "ceto-darpana-marjanam"
     ],
     "translation": "Cleansing the heart by chanting",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "चेतः-दर्पण-मार्जनम्",
+        "meaning": "cleansing the mirror of the heart"
+      },
+      {
+        "word": "भव-महा-दाव-अग्नि-निर्वापणम्",
+        "meaning": "quenching the great forest fire of material existence"
+      },
+      {
+        "word": "श्रेयः-कैरव-चन्द्रिका-वितरणम्",
+        "meaning": "spreading the moonshine of supreme auspiciousness"
+      },
+      {
+        "word": "विद्यावधू-जीवनम्",
+        "meaning": "the life of transcendental knowledge"
+      },
+      {
+        "word": "आनन्द-अम्बुधि-वर्धनम्",
+        "meaning": "increasing the ocean of transcendental bliss"
+      },
+      {
+        "word": "प्रतिपदम्",
+        "meaning": "at every step"
+      },
+      {
+        "word": "पूर्ण-अमृत-आस्वादनम्",
+        "meaning": "tasting full nectar at every step"
+      },
+      {
+        "word": "सर्व-आत्म-स्नपनम्",
+        "meaning": "bathing the entire self"
+      },
+      {
+        "word": "परम् विजयते",
+        "meaning": "is gloriously victorious"
+      },
+      {
+        "word": "श्री-कृष्ण-सङ्कीर्तनम्",
+        "meaning": "the congregational chanting of Krishna's name"
+      }
+    ],
     "category": "Caitanya-caritamrta",
     "rank": 19,
-    "chapter_verse": "Antya 20.12"
+    "chapter_verse": "Antya 20.12",
+    "times_quoted_approx": 118
   },
   {
     "id": "pp_020",
     "title": "aham brahmasmi",
     "source": "Brhad-aranyaka Upanisad",
-    "devanagari": [],
+    "devanagari": [
+      "अहं ब्रह्मास्मि"
+    ],
     "transliteration": [
       "aham brahmasmi"
     ],
     "translation": "I am Brahman",
-    "word_by_word": [],
+    "word_by_word": [
+      {
+        "word": "अहम्",
+        "meaning": "I"
+      },
+      {
+        "word": "ब्रह्म",
+        "meaning": "Brahman, the Absolute Truth"
+      },
+      {
+        "word": "अस्मि",
+        "meaning": "am"
+      }
+    ],
     "category": "Brhad-aranyaka Upanisad",
-    "rank": 20
+    "rank": 20,
+    "times_quoted_approx": 114
   },
   {
     "id": "pp_021",
     "title": "sarvopadhi-vinirmuktam",
     "source": "Narada-pancaratra",
-    "devanagari": [],
+    "devanagari": [
+      "सर्वोपाधिविनिर्मुक्तं तत्परत्वेन निर्मलम् ।",
+      "हृषीकेण हृषीकेशसेवनं भक्तिरुच्यते ॥"
+    ],
     "transliteration": [
       "sarvopadhi-vinirmuktam"
     ],
     "translation": "Freed from all designations",
     "word_by_word": [],
     "category": "Narada-pancaratra",
-    "rank": 21
+    "rank": 21,
+    "times_quoted_approx": 110
   },
   {
     "id": "pp_022",
     "title": "sa vai pumsam paro dharmo",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "स वै पुंसां परो धर्मो यतो भक्तिरधोक्षजे ।",
+      "अहैतुक्यप्रतिहता यया आत्मा सुप्रसीदति ॥"
+    ],
     "transliteration": [
       "sa vai pumsam paro dharmo"
     ],
@@ -302,13 +1218,17 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 22,
-    "chapter_verse": "1.2.6"
+    "chapter_verse": "1.2.6",
+    "times_quoted_approx": 106
   },
   {
     "id": "pp_023",
     "title": "sravanam kirtanam visnoh",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "श्रवणं कीर्तनं विष्णोः स्मरणं पादसेवनम् ।",
+      "अर्चनं वन्दनं दास्यं सख्यमात्मनिवेदनम् ॥"
+    ],
     "transliteration": [
       "sravanam kirtanam visnoh"
     ],
@@ -316,26 +1236,33 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 23,
-    "chapter_verse": "7.5.23"
+    "chapter_verse": "7.5.23",
+    "times_quoted_approx": 103
   },
   {
     "id": "pp_024",
     "title": "nityo nityanam cetanas cetananam",
     "source": "Katha Upanisad",
-    "devanagari": [],
+    "devanagari": [
+      "नित्यो नित्यानां चेतनश्चेतनानाम् एको बहूनां यो विदधाति कामान् ।"
+    ],
     "transliteration": [
       "nityo nityanam cetanas cetananam"
     ],
     "translation": "The supreme eternal among eternals",
     "word_by_word": [],
     "category": "Katha Upanisad",
-    "rank": 24
+    "rank": 24,
+    "times_quoted_approx": 99
   },
   {
     "id": "pp_025",
     "title": "mam ca yo 'vyabhicarena",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "मां च योऽव्यभिचारेण भक्तियोगेन सेवते ।",
+      "स गुणान् समतीत्यैतान् ब्रह्मभूयाय कल्पते ॥"
+    ],
     "transliteration": [
       "mam ca yo 'vyabhicarena"
     ],
@@ -343,13 +1270,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 25,
-    "chapter_verse": "14.26"
+    "chapter_verse": "14.26",
+    "times_quoted_approx": 96
   },
   {
     "id": "pp_026",
     "title": "bhoktaram yajna-tapasam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "भोक्तारं यज्ञतपसां सर्वलोकमहेश्वरम् ।",
+      "सुहृदं सर्वभूतानां ज्ञात्वा मां शान्तिमृच्छति ॥"
+    ],
     "transliteration": [
       "bhoktaram yajna-tapasam"
     ],
@@ -357,13 +1288,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 26,
-    "chapter_verse": "5.29"
+    "chapter_verse": "5.29",
+    "times_quoted_approx": 93
   },
   {
     "id": "pp_027",
     "title": "anyabhilasita-sunyam",
     "source": "Bhakti-rasamrta-sindhu",
-    "devanagari": [],
+    "devanagari": [
+      "अन्याभिलाषिताशून्यं ज्ञानकर्माद्यनावृतम् ।",
+      "आनुकूल्येन कृष्णानुशीलनं भक्तिरुत्तमा ॥"
+    ],
     "transliteration": [
       "anyabhilasita-sunyam"
     ],
@@ -371,26 +1306,34 @@
     "word_by_word": [],
     "category": "Bhakti-rasamrta-sindhu",
     "rank": 27,
-    "chapter_verse": "1.1.11"
+    "chapter_verse": "1.1.11",
+    "times_quoted_approx": 90
   },
   {
     "id": "pp_028",
     "title": "harer nama harer nama",
     "source": "Brhad-naradiya Purana",
-    "devanagari": [],
+    "devanagari": [
+      "हरेर्नाम हरेर्नाम हरेर्नामैव केवलम् ।",
+      "कलौ नास्त्येव नास्त्येव नास्त्येव गतिरन्यथा ॥"
+    ],
     "transliteration": [
       "harer nama harer nama"
     ],
     "translation": "Chanting as only means in Kali-yuga",
     "word_by_word": [],
     "category": "Brhad-naradiya Purana",
-    "rank": 28
+    "rank": 28,
+    "times_quoted_approx": 86
   },
   {
     "id": "pp_029",
     "title": "manusyanam sahasresu",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "मनुष्याणां सहस्रेषु कश्चिद्यतति सिद्धये ।",
+      "यततामपि सिद्धानां कश्चिन्मां वेत्ति तत्त्वतः ॥"
+    ],
     "transliteration": [
       "manusyanam sahasresu"
     ],
@@ -398,26 +1341,33 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 29,
-    "chapter_verse": "7.3"
+    "chapter_verse": "7.3",
+    "times_quoted_approx": 84
   },
   {
     "id": "pp_030",
     "title": "tad-vijnanartham sa gurum evabhigacchet",
     "source": "Mundaka Upanisad",
-    "devanagari": [],
+    "devanagari": [
+      "तद्विज्ञानार्थं स गुरुमेवाभिगच्छेत् समित्पाणिः श्रोत्रियं ब्रह्मनिष्ठम् ॥"
+    ],
     "transliteration": [
       "tad-vijnanartham sa gurum evabhigacchet"
     ],
     "translation": "Approaching a bona fide guru",
     "word_by_word": [],
     "category": "Mundaka Upanisad",
-    "rank": 30
+    "rank": 30,
+    "times_quoted_approx": 81
   },
   {
     "id": "pp_031",
     "title": "yasyatma-buddhih kunape tri-dhatuke",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "यस्यात्मबुद्धिः कुणपे त्रिधातुके स्वधीः कलत्रादिषु भौम इज्यधीः ।",
+      "यत्तीर्थबुद्धिः सलिले न कर्हिचिज् जनेष्वभिज्ञेषु स एव गोखरः ॥"
+    ],
     "transliteration": [
       "yasyatma-buddhih kunape tri-dhatuke"
     ],
@@ -425,13 +1375,17 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 31,
-    "chapter_verse": "10.84.13"
+    "chapter_verse": "10.84.13",
+    "times_quoted_approx": 78
   },
   {
     "id": "pp_032",
     "title": "evam parampara-praptam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "एवं परम्पराप्राप्तम् इमं राजर्षयो विदुः ।",
+      "स कालेनेह महता योगो नष्टः परन्तप ॥"
+    ],
     "transliteration": [
       "evam parampara-praptam"
     ],
@@ -439,13 +1393,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 32,
-    "chapter_verse": "4.2"
+    "chapter_verse": "4.2",
+    "times_quoted_approx": 75
   },
   {
     "id": "pp_033",
     "title": "indriyarthesu vairagyam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "इन्द्रियार्थेषु वैराग्यम् अनहंकार एव च ।",
+      "जन्ममृत्युजराव्याधि-दुःखदोषानुदर्शनम् ॥"
+    ],
     "transliteration": [
       "indriyarthesu vairagyam"
     ],
@@ -453,13 +1411,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 33,
-    "chapter_verse": "13.9"
+    "chapter_verse": "13.9",
+    "times_quoted_approx": 73
   },
   {
     "id": "pp_034",
     "title": "catur-varnyam maya srstam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "चातुर्वर्ण्यं मया सृष्टं गुणकर्मविभागशः ।",
+      "तस्य कर्तारमपि मां विद्ध्यकर्तारमव्ययम् ॥"
+    ],
     "transliteration": [
       "catur-varnyam maya srstam"
     ],
@@ -467,13 +1429,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 34,
-    "chapter_verse": "4.13"
+    "chapter_verse": "4.13",
+    "times_quoted_approx": 70
   },
   {
     "id": "pp_035",
     "title": "mamaivamso jiva-loke",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "ममैवांशो जीवलोके जीवभूतः सनातनः ।",
+      "मनःषष्ठानीन्द्रियाणि प्रकृतिस्थानि कर्षति ॥"
+    ],
     "transliteration": [
       "mamaivamso jiva-loke"
     ],
@@ -481,13 +1447,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 35,
-    "chapter_verse": "15.7"
+    "chapter_verse": "15.7",
+    "times_quoted_approx": 68
   },
   {
     "id": "pp_036",
     "title": "yada yada hi dharmasya",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "यदा यदा हि धर्मस्य ग्लानिर्भवति भारत ।",
+      "अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ॥"
+    ],
     "transliteration": [
       "yada yada hi dharmasya"
     ],
@@ -495,13 +1465,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 36,
-    "chapter_verse": "4.7"
+    "chapter_verse": "4.7",
+    "times_quoted_approx": 66
   },
   {
     "id": "pp_037",
     "title": "bhaktya mam abhijanati",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "भक्त्या मामभिजानाति यावान् यश्चास्मि तत्त्वतः ।",
+      "ततो मां तत्त्वतो ज्ञात्वा विशते तदनन्तरम् ॥"
+    ],
     "transliteration": [
       "bhaktya mam abhijanati"
     ],
@@ -509,39 +1483,51 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 37,
-    "chapter_verse": "18.55"
+    "chapter_verse": "18.55",
+    "times_quoted_approx": 63
   },
   {
     "id": "pp_038",
     "title": "na tasya karyam karanam ca vidyate",
     "source": "Svetasvatara Upanisad",
-    "devanagari": [],
+    "devanagari": [
+      "न तस्य कार्यं करणं च विद्यते न तत्समश्चाभ्यधिकश्च दृश्यते ।",
+      "परास्य शक्तिर्विविधैव श्रूयते स्वाभाविकी ज्ञानबलक्रिया च ॥"
+    ],
     "transliteration": [
       "na tasya karyam karanam ca vidyate"
     ],
     "translation": "No work or organ for the Supreme",
     "word_by_word": [],
     "category": "Svetasvatara Upanisad",
-    "rank": 38
+    "rank": 38,
+    "times_quoted_approx": 61
   },
   {
     "id": "pp_039",
     "title": "atah sri-krsna namadi",
     "source": "Padma Purana",
-    "devanagari": [],
+    "devanagari": [
+      "अतः श्रीकृष्णनामादि न भवेद् ग्राह्यमिन्द्रियैः ।",
+      "सेवोन्मुखे हि जिह्वादौ स्वयमेव स्फुरत्यदः ॥"
+    ],
     "transliteration": [
       "atah sri-krsna namadi"
     ],
     "translation": "Senses cannot perceive Krishna",
     "word_by_word": [],
     "category": "Padma Purana",
-    "rank": 39
+    "rank": 39,
+    "times_quoted_approx": 59
   },
   {
     "id": "pp_040",
     "title": "mayadhyaksena prakrtih",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "मयाध्यक्षेण प्रकृतिः सूयते सचराचरम् ।",
+      "हेतुनानेन कौन्तेय जगद्विपरिवर्तते ॥"
+    ],
     "transliteration": [
       "mayadhyaksena prakrtih"
     ],
@@ -549,13 +1535,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 40,
-    "chapter_verse": "9.10"
+    "chapter_verse": "9.10",
+    "times_quoted_approx": 57
   },
   {
     "id": "pp_041",
     "title": "mattah parataram nanyat",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "मत्तः परतरं नान्यत् किञ्चिदस्ति धनञ्जय ।",
+      "मयि सर्वमिदं प्रोतं सूत्रे मणिगणा इव ॥"
+    ],
     "transliteration": [
       "mattah parataram nanyat"
     ],
@@ -563,13 +1553,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 41,
-    "chapter_verse": "7.7"
+    "chapter_verse": "7.7",
+    "times_quoted_approx": 55
   },
   {
     "id": "pp_042",
     "title": "vadanti tat tattva-vidas",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "वदन्ति तत् तत्त्वविदस् तत्त्वं यज्ज्ञानमद्वयम् ।",
+      "ब्रह्मेति परमात्मेति भगवानिति शब्द्यते ॥"
+    ],
     "transliteration": [
       "vadanti tat tattva-vidas"
     ],
@@ -577,13 +1571,17 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 42,
-    "chapter_verse": "1.2.11"
+    "chapter_verse": "1.2.11",
+    "times_quoted_approx": 53
   },
   {
     "id": "pp_043",
     "title": "paritranaya sadhunam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "परित्राणाय साधूनां विनाशाय च दुष्कृताम् ।",
+      "धर्मसंस्थापनार्थाय सम्भवामि युगे युगे ॥"
+    ],
     "transliteration": [
       "paritranaya sadhunam"
     ],
@@ -591,13 +1589,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 43,
-    "chapter_verse": "4.8"
+    "chapter_verse": "4.8",
+    "times_quoted_approx": 51
   },
   {
     "id": "pp_044",
     "title": "yare dekha tare kaha krsna upadesa",
     "source": "Caitanya-caritamrta",
-    "devanagari": [],
+    "devanagari": [
+      "यारे देख, तारे कह 'कृष्ण'-उपदेश ।",
+      "आमार आज्ञाय गुरु हञा तार' एइ देश ॥"
+    ],
     "transliteration": [
       "yare dekha tare kaha krsna upadesa"
     ],
@@ -605,13 +1607,17 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 44,
-    "chapter_verse": "Madhya 7.128"
+    "chapter_verse": "Madhya 7.128",
+    "times_quoted_approx": 50
   },
   {
     "id": "pp_045",
     "title": "sarva-yonisu kaunteya",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "सर्वयोनिषु कौन्तेय मूर्तयः सम्भवन्ति याः ।",
+      "तासां ब्रह्म महद्योनिर् अहं बीजप्रदः पिता ॥"
+    ],
     "transliteration": [
       "sarva-yonisu kaunteya"
     ],
@@ -619,13 +1625,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 45,
-    "chapter_verse": "14.4"
+    "chapter_verse": "14.4",
+    "times_quoted_approx": 48
   },
   {
     "id": "pp_046",
     "title": "ete camsa-kalah pumsam",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "एते चांशकलाः पुंसः कृष्णस्तु भगवान् स्वयम् ।",
+      "इन्द्रारिव्याकुलं लोकं मृडयन्ति युगे युगे ॥"
+    ],
     "transliteration": [
       "ete camsa-kalah pumsam"
     ],
@@ -633,13 +1643,17 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 46,
-    "chapter_verse": "1.3.28"
+    "chapter_verse": "1.3.28",
+    "times_quoted_approx": 46
   },
   {
     "id": "pp_047",
     "title": "ye 'nye 'ravindaksa vimukta-maninas",
     "source": "Srimad-Bhagavatam",
-    "devanagari": [],
+    "devanagari": [
+      "ये ऽन्येऽरविन्दाक्ष विमुक्तमानिनस् त्वय्यस्तभावादविशुद्धबुद्धयः ।",
+      "आरुह्य कृच्छ्रेण परं पदं ततः पतन्त्यधोऽनादृतयुष्मदङ्घ्रयः ॥"
+    ],
     "transliteration": [
       "ye 'nye 'ravindaksa vimukta-maninas"
     ],
@@ -647,13 +1661,17 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 47,
-    "chapter_verse": "10.2.32"
+    "chapter_verse": "10.2.32",
+    "times_quoted_approx": 45
   },
   {
     "id": "pp_048",
     "title": "yoginam api sarvesam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "योगिनामपि सर्वेषां मद्गतेनान्तरात्मना ।",
+      "श्रद्धावान् भजते यो मां स मे युक्ततमो मतः ॥"
+    ],
     "transliteration": [
       "yoginam api sarvesam"
     ],
@@ -661,13 +1679,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 48,
-    "chapter_verse": "6.47"
+    "chapter_verse": "6.47",
+    "times_quoted_approx": 43
   },
   {
     "id": "pp_049",
     "title": "tad viddhi pranipatena",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "तद्विद्धि प्रणिपातेन परिप्रश्नेन सेवया ।",
+      "उपदेक्ष्यन्ति ते ज्ञानं ज्ञानिनस्तत्त्वदर्शिनः ॥"
+    ],
     "transliteration": [
       "tad viddhi pranipatena"
     ],
@@ -675,13 +1697,17 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 49,
-    "chapter_verse": "4.34"
+    "chapter_verse": "4.34",
+    "times_quoted_approx": 42
   },
   {
     "id": "pp_050",
     "title": "patram puspam phalam toyam",
     "source": "Bhagavad-gita",
-    "devanagari": [],
+    "devanagari": [
+      "पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति ।",
+      "तदहं भक्त्युपहृतम् अश्नामि प्रयतात्मनः ॥"
+    ],
     "transliteration": [
       "patram puspam phalam toyam"
     ],
@@ -689,7 +1715,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 50,
-    "chapter_verse": "9.26"
+    "chapter_verse": "9.26",
+    "times_quoted_approx": 40
   },
   {
     "id": "pp_051",
@@ -703,7 +1730,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 51,
-    "chapter_verse": "5.18"
+    "chapter_verse": "5.18",
+    "times_quoted_approx": 39
   },
   {
     "id": "pp_052",
@@ -717,7 +1745,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 52,
-    "chapter_verse": "10.12"
+    "chapter_verse": "10.12",
+    "times_quoted_approx": 38
   },
   {
     "id": "pp_053",
@@ -731,7 +1760,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 53,
-    "chapter_verse": "Antya 20.21"
+    "chapter_verse": "Antya 20.21",
+    "times_quoted_approx": 36
   },
   {
     "id": "pp_054",
@@ -745,7 +1775,8 @@
     "word_by_word": [],
     "category": "Sri Isopanisad",
     "rank": 54,
-    "chapter_verse": "Mantra 1"
+    "chapter_verse": "Mantra 1",
+    "times_quoted_approx": 35
   },
   {
     "id": "pp_055",
@@ -759,7 +1790,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 55,
-    "chapter_verse": "10.10"
+    "chapter_verse": "10.10",
+    "times_quoted_approx": 34
   },
   {
     "id": "pp_056",
@@ -773,7 +1805,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 56,
-    "chapter_verse": "1.2.8"
+    "chapter_verse": "1.2.8",
+    "times_quoted_approx": 33
   },
   {
     "id": "pp_057",
@@ -787,7 +1820,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 57,
-    "chapter_verse": "7.1"
+    "chapter_verse": "7.1",
+    "times_quoted_approx": 32
   },
   {
     "id": "pp_058",
@@ -801,7 +1835,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 58,
-    "chapter_verse": "13.22"
+    "chapter_verse": "13.22",
+    "times_quoted_approx": 31
   },
   {
     "id": "pp_059",
@@ -815,7 +1850,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 59,
-    "chapter_verse": "3.9"
+    "chapter_verse": "3.9",
+    "times_quoted_approx": 30
   },
   {
     "id": "pp_060",
@@ -829,7 +1865,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 60,
-    "chapter_verse": "7.4"
+    "chapter_verse": "7.4",
+    "times_quoted_approx": 29
   },
   {
     "id": "pp_061",
@@ -843,7 +1880,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 61,
-    "chapter_verse": "5.5.1"
+    "chapter_verse": "5.5.1",
+    "times_quoted_approx": 28
   },
   {
     "id": "pp_062",
@@ -857,7 +1895,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 62,
-    "chapter_verse": "1.1.1"
+    "chapter_verse": "1.1.1",
+    "times_quoted_approx": 27
   },
   {
     "id": "pp_063",
@@ -871,7 +1910,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 63,
-    "chapter_verse": "8.15"
+    "chapter_verse": "8.15",
+    "times_quoted_approx": 26
   },
   {
     "id": "pp_064",
@@ -885,7 +1925,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 64,
-    "chapter_verse": "4.1"
+    "chapter_verse": "4.1",
+    "times_quoted_approx": 25
   },
   {
     "id": "pp_065",
@@ -899,7 +1940,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 65,
-    "chapter_verse": "5.18.12"
+    "chapter_verse": "5.18.12",
+    "times_quoted_approx": 24
   },
   {
     "id": "pp_066",
@@ -913,7 +1955,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 66,
-    "chapter_verse": "9.11"
+    "chapter_verse": "9.11",
+    "times_quoted_approx": 23
   },
   {
     "id": "pp_067",
@@ -927,7 +1970,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 67,
-    "chapter_verse": "9.25"
+    "chapter_verse": "9.25",
+    "times_quoted_approx": 22
   },
   {
     "id": "pp_068",
@@ -941,7 +1985,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 68,
-    "chapter_verse": "5.38"
+    "chapter_verse": "5.38",
+    "times_quoted_approx": 22
   },
   {
     "id": "pp_069",
@@ -955,7 +2000,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 69,
-    "chapter_verse": "1.2.17"
+    "chapter_verse": "1.2.17",
+    "times_quoted_approx": 21
   },
   {
     "id": "pp_070",
@@ -969,7 +2015,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 70,
-    "chapter_verse": "7.5.30"
+    "chapter_verse": "7.5.30",
+    "times_quoted_approx": 20
   },
   {
     "id": "pp_071",
@@ -983,7 +2030,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 71,
-    "chapter_verse": "Adi 9.41"
+    "chapter_verse": "Adi 9.41",
+    "times_quoted_approx": 20
   },
   {
     "id": "pp_072",
@@ -997,7 +2045,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 72,
-    "chapter_verse": "11.5.32"
+    "chapter_verse": "11.5.32",
+    "times_quoted_approx": 19
   },
   {
     "id": "pp_073",
@@ -1011,7 +2060,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 73,
-    "chapter_verse": "5.33"
+    "chapter_verse": "5.33",
+    "times_quoted_approx": 18
   },
   {
     "id": "pp_074",
@@ -1025,7 +2075,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 74,
-    "chapter_verse": "4.11"
+    "chapter_verse": "4.11",
+    "times_quoted_approx": 18
   },
   {
     "id": "pp_075",
@@ -1038,7 +2089,8 @@
     "translation": "Need for a great devotee's conclusion",
     "word_by_word": [],
     "category": "Mahabharata",
-    "rank": 75
+    "rank": 75,
+    "times_quoted_approx": 17
   },
   {
     "id": "pp_076",
@@ -1052,7 +2104,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 76,
-    "chapter_verse": "3.31.1"
+    "chapter_verse": "3.31.1",
+    "times_quoted_approx": 16
   },
   {
     "id": "pp_077",
@@ -1066,7 +2119,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 77,
-    "chapter_verse": "Madhya 20.108"
+    "chapter_verse": "Madhya 20.108",
+    "times_quoted_approx": 16
   },
   {
     "id": "pp_078",
@@ -1080,7 +2134,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 78,
-    "chapter_verse": "8.19"
+    "chapter_verse": "8.19",
+    "times_quoted_approx": 15
   },
   {
     "id": "pp_079",
@@ -1094,7 +2149,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 79,
-    "chapter_verse": "9.32"
+    "chapter_verse": "9.32",
+    "times_quoted_approx": 15
   },
   {
     "id": "pp_080",
@@ -1108,7 +2164,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 80,
-    "chapter_verse": "1.2.13"
+    "chapter_verse": "1.2.13",
+    "times_quoted_approx": 14
   },
   {
     "id": "pp_081",
@@ -1122,7 +2179,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 81,
-    "chapter_verse": "5.37"
+    "chapter_verse": "5.37",
+    "times_quoted_approx": 14
   },
   {
     "id": "pp_082",
@@ -1136,7 +2194,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 82,
-    "chapter_verse": "6.3.19"
+    "chapter_verse": "6.3.19",
+    "times_quoted_approx": 13
   },
   {
     "id": "pp_083",
@@ -1150,7 +2209,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 83,
-    "chapter_verse": "9.4"
+    "chapter_verse": "9.4",
+    "times_quoted_approx": 13
   },
   {
     "id": "pp_084",
@@ -1164,7 +2224,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 84,
-    "chapter_verse": "Madhya 19.151"
+    "chapter_verse": "Madhya 19.151",
+    "times_quoted_approx": 12
   },
   {
     "id": "pp_085",
@@ -1178,7 +2239,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 85,
-    "chapter_verse": "5.5.4"
+    "chapter_verse": "5.5.4",
+    "times_quoted_approx": 12
   },
   {
     "id": "pp_086",
@@ -1192,7 +2254,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 86,
-    "chapter_verse": "5.5.8"
+    "chapter_verse": "5.5.8",
+    "times_quoted_approx": 12
   },
   {
     "id": "pp_087",
@@ -1206,7 +2269,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 87,
-    "chapter_verse": "5.35"
+    "chapter_verse": "5.35",
+    "times_quoted_approx": 11
   },
   {
     "id": "pp_088",
@@ -1219,7 +2283,8 @@
     "translation": "Animals also eat sleep mate defend",
     "word_by_word": [],
     "category": "Hitopadesa",
-    "rank": 88
+    "rank": 88,
+    "times_quoted_approx": 11
   },
   {
     "id": "pp_089",
@@ -1233,7 +2298,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 89,
-    "chapter_verse": "15.6"
+    "chapter_verse": "15.6",
+    "times_quoted_approx": 10
   },
   {
     "id": "pp_090",
@@ -1247,7 +2313,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 90,
-    "chapter_verse": "1.1.2"
+    "chapter_verse": "1.1.2",
+    "times_quoted_approx": 10
   },
   {
     "id": "pp_091",
@@ -1261,7 +2328,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 91,
-    "chapter_verse": "7.6.1"
+    "chapter_verse": "7.6.1",
+    "times_quoted_approx": 10
   },
   {
     "id": "pp_092",
@@ -1275,7 +2343,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 92,
-    "chapter_verse": "1.2.7"
+    "chapter_verse": "1.2.7",
+    "times_quoted_approx": 9
   },
   {
     "id": "pp_093",
@@ -1289,7 +2358,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 93,
-    "chapter_verse": "18.42"
+    "chapter_verse": "18.42",
+    "times_quoted_approx": 9
   },
   {
     "id": "pp_094",
@@ -1303,7 +2373,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 94,
-    "chapter_verse": "7.28"
+    "chapter_verse": "7.28",
+    "times_quoted_approx": 9
   },
   {
     "id": "pp_095",
@@ -1317,7 +2388,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 95,
-    "chapter_verse": "11.3.21"
+    "chapter_verse": "11.3.21",
+    "times_quoted_approx": 9
   },
   {
     "id": "pp_096",
@@ -1331,7 +2403,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 96,
-    "chapter_verse": "8.16"
+    "chapter_verse": "8.16",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_097",
@@ -1345,7 +2418,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 97,
-    "chapter_verse": "5.40"
+    "chapter_verse": "5.40",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_098",
@@ -1359,7 +2433,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 98,
-    "chapter_verse": "1.5.18"
+    "chapter_verse": "1.5.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_099",
@@ -1373,7 +2448,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 99,
-    "chapter_verse": "5.29"
+    "chapter_verse": "5.29",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_100",
@@ -1387,7 +2463,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 100,
-    "chapter_verse": "10.14.3"
+    "chapter_verse": "10.14.3",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_101",
@@ -1401,7 +2478,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 101,
-    "chapter_verse": "14.18"
+    "chapter_verse": "14.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_102",
@@ -1415,7 +2493,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 102,
-    "chapter_verse": "7.5"
+    "chapter_verse": "7.5",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_103",
@@ -1429,7 +2508,8 @@
     "word_by_word": [],
     "category": "Gurv-astaka",
     "rank": 103,
-    "chapter_verse": "8"
+    "chapter_verse": "8",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_104",
@@ -1443,7 +2523,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 104,
-    "chapter_verse": "7.8"
+    "chapter_verse": "7.8",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_105",
@@ -1457,7 +2538,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 105,
-    "chapter_verse": "9.14"
+    "chapter_verse": "9.14",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_106",
@@ -1471,7 +2553,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 106,
-    "chapter_verse": "9.31"
+    "chapter_verse": "9.31",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_107",
@@ -1484,7 +2567,8 @@
     "translation": "World is illusion — Shankara",
     "word_by_word": [],
     "category": "Shankara",
-    "rank": 107
+    "rank": 107,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_108",
@@ -1498,7 +2582,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 108,
-    "chapter_verse": "8.6"
+    "chapter_verse": "8.6",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_109",
@@ -1512,7 +2597,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 109,
-    "chapter_verse": "9.13"
+    "chapter_verse": "9.13",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_110",
@@ -1526,7 +2612,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 110,
-    "chapter_verse": "9.30"
+    "chapter_verse": "9.30",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_111",
@@ -1540,7 +2627,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 111,
-    "chapter_verse": "3.14"
+    "chapter_verse": "3.14",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_112",
@@ -1553,7 +2641,8 @@
     "translation": "8.4 million species of life",
     "word_by_word": [],
     "category": "Padma Purana",
-    "rank": 112
+    "rank": 112,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_113",
@@ -1567,7 +2656,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 113,
-    "chapter_verse": "1.1.10"
+    "chapter_verse": "1.1.10",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_114",
@@ -1581,7 +2671,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 114,
-    "chapter_verse": "7.9.45"
+    "chapter_verse": "7.9.45",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_115",
@@ -1595,7 +2686,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 115,
-    "chapter_verse": "8.20"
+    "chapter_verse": "8.20",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_116",
@@ -1609,7 +2701,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 116,
-    "chapter_verse": "12.13.1"
+    "chapter_verse": "12.13.1",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_117",
@@ -1623,7 +2716,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 117,
-    "chapter_verse": "9.4.18"
+    "chapter_verse": "9.4.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_118",
@@ -1637,7 +2731,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 118,
-    "chapter_verse": "2.14"
+    "chapter_verse": "2.14",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_119",
@@ -1650,7 +2745,8 @@
     "translation": "Inconceivable simultaneous difference and oneness",
     "word_by_word": [],
     "category": "Sandarbhas (Jiva Gosvami)",
-    "rank": 119
+    "rank": 119,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_120",
@@ -1664,7 +2760,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 120,
-    "chapter_verse": "18.44"
+    "chapter_verse": "18.44",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_121",
@@ -1678,7 +2775,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 121,
-    "chapter_verse": "4.3"
+    "chapter_verse": "4.3",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_122",
@@ -1692,7 +2790,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 122,
-    "chapter_verse": "Antya 20.29"
+    "chapter_verse": "Antya 20.29",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_123",
@@ -1706,7 +2805,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 123,
-    "chapter_verse": "7.5.5"
+    "chapter_verse": "7.5.5",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_124",
@@ -1720,7 +2820,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 124,
-    "chapter_verse": "5.48"
+    "chapter_verse": "5.48",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_125",
@@ -1734,7 +2835,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 125,
-    "chapter_verse": "2.1.2"
+    "chapter_verse": "2.1.2",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_126",
@@ -1748,7 +2850,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 126,
-    "chapter_verse": "10.42"
+    "chapter_verse": "10.42",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_127",
@@ -1762,7 +2865,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 127,
-    "chapter_verse": "12.3.51"
+    "chapter_verse": "12.3.51",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_128",
@@ -1776,7 +2880,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 128,
-    "chapter_verse": "Madhya 19.53"
+    "chapter_verse": "Madhya 19.53",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_129",
@@ -1790,7 +2895,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 129,
-    "chapter_verse": "2.59"
+    "chapter_verse": "2.59",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_130",
@@ -1804,7 +2910,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 130,
-    "chapter_verse": "2.40"
+    "chapter_verse": "2.40",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_131",
@@ -1818,7 +2925,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 131,
-    "chapter_verse": "1.2.18"
+    "chapter_verse": "1.2.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_132",
@@ -1832,7 +2940,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 132,
-    "chapter_verse": "10.14.58"
+    "chapter_verse": "10.14.58",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_133",
@@ -1846,7 +2955,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 133,
-    "chapter_verse": "13.3"
+    "chapter_verse": "13.3",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_134",
@@ -1860,7 +2970,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 134,
-    "chapter_verse": "10.2"
+    "chapter_verse": "10.2",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_135",
@@ -1874,7 +2985,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 135,
-    "chapter_verse": "2.11"
+    "chapter_verse": "2.11",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_136",
@@ -1887,7 +2999,8 @@
     "translation": "Born a sudra — brahmin by quality",
     "word_by_word": [],
     "category": "Unknown",
-    "rank": 136
+    "rank": 136,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_137",
@@ -1901,7 +3014,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 137,
-    "chapter_verse": "6.1.13"
+    "chapter_verse": "6.1.13",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_138",
@@ -1915,7 +3029,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 138,
-    "chapter_verse": "1.2.10"
+    "chapter_verse": "1.2.10",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_139",
@@ -1929,7 +3044,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 139,
-    "chapter_verse": "7.20"
+    "chapter_verse": "7.20",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_140",
@@ -1943,7 +3059,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 140,
-    "chapter_verse": "7.9.43"
+    "chapter_verse": "7.9.43",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_141",
@@ -1957,7 +3074,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 141,
-    "chapter_verse": "7.25"
+    "chapter_verse": "7.25",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_142",
@@ -1971,7 +3089,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 142,
-    "chapter_verse": "6.41"
+    "chapter_verse": "6.41",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_143",
@@ -1984,7 +3103,8 @@
     "translation": "Chanting in every town and village",
     "word_by_word": [],
     "category": "Caitanya-bhagavata",
-    "rank": 143
+    "rank": 143,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_144",
@@ -1998,7 +3118,8 @@
     "word_by_word": [],
     "category": "Bhakti-rasamrta-sindhu",
     "rank": 144,
-    "chapter_verse": "1.2.255"
+    "chapter_verse": "1.2.255",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_145",
@@ -2011,7 +3132,8 @@
     "translation": "Six opulences of the Lord",
     "word_by_word": [],
     "category": "Visnu Purana",
-    "rank": 145
+    "rank": 145,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_146",
@@ -2024,7 +3146,8 @@
     "translation": "Varnasrama meant to satisfy Vishnu",
     "word_by_word": [],
     "category": "Visnu Purana",
-    "rank": 146
+    "rank": 146,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_147",
@@ -2037,7 +3160,8 @@
     "translation": "Knowledge manifests for one devoted to God",
     "word_by_word": [],
     "category": "Svetasvatara Upanisad",
-    "rank": 147
+    "rank": 147,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_148",
@@ -2051,7 +3175,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 148,
-    "chapter_verse": "7.16"
+    "chapter_verse": "7.16",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_149",
@@ -2064,7 +3189,8 @@
     "translation": "Everything is Brahman",
     "word_by_word": [],
     "category": "Chandogya Upanisad",
-    "rank": 149
+    "rank": 149,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_150",
@@ -2078,7 +3204,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 150,
-    "chapter_verse": "Madhya 8.128"
+    "chapter_verse": "Madhya 8.128",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_151",
@@ -2092,7 +3219,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 151,
-    "chapter_verse": "3.21"
+    "chapter_verse": "3.21",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_152",
@@ -2106,7 +3234,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 152,
-    "chapter_verse": "1.7.6"
+    "chapter_verse": "1.7.6",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_153",
@@ -2120,7 +3249,8 @@
     "word_by_word": [],
     "category": "Caitanya-caritamrta",
     "rank": 153,
-    "chapter_verse": "Madhya 22.107"
+    "chapter_verse": "Madhya 22.107",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_154",
@@ -2134,7 +3264,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 154,
-    "chapter_verse": "13.8"
+    "chapter_verse": "13.8",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_155",
@@ -2148,7 +3279,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 155,
-    "chapter_verse": "18.73"
+    "chapter_verse": "18.73",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_156",
@@ -2162,7 +3294,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 156,
-    "chapter_verse": "2.4.18"
+    "chapter_verse": "2.4.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_157",
@@ -2176,7 +3309,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 157,
-    "chapter_verse": "5.5.2"
+    "chapter_verse": "5.5.2",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_158",
@@ -2190,7 +3324,8 @@
     "word_by_word": [],
     "category": "Bhakti-rasamrta-sindhu",
     "rank": 158,
-    "chapter_verse": "1.4.15"
+    "chapter_verse": "1.4.15",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_159",
@@ -2204,7 +3339,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 159,
-    "chapter_verse": "1.2.19"
+    "chapter_verse": "1.2.19",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_160",
@@ -2218,7 +3354,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 160,
-    "chapter_verse": "4.6"
+    "chapter_verse": "4.6",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_161",
@@ -2232,7 +3369,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 161,
-    "chapter_verse": "9.3"
+    "chapter_verse": "9.3",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_162",
@@ -2246,7 +3384,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 162,
-    "chapter_verse": "5.52"
+    "chapter_verse": "5.52",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_163",
@@ -2260,7 +3399,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 163,
-    "chapter_verse": "2.3.19"
+    "chapter_verse": "2.3.19",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_164",
@@ -2274,7 +3414,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 164,
-    "chapter_verse": "9.22"
+    "chapter_verse": "9.22",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_165",
@@ -2288,7 +3429,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 165,
-    "chapter_verse": "2.3.10"
+    "chapter_verse": "2.3.10",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_166",
@@ -2302,7 +3444,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 166,
-    "chapter_verse": "3.25.25"
+    "chapter_verse": "3.25.25",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_167",
@@ -2316,7 +3459,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 167,
-    "chapter_verse": "12.3.52"
+    "chapter_verse": "12.3.52",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_168",
@@ -2330,7 +3474,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 168,
-    "chapter_verse": "5.44"
+    "chapter_verse": "5.44",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_169",
@@ -2344,7 +3489,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 169,
-    "chapter_verse": "10.12.11"
+    "chapter_verse": "10.12.11",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_170",
@@ -2358,7 +3504,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 170,
-    "chapter_verse": "6.3.20"
+    "chapter_verse": "6.3.20",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_171",
@@ -2372,7 +3519,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 171,
-    "chapter_verse": "9.2"
+    "chapter_verse": "9.2",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_172",
@@ -2386,7 +3534,8 @@
     "word_by_word": [],
     "category": "Bhakti-rasamrta-sindhu",
     "rank": 172,
-    "chapter_verse": "1.2.256"
+    "chapter_verse": "1.2.256",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_173",
@@ -2400,7 +3549,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 173,
-    "chapter_verse": "5.5.18"
+    "chapter_verse": "5.5.18",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_174",
@@ -2414,7 +3564,8 @@
     "word_by_word": [],
     "category": "Bhagavad-gita",
     "rank": 174,
-    "chapter_verse": "16.23"
+    "chapter_verse": "16.23",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_175",
@@ -2428,7 +3579,8 @@
     "word_by_word": [],
     "category": "Brahma-samhita",
     "rank": 175,
-    "chapter_verse": "5.39"
+    "chapter_verse": "5.39",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_176",
@@ -2442,7 +3594,8 @@
     "word_by_word": [],
     "category": "Gurv-astaka",
     "rank": 176,
-    "chapter_verse": "7"
+    "chapter_verse": "7",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_177",
@@ -2456,7 +3609,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 177,
-    "chapter_verse": "11.2.42"
+    "chapter_verse": "11.2.42",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_178",
@@ -2470,7 +3624,8 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 178,
-    "chapter_verse": "5.5.5"
+    "chapter_verse": "5.5.5",
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_179",
@@ -2483,7 +3638,8 @@
     "translation": "Obeisances to Vishnu protector of brahmins",
     "word_by_word": [],
     "category": "Visnu Purana",
-    "rank": 179
+    "rank": 179,
+    "times_quoted_approx": 8
   },
   {
     "id": "pp_180",
@@ -2497,6 +3653,7 @@
     "word_by_word": [],
     "category": "Srimad-Bhagavatam",
     "rank": 180,
-    "chapter_verse": "3.25.21"
+    "chapter_verse": "3.25.21",
+    "times_quoted_approx": 8
   }
 ]

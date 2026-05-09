@@ -18,6 +18,7 @@ export interface Sloka {
   audio_url?: string;
   category: string;
   rank?: number;
+  times_quoted_approx?: number;
   chapter_verse?: string;
 }
 
