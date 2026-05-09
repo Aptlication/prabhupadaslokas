@@ -69,10 +69,21 @@ async function saveQueue(queue: PendingOp[]): Promise<void> {
   await AsyncStorage.setItem(QUEUE_KEY, JSON.stringify(queue));
 }
 
-/** Last write for the same slokaId wins — deduplicates the queue */
+/**
+ * Deduplicates the queue while keeping progress and bookmark ops independent.
+ * Key: "progress:{slokaId}" | "bookmark:{slokaId}"
+ * — A progress update and a bookmark toggle on the same sloka both survive.
+ * — Multiple progress updates on the same sloka → only the latest survives.
+ * — bookmark_add then bookmark_remove (or vice-versa) → only the latest survives.
+ */
 function dedupeQueue(queue: PendingOp[]): PendingOp[] {
   const seen = new Map<string, PendingOp>();
-  for (const op of queue) seen.set(op.slokaId, op);
+  for (const op of queue) {
+    const key = op.type === "progress"
+      ? `progress:${op.slokaId}`
+      : `bookmark:${op.slokaId}`;
+    seen.set(key, op);
+  }
   return Array.from(seen.values());
 }
 
@@ -189,32 +200,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     await saveQueue(next);
     setSyncState("pending");
   }, []);
-
-  const flushQueue = useCallback(
-    async (currentProgress: Record<string, SlokaProgress>): Promise<Record<string, SlokaProgress>> => {
-      const queue = await loadQueue();
-      if (queue.length === 0) return currentProgress;
-
-      setSyncState("syncing");
-      const remaining: PendingOp[] = [];
-
-      for (const op of dedupeQueue(queue)) {
-        let ok = false;
-        if (op.type === "progress") {
-          ok = !!(await apiCall("PUT", `/progress/${op.slokaId}`, { status: op.status }));
-        } else if (op.type === "bookmark_add") {
-          ok = !!(await apiCall("POST", `/bookmarks/${op.slokaId}`));
-        } else {
-          ok = !!(await apiCall("DELETE", `/bookmarks/${op.slokaId}`));
-        }
-        if (!ok) remaining.push(op);
-      }
-
-      await saveQueue(remaining);
-      return currentProgress;
-    },
-    [apiCall],
-  );
 
   // ── Full cloud fetch + merge ───────────────────────────────────────────────
 
