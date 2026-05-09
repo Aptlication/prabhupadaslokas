@@ -63,6 +63,17 @@ function SyncBadge({ syncState, lastSynced }: { syncState: SyncState; lastSynced
     );
   }
 
+  if (syncState === "pending") {
+    return (
+      <View style={styles.syncRow}>
+        <Animated.View style={{ transform: [{ rotate }] }}>
+          <Feather name="upload-cloud" size={11} color={colors.learning} />
+        </Animated.View>
+        <Text style={[styles.syncText, { color: colors.learning }]}>Pending sync</Text>
+      </View>
+    );
+  }
+
   if (syncState === "error") {
     return (
       <View style={styles.syncRow}>
