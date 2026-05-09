@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 import colors from "@/constants/colors";
 
@@ -12,9 +12,11 @@ interface AuthHeaderProps {
 export function AuthHeader({ tagline = "Learn it. Live it. Lead it." }: AuthHeaderProps) {
   return (
     <View style={styles.wrapper}>
-      <View style={styles.logoWrap}>
-        <Text style={styles.om}>ॐ</Text>
-      </View>
+      <Image
+        source={require("../assets/images/icon.png")}
+        style={styles.logo}
+        resizeMode="cover"
+      />
       <Text style={styles.appName}>Prabhupada Slokas</Text>
       {tagline ? <Text style={styles.tagline}>{tagline}</Text> : null}
     </View>
@@ -26,21 +28,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 32,
   },
-  logoWrap: {
+  logo: {
     width: 80,
     height: 80,
-    borderRadius: 40,
-    backgroundColor: C.navyMid,
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: 20,
     borderWidth: 2,
     borderColor: C.primary,
     marginBottom: 14,
-  },
-  om: {
-    fontSize: 38,
-    color: C.primary,
-    lineHeight: 46,
   },
   appName: {
     fontSize: 22,
