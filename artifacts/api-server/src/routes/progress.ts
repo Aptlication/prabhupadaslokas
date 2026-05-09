@@ -28,7 +28,7 @@ router.get("/", requireAuth, async (req, res) => {
 
 router.put("/:slokaId", requireAuth, async (req, res) => {
   const { clerkUserId } = req as AuthedRequest;
-  const { slokaId } = req.params;
+  const slokaId = String(req.params.slokaId);
   const { status } = req.body as { status: string };
 
   if (!["unstarted", "learning", "learned"].includes(status)) {

@@ -1,19 +1,95 @@
 import { Feather } from "@expo/vector-icons";
 import { useAuth, useUser } from "@clerk/expo";
 import { useRouter } from "expo-router";
-import React from "react";
-import { Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useRef } from "react";
+import {
+  Animated,
+  Easing,
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-import { useApp } from "@/context/AppContext";
+import { useApp, type SyncState } from "@/context/AppContext";
 import { APP_DESCRIPTION, APP_NAME, APP_TAGLINE, APP_VERSION_LABEL } from "@/constants/app";
 import { slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
+function SyncBadge({ syncState, lastSynced }: { syncState: SyncState; lastSynced: Date | null }) {
+  const colors = useColors();
+  const spin = useRef(new Animated.Value(0)).current;
+  const anim = useRef<Animated.CompositeAnimation | null>(null);
+
+  useEffect(() => {
+    if (syncState === "syncing") {
+      anim.current = Animated.loop(
+        Animated.timing(spin, {
+          toValue: 1,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: Platform.OS !== "web",
+        }),
+      );
+      anim.current.start();
+    } else {
+      anim.current?.stop();
+      spin.setValue(0);
+    }
+  }, [syncState, spin]);
+
+  const rotate = spin.interpolate({ inputRange: [0, 1], outputRange: ["0deg", "360deg"] });
+
+  function formatRelative(date: Date): string {
+    const diffMs = Date.now() - date.getTime();
+    const diffMin = Math.floor(diffMs / 60000);
+    if (diffMin < 1) return "just now";
+    if (diffMin === 1) return "1 min ago";
+    if (diffMin < 60) return `${diffMin} min ago`;
+    return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+  }
+
+  if (syncState === "syncing") {
+    return (
+      <View style={styles.syncRow}>
+        <Animated.View style={{ transform: [{ rotate }] }}>
+          <Feather name="refresh-cw" size={11} color={colors.mutedForeground} />
+        </Animated.View>
+        <Text style={[styles.syncText, { color: colors.mutedForeground }]}>Syncing…</Text>
+      </View>
+    );
+  }
+
+  if (syncState === "error") {
+    return (
+      <View style={styles.syncRow}>
+        <Feather name="alert-circle" size={11} color={colors.destructive} />
+        <Text style={[styles.syncText, { color: colors.destructive }]}>Sync failed</Text>
+      </View>
+    );
+  }
+
+  if (syncState === "synced" && lastSynced) {
+    return (
+      <View style={styles.syncRow}>
+        <Feather name="cloud" size={11} color={colors.primary} />
+        <Text style={[styles.syncText, { color: colors.primary }]}>
+          Synced {formatRelative(lastSynced)}
+        </Text>
+      </View>
+    );
+  }
+
+  return null;
+}
+
 export default function SettingsScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
-  const { getStatus } = useApp();
+  const { getStatus, syncState, lastSynced } = useApp();
   const { isSignedIn, signOut } = useAuth();
   const { user } = useUser();
   const router = useRouter();
@@ -32,8 +108,6 @@ export default function SettingsScreen() {
     { icon: "target", label: "Completion", value: `${Math.round((learned / total) * 100)}%` },
   ];
 
-  const handleSignOut = () => signOut();
-
   return (
     <ScrollView
       style={[styles.container, { backgroundColor: colors.background }]}
@@ -51,7 +125,12 @@ export default function SettingsScreen() {
       <View style={{ paddingHorizontal: 16, gap: 10, marginBottom: 28 }}>
         <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>ACCOUNT</Text>
         {isSignedIn ? (
-          <View style={[styles.accountCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <View
+            style={[
+              styles.accountCard,
+              { backgroundColor: colors.card, borderColor: colors.border },
+            ]}
+          >
             <View style={[styles.avatarCircle, { backgroundColor: colors.muted }]}>
               <Feather name="user" size={22} color={colors.primary} />
             </View>
@@ -62,17 +141,23 @@ export default function SettingsScreen() {
               <Text style={[styles.accountEmail, { color: colors.mutedForeground }]}>
                 {user?.primaryEmailAddress?.emailAddress}
               </Text>
-              <Text style={[styles.syncBadge, { color: colors.primary }]}>
-                ✓ Progress synced to cloud
-              </Text>
+              <SyncBadge syncState={syncState} lastSynced={lastSynced} />
             </View>
-            <Pressable onPress={handleSignOut} style={[styles.signOutBtn, { borderColor: colors.destructive }]}>
+            <Pressable
+              onPress={() => signOut()}
+              style={[styles.signOutBtn, { borderColor: colors.destructive }]}
+            >
               <Feather name="log-out" size={14} color={colors.destructive} />
               <Text style={[styles.signOutText, { color: colors.destructive }]}>Sign Out</Text>
             </Pressable>
           </View>
         ) : (
-          <View style={[styles.accountCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <View
+            style={[
+              styles.accountCard,
+              { backgroundColor: colors.card, borderColor: colors.border },
+            ]}
+          >
             <View style={[styles.avatarCircle, { backgroundColor: colors.muted }]}>
               <Feather name="user" size={22} color={colors.mutedForeground} />
             </View>
@@ -124,7 +209,9 @@ export default function SettingsScreen() {
       {/* About */}
       <View style={{ paddingHorizontal: 16, gap: 10 }}>
         <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>ABOUT</Text>
-        <View style={[styles.aboutCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+        <View
+          style={[styles.aboutCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+        >
           <Text style={[styles.aboutTitle, { color: colors.primary }]}>{APP_NAME}</Text>
           <Text style={[styles.aboutTagline, { color: colors.mutedForeground }]}>
             {APP_TAGLINE}
@@ -133,7 +220,9 @@ export default function SettingsScreen() {
             {APP_DESCRIPTION}
           </Text>
           <View style={[styles.divider, { backgroundColor: colors.border }]} />
-          <Text style={[styles.version, { color: colors.mutedForeground }]}>{APP_VERSION_LABEL}</Text>
+          <Text style={[styles.version, { color: colors.mutedForeground }]}>
+            {APP_VERSION_LABEL}
+          </Text>
         </View>
       </View>
     </ScrollView>
@@ -167,7 +256,8 @@ const styles = StyleSheet.create({
   },
   accountName: { fontSize: 15, fontFamily: "Inter_600SemiBold" },
   accountEmail: { fontSize: 12, fontFamily: "Inter_400Regular", marginTop: 2 },
-  syncBadge: { fontSize: 11, fontFamily: "Inter_500Medium", marginTop: 4 },
+  syncRow: { flexDirection: "row", alignItems: "center", gap: 4, marginTop: 4 },
+  syncText: { fontSize: 11, fontFamily: "Inter_500Medium" },
   signOutBtn: {
     flexDirection: "row",
     alignItems: "center",

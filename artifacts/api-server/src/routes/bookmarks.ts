@@ -28,7 +28,7 @@ router.get("/", requireAuth, async (req, res) => {
 
 router.post("/:slokaId", requireAuth, async (req, res) => {
   const { clerkUserId } = req as AuthedRequest;
-  const { slokaId } = req.params;
+  const slokaId = String(req.params.slokaId);
 
   const userId = await getDbUserId(clerkUserId);
   if (!userId) { res.status(404).json({ error: "User not found" }); return; }
@@ -48,7 +48,7 @@ router.post("/:slokaId", requireAuth, async (req, res) => {
 
 router.delete("/:slokaId", requireAuth, async (req, res) => {
   const { clerkUserId } = req as AuthedRequest;
-  const { slokaId } = req.params;
+  const slokaId = String(req.params.slokaId);
 
   const userId = await getDbUserId(clerkUserId);
   if (!userId) { res.status(404).json({ error: "User not found" }); return; }

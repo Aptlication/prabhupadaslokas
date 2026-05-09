@@ -14,3 +14,76 @@ import * as zod from "zod";
 export const HealthCheckResponse = zod.object({
   status: zod.string(),
 });
+
+/**
+ * @summary Upsert the authenticated user record
+ */
+export const SyncUserBody = zod.object({
+  email: zod.string(),
+  displayName: zod.string().optional(),
+});
+
+export const SyncUserResponse = zod.object({
+  id: zod.number(),
+  clerkUserId: zod.string(),
+  email: zod.string(),
+  displayName: zod.string().nullish(),
+  createdAt: zod.coerce.date(),
+  updatedAt: zod.coerce.date(),
+});
+
+/**
+ * @summary Get all sloka progress for the authenticated user
+ */
+export const GetProgressResponseItem = zod.object({
+  id: zod.number(),
+  userId: zod.number(),
+  slokaId: zod.string(),
+  status: zod.enum(["unstarted", "learning", "learned"]),
+  updatedAt: zod.coerce.date(),
+});
+export const GetProgressResponse = zod.array(GetProgressResponseItem);
+
+/**
+ * @summary Create or update the learning status for a sloka
+ */
+export const UpsertProgressParams = zod.object({
+  slokaId: zod.coerce.string(),
+});
+
+export const UpsertProgressBody = zod.object({
+  status: zod.enum(["unstarted", "learning", "learned"]),
+});
+
+export const UpsertProgressResponse = zod.object({
+  id: zod.number(),
+  userId: zod.number(),
+  slokaId: zod.string(),
+  status: zod.enum(["unstarted", "learning", "learned"]),
+  updatedAt: zod.coerce.date(),
+});
+
+/**
+ * @summary Get all bookmarked slokas for the authenticated user
+ */
+export const GetBookmarksResponseItem = zod.object({
+  id: zod.number(),
+  userId: zod.number(),
+  slokaId: zod.string(),
+  savedAt: zod.coerce.date(),
+});
+export const GetBookmarksResponse = zod.array(GetBookmarksResponseItem);
+
+/**
+ * @summary Bookmark a sloka
+ */
+export const AddBookmarkParams = zod.object({
+  slokaId: zod.coerce.string(),
+});
+
+/**
+ * @summary Remove a bookmark
+ */
+export const RemoveBookmarkParams = zod.object({
+  slokaId: zod.coerce.string(),
+});

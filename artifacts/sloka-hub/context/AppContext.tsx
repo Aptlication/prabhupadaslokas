@@ -1,6 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useAuth, useUser } from "@clerk/expo";
-import React, { createContext, useCallback, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import { Platform } from "react-native";
 
 export type ProgressStatus = "unstarted" | "learning" | "learned";
 
@@ -10,17 +18,32 @@ interface SlokaProgress {
   inMySlokas: boolean;
 }
 
+export type SyncState = "idle" | "syncing" | "synced" | "error";
+
 interface AppContextType {
   progress: Record<string, SlokaProgress>;
   setProgress: (id: string, status: ProgressStatus) => void;
   toggleMySlokas: (id: string) => void;
   isMySlokas: (id: string) => boolean;
   getStatus: (id: string) => ProgressStatus;
+  syncState: SyncState;
+  lastSynced: Date | null;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
 
 const STORAGE_KEY = "sloka_hub_progress";
+
+function buildApiBase(): string | null {
+  if (Platform.OS === "web") {
+    if (typeof window !== "undefined") {
+      return `${window.location.origin}/api`;
+    }
+    return "/api";
+  }
+  const domain = process.env.EXPO_PUBLIC_API_URL;
+  return domain ?? null;
+}
 
 function useApiCall() {
   const { isSignedIn, getToken } = useAuth();
@@ -29,10 +52,10 @@ function useApiCall() {
     async (method: string, path: string, body?: object) => {
       if (!isSignedIn) return null;
       try {
-        const domain = process.env.EXPO_PUBLIC_DOMAIN;
-        if (!domain) return null;
+        const base = buildApiBase();
+        if (!base) return null;
         const token = await getToken();
-        const res = await fetch(`https://${domain}/api${path}`, {
+        const res = await fetch(`${base}${path}`, {
           method,
           headers: {
             "Content-Type": "application/json",
@@ -53,6 +76,8 @@ function useApiCall() {
 
 export function AppProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgressState] = useState<Record<string, SlokaProgress>>({});
+  const [syncState, setSyncState] = useState<SyncState>("idle");
+  const [lastSynced, setLastSynced] = useState<Date | null>(null);
   const { isSignedIn } = useAuth();
   const { user } = useUser();
   const apiCall = useApiCall();
@@ -69,9 +94,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    if (!isSignedIn) { synced.current = false; return; }
+    if (!isSignedIn) {
+      synced.current = false;
+      setSyncState("idle");
+      return;
+    }
     if (synced.current) return;
     synced.current = true;
+
+    setSyncState("syncing");
 
     apiCall("POST", "/auth/sync", {
       email: user?.primaryEmailAddress?.emailAddress ?? "",
@@ -80,7 +111,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
 
     Promise.all([apiCall("GET", "/progress"), apiCall("GET", "/bookmarks")]).then(
       ([progressRows, bookmarkRows]) => {
-        if (!progressRows) return;
+        if (!progressRows) {
+          setSyncState("error");
+          return;
+        }
         const merged: Record<string, SlokaProgress> = {};
         for (const row of progressRows as Array<{ slokaId: string; status: string }>) {
           merged[row.slokaId] = { status: row.status as ProgressStatus, inMySlokas: false };
@@ -97,6 +131,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         }
         setProgressState(merged);
         AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+        setSyncState("synced");
+        setLastSynced(new Date());
       },
     );
   }, [isSignedIn, apiCall]);
@@ -111,7 +147,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       const current = progress[id] || { status: "unstarted", inMySlokas: false };
       saveProgress({ ...progress, [id]: { ...current, status } });
       if (isSignedIn) {
-        apiCall("PUT", `/progress/${id}`, { status });
+        apiCall("PUT", `/progress/${id}`, { status }).then((result) => {
+          if (result) setLastSynced(new Date());
+        });
       }
     },
     [progress, saveProgress, isSignedIn, apiCall],
@@ -130,11 +168,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         },
       });
       if (isSignedIn) {
-        if (adding) {
-          apiCall("POST", `/bookmarks/${id}`);
-        } else {
-          apiCall("DELETE", `/bookmarks/${id}`);
-        }
+        const call = adding
+          ? apiCall("POST", `/bookmarks/${id}`)
+          : apiCall("DELETE", `/bookmarks/${id}`);
+        call.then((result) => {
+          if (result) setLastSynced(new Date());
+        });
       }
     },
     [progress, saveProgress, isSignedIn, apiCall],
@@ -151,7 +190,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   );
 
   return (
-    <AppContext.Provider value={{ progress, setProgress, toggleMySlokas, isMySlokas, getStatus }}>
+    <AppContext.Provider
+      value={{ progress, setProgress, toggleMySlokas, isMySlokas, getStatus, syncState, lastSynced }}
+    >
       {children}
     </AppContext.Provider>
   );

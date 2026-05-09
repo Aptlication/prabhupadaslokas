@@ -5,18 +5,28 @@
  * API specification
  * OpenAPI spec version: 0.1.0
  */
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import type {
+  MutationFunction,
   QueryFunction,
   QueryKey,
+  UseMutationOptions,
+  UseMutationResult,
   UseQueryOptions,
   UseQueryResult,
 } from "@tanstack/react-query";
 
-import type { HealthStatus } from "./api.schemas";
+import type {
+  BookmarkRow,
+  HealthStatus,
+  ProgressInput,
+  ProgressRow,
+  User,
+  UserSyncInput,
+} from "./api.schemas";
 
 import { customFetch } from "../custom-fetch";
-import type { ErrorType } from "../custom-fetch";
+import type { ErrorType, BodyType } from "../custom-fetch";
 
 type AwaitedInput<T> = PromiseLike<T> | T;
 
@@ -99,3 +109,494 @@ export function useHealthCheck<
 
   return { ...query, queryKey: queryOptions.queryKey };
 }
+
+/**
+ * @summary Upsert the authenticated user record
+ */
+export const getSyncUserUrl = () => {
+  return `/api/auth/sync`;
+};
+
+export const syncUser = async (
+  userSyncInput: UserSyncInput,
+  options?: RequestInit,
+): Promise<User> => {
+  return customFetch<User>(getSyncUserUrl(), {
+    ...options,
+    method: "POST",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(userSyncInput),
+  });
+};
+
+export const getSyncUserMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof syncUser>>,
+    TError,
+    { data: BodyType<UserSyncInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof syncUser>>,
+  TError,
+  { data: BodyType<UserSyncInput> },
+  TContext
+> => {
+  const mutationKey = ["syncUser"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof syncUser>>,
+    { data: BodyType<UserSyncInput> }
+  > = (props) => {
+    const { data } = props ?? {};
+
+    return syncUser(data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type SyncUserMutationResult = NonNullable<
+  Awaited<ReturnType<typeof syncUser>>
+>;
+export type SyncUserMutationBody = BodyType<UserSyncInput>;
+export type SyncUserMutationError = ErrorType<void>;
+
+/**
+ * @summary Upsert the authenticated user record
+ */
+export const useSyncUser = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof syncUser>>,
+    TError,
+    { data: BodyType<UserSyncInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof syncUser>>,
+  TError,
+  { data: BodyType<UserSyncInput> },
+  TContext
+> => {
+  return useMutation(getSyncUserMutationOptions(options));
+};
+
+/**
+ * @summary Get all sloka progress for the authenticated user
+ */
+export const getGetProgressUrl = () => {
+  return `/api/progress`;
+};
+
+export const getProgress = async (
+  options?: RequestInit,
+): Promise<ProgressRow[]> => {
+  return customFetch<ProgressRow[]>(getGetProgressUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetProgressQueryKey = () => {
+  return [`/api/progress`] as const;
+};
+
+export const getGetProgressQueryOptions = <
+  TData = Awaited<ReturnType<typeof getProgress>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getProgress>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetProgressQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getProgress>>> = ({
+    signal,
+  }) => getProgress({ signal, ...requestOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+    Awaited<ReturnType<typeof getProgress>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetProgressQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getProgress>>
+>;
+export type GetProgressQueryError = ErrorType<void>;
+
+/**
+ * @summary Get all sloka progress for the authenticated user
+ */
+
+export function useGetProgress<
+  TData = Awaited<ReturnType<typeof getProgress>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getProgress>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetProgressQueryOptions(options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Create or update the learning status for a sloka
+ */
+export const getUpsertProgressUrl = (slokaId: string) => {
+  return `/api/progress/${slokaId}`;
+};
+
+export const upsertProgress = async (
+  slokaId: string,
+  progressInput: ProgressInput,
+  options?: RequestInit,
+): Promise<ProgressRow> => {
+  return customFetch<ProgressRow>(getUpsertProgressUrl(slokaId), {
+    ...options,
+    method: "PUT",
+    headers: { "Content-Type": "application/json", ...options?.headers },
+    body: JSON.stringify(progressInput),
+  });
+};
+
+export const getUpsertProgressMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof upsertProgress>>,
+    TError,
+    { slokaId: string; data: BodyType<ProgressInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof upsertProgress>>,
+  TError,
+  { slokaId: string; data: BodyType<ProgressInput> },
+  TContext
+> => {
+  const mutationKey = ["upsertProgress"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof upsertProgress>>,
+    { slokaId: string; data: BodyType<ProgressInput> }
+  > = (props) => {
+    const { slokaId, data } = props ?? {};
+
+    return upsertProgress(slokaId, data, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type UpsertProgressMutationResult = NonNullable<
+  Awaited<ReturnType<typeof upsertProgress>>
+>;
+export type UpsertProgressMutationBody = BodyType<ProgressInput>;
+export type UpsertProgressMutationError = ErrorType<void>;
+
+/**
+ * @summary Create or update the learning status for a sloka
+ */
+export const useUpsertProgress = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof upsertProgress>>,
+    TError,
+    { slokaId: string; data: BodyType<ProgressInput> },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof upsertProgress>>,
+  TError,
+  { slokaId: string; data: BodyType<ProgressInput> },
+  TContext
+> => {
+  return useMutation(getUpsertProgressMutationOptions(options));
+};
+
+/**
+ * @summary Get all bookmarked slokas for the authenticated user
+ */
+export const getGetBookmarksUrl = () => {
+  return `/api/bookmarks`;
+};
+
+export const getBookmarks = async (
+  options?: RequestInit,
+): Promise<BookmarkRow[]> => {
+  return customFetch<BookmarkRow[]>(getGetBookmarksUrl(), {
+    ...options,
+    method: "GET",
+  });
+};
+
+export const getGetBookmarksQueryKey = () => {
+  return [`/api/bookmarks`] as const;
+};
+
+export const getGetBookmarksQueryOptions = <
+  TData = Awaited<ReturnType<typeof getBookmarks>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getBookmarks>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}) => {
+  const { query: queryOptions, request: requestOptions } = options ?? {};
+
+  const queryKey = queryOptions?.queryKey ?? getGetBookmarksQueryKey();
+
+  const queryFn: QueryFunction<Awaited<ReturnType<typeof getBookmarks>>> = ({
+    signal,
+  }) => getBookmarks({ signal, ...requestOptions });
+
+  return { queryKey, queryFn, ...queryOptions } as UseQueryOptions<
+    Awaited<ReturnType<typeof getBookmarks>>,
+    TError,
+    TData
+  > & { queryKey: QueryKey };
+};
+
+export type GetBookmarksQueryResult = NonNullable<
+  Awaited<ReturnType<typeof getBookmarks>>
+>;
+export type GetBookmarksQueryError = ErrorType<void>;
+
+/**
+ * @summary Get all bookmarked slokas for the authenticated user
+ */
+
+export function useGetBookmarks<
+  TData = Awaited<ReturnType<typeof getBookmarks>>,
+  TError = ErrorType<void>,
+>(options?: {
+  query?: UseQueryOptions<
+    Awaited<ReturnType<typeof getBookmarks>>,
+    TError,
+    TData
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseQueryResult<TData, TError> & { queryKey: QueryKey } {
+  const queryOptions = getGetBookmarksQueryOptions(options);
+
+  const query = useQuery(queryOptions) as UseQueryResult<TData, TError> & {
+    queryKey: QueryKey;
+  };
+
+  return { ...query, queryKey: queryOptions.queryKey };
+}
+
+/**
+ * @summary Bookmark a sloka
+ */
+export const getAddBookmarkUrl = (slokaId: string) => {
+  return `/api/bookmarks/${slokaId}`;
+};
+
+export const addBookmark = async (
+  slokaId: string,
+  options?: RequestInit,
+): Promise<BookmarkRow> => {
+  return customFetch<BookmarkRow>(getAddBookmarkUrl(slokaId), {
+    ...options,
+    method: "POST",
+  });
+};
+
+export const getAddBookmarkMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addBookmark>>,
+    TError,
+    { slokaId: string },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof addBookmark>>,
+  TError,
+  { slokaId: string },
+  TContext
+> => {
+  const mutationKey = ["addBookmark"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof addBookmark>>,
+    { slokaId: string }
+  > = (props) => {
+    const { slokaId } = props ?? {};
+
+    return addBookmark(slokaId, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type AddBookmarkMutationResult = NonNullable<
+  Awaited<ReturnType<typeof addBookmark>>
+>;
+
+export type AddBookmarkMutationError = ErrorType<void>;
+
+/**
+ * @summary Bookmark a sloka
+ */
+export const useAddBookmark = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof addBookmark>>,
+    TError,
+    { slokaId: string },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof addBookmark>>,
+  TError,
+  { slokaId: string },
+  TContext
+> => {
+  return useMutation(getAddBookmarkMutationOptions(options));
+};
+
+/**
+ * @summary Remove a bookmark
+ */
+export const getRemoveBookmarkUrl = (slokaId: string) => {
+  return `/api/bookmarks/${slokaId}`;
+};
+
+export const removeBookmark = async (
+  slokaId: string,
+  options?: RequestInit,
+): Promise<void> => {
+  return customFetch<void>(getRemoveBookmarkUrl(slokaId), {
+    ...options,
+    method: "DELETE",
+  });
+};
+
+export const getRemoveBookmarkMutationOptions = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof removeBookmark>>,
+    TError,
+    { slokaId: string },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationOptions<
+  Awaited<ReturnType<typeof removeBookmark>>,
+  TError,
+  { slokaId: string },
+  TContext
+> => {
+  const mutationKey = ["removeBookmark"];
+  const { mutation: mutationOptions, request: requestOptions } = options
+    ? options.mutation &&
+      "mutationKey" in options.mutation &&
+      options.mutation.mutationKey
+      ? options
+      : { ...options, mutation: { ...options.mutation, mutationKey } }
+    : { mutation: { mutationKey }, request: undefined };
+
+  const mutationFn: MutationFunction<
+    Awaited<ReturnType<typeof removeBookmark>>,
+    { slokaId: string }
+  > = (props) => {
+    const { slokaId } = props ?? {};
+
+    return removeBookmark(slokaId, requestOptions);
+  };
+
+  return { mutationFn, ...mutationOptions };
+};
+
+export type RemoveBookmarkMutationResult = NonNullable<
+  Awaited<ReturnType<typeof removeBookmark>>
+>;
+
+export type RemoveBookmarkMutationError = ErrorType<void>;
+
+/**
+ * @summary Remove a bookmark
+ */
+export const useRemoveBookmark = <
+  TError = ErrorType<void>,
+  TContext = unknown,
+>(options?: {
+  mutation?: UseMutationOptions<
+    Awaited<ReturnType<typeof removeBookmark>>,
+    TError,
+    { slokaId: string },
+    TContext
+  >;
+  request?: SecondParameter<typeof customFetch>;
+}): UseMutationResult<
+  Awaited<ReturnType<typeof removeBookmark>>,
+  TError,
+  { slokaId: string },
+  TContext
+> => {
+  return useMutation(getRemoveBookmarkMutationOptions(options));
+};

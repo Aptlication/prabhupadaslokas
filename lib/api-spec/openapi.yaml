@@ -10,6 +10,12 @@ servers:
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication operations
+  - name: progress
+    description: Sloka learning progress
+  - name: bookmarks
+    description: Saved slokas
 paths:
   /healthz:
     get:
@@ -24,7 +30,150 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  /auth/sync:
+    post:
+      operationId: syncUser
+      tags: [auth]
+      summary: Upsert the authenticated user record
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserSyncInput"
+      responses:
+        "200":
+          description: User updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "201":
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Bad request
+
+  /progress:
+    get:
+      operationId: getProgress
+      tags: [progress]
+      summary: Get all sloka progress for the authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of progress rows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProgressRow"
+        "401":
+          description: Unauthorized
+
+  /progress/{slokaId}:
+    put:
+      operationId: upsertProgress
+      tags: [progress]
+      summary: Create or update the learning status for a sloka
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slokaId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgressInput"
+      responses:
+        "200":
+          description: Progress upserted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProgressRow"
+        "400":
+          description: Invalid status
+        "401":
+          description: Unauthorized
+
+  /bookmarks:
+    get:
+      operationId: getBookmarks
+      tags: [bookmarks]
+      summary: Get all bookmarked slokas for the authenticated user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: List of bookmark rows
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/BookmarkRow"
+        "401":
+          description: Unauthorized
+
+  /bookmarks/{slokaId}:
+    post:
+      operationId: addBookmark
+      tags: [bookmarks]
+      summary: Bookmark a sloka
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slokaId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "201":
+          description: Bookmark added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BookmarkRow"
+        "401":
+          description: Unauthorized
+    delete:
+      operationId: removeBookmark
+      tags: [bookmarks]
+      summary: Remove a bookmark
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: slokaId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Bookmark removed
+        "401":
+          description: Unauthorized
+
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
   schemas:
     HealthStatus:
       type: object
@@ -34,3 +183,85 @@ components:
       required:
         - status
 
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        clerkUserId:
+          type: string
+        email:
+          type: string
+        displayName:
+          type: ["string", "null"]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - clerkUserId
+        - email
+        - createdAt
+        - updatedAt
+
+    UserSyncInput:
+      type: object
+      properties:
+        email:
+          type: string
+        displayName:
+          type: string
+      required:
+        - email
+
+    ProgressRow:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        slokaId:
+          type: string
+        status:
+          type: string
+          enum: [unstarted, learning, learned]
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - slokaId
+        - status
+        - updatedAt
+
+    ProgressInput:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [unstarted, learning, learned]
+      required:
+        - status
+
+    BookmarkRow:
+      type: object
+      properties:
+        id:
+          type: integer
+        userId:
+          type: integer
+        slokaId:
+          type: string
+        savedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - userId
+        - slokaId
+        - savedAt

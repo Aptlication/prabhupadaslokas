@@ -8,3 +8,55 @@
 export interface HealthStatus {
   status: string;
 }
+
+export interface User {
+  id: number;
+  clerkUserId: string;
+  email: string;
+  /** @nullable */
+  displayName?: string | null;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface UserSyncInput {
+  email: string;
+  displayName?: string;
+}
+
+export type ProgressRowStatus =
+  (typeof ProgressRowStatus)[keyof typeof ProgressRowStatus];
+
+export const ProgressRowStatus = {
+  unstarted: "unstarted",
+  learning: "learning",
+  learned: "learned",
+} as const;
+
+export interface ProgressRow {
+  id: number;
+  userId: number;
+  slokaId: string;
+  status: ProgressRowStatus;
+  updatedAt: string;
+}
+
+export type ProgressInputStatus =
+  (typeof ProgressInputStatus)[keyof typeof ProgressInputStatus];
+
+export const ProgressInputStatus = {
+  unstarted: "unstarted",
+  learning: "learning",
+  learned: "learned",
+} as const;
+
+export interface ProgressInput {
+  status: ProgressInputStatus;
+}
+
+export interface BookmarkRow {
+  id: number;
+  userId: number;
+  slokaId: string;
+  savedAt: string;
+}
