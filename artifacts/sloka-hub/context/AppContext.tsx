@@ -158,7 +158,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [syncState, setSyncState] = useState<SyncState>("idle");
   const [lastSynced, setLastSynced] = useState<Date | null>(null);
 
-  const { isSignedIn, getToken } = useAuth();
+  const { isLoaded, isSignedIn, getToken } = useAuth();
   const { user } = useUser();
 
   const lastFetchAt = useRef<number>(0);
@@ -191,15 +191,6 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     },
     [isSignedIn, getToken],
   );
-
-  // ── Queue management ───────────────────────────────────────────────────────
-
-  const enqueue = useCallback(async (op: PendingOp) => {
-    const current = await loadQueue();
-    const next = dedupeQueue([...current, op]);
-    await saveQueue(next);
-    setSyncState("pending");
-  }, []);
 
   // ── Full cloud fetch + merge ───────────────────────────────────────────────
 
@@ -269,6 +260,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     [apiCall, user],
   );
 
+  // ── Queue management ───────────────────────────────────────────────────────
+
+  const enqueue = useCallback(
+    async (op: PendingOp) => {
+      const current = await loadQueue();
+      const next = dedupeQueue([...current, op]);
+      await saveQueue(next);
+      setSyncState("pending");
+      // Attempt an immediate background flush so pending state clears
+      // without waiting for the next app-resume cycle.
+      setProgressState((local) => {
+        fetchAndMerge(local);
+        return local;
+      });
+    },
+    [fetchAndMerge],
+  );
+
   // ── Boot: load local state ─────────────────────────────────────────────────
 
   useEffect(() => {
@@ -281,9 +290,10 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // ── Sign-in: initial cloud fetch ───────────────────────────────────────────
+  // ── Sign-in: initial cloud fetch (wait for Clerk to finish loading) ──────────
 
   useEffect(() => {
+    if (!isLoaded) return; // Clerk not ready yet — user/email may be empty
     if (!isSignedIn) {
       hasSynced.current = false;
       setSyncState("idle");
@@ -296,7 +306,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       fetchAndMerge(current);
       return current;
     });
-  }, [isSignedIn, fetchAndMerge]);
+  }, [isLoaded, isSignedIn, fetchAndMerge]);
 
   // ── AppState: re-fetch on foreground (min 60 s between fetches) ────────────
 
