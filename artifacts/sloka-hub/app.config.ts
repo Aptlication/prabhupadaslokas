@@ -6,6 +6,11 @@ const APP_DESCRIPTION =
   "Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.";
 const APP_VERSION = "1.0.0";
 
+// Public origin used by expo-router for typed routes / deep linking.
+// In dev this falls back to localhost; in production it should be the
+// canonical PWA URL.
+const PROD_ORIGIN = "https://prabhupadaslokas.com";
+
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: APP_NAME,
@@ -42,7 +47,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     [
       "expo-router",
       {
-        origin: "https://replit.com/",
+        origin: PROD_ORIGIN,
       },
     ],
     "expo-font",

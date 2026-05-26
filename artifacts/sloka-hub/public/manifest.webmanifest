@@ -1,0 +1,21 @@
+{
+  "name": "Prabhupada Slokas",
+  "short_name": "Prabhupada Slokas",
+  "description": "Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice. Learn it. Live it. Lead it.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#C9A84C",
+  "background_color": "#0D1B3E",
+  "lang": "en",
+  "categories": ["education", "books", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
