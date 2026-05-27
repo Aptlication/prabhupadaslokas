@@ -9,7 +9,7 @@ interface AuthHeaderProps {
   tagline?: string;
 }
 
-export function AuthHeader({ tagline = "Learn it. Live it. Lead it." }: AuthHeaderProps) {
+export function AuthHeader({ tagline = "Chant it. Know it. Speak it with authority." }: AuthHeaderProps) {
   return (
     <View style={styles.wrapper}>
       <Image
