@@ -21,7 +21,7 @@ pages_build_output_dir = "artifacts/sloka-hub/dist"
 [[d1_databases]]
 binding = "DB"
 database_name = "prabhupadaslokas-db"
-database_id = "REPLACE_WITH_PROD_DATABASE_ID"
+database_id = "7b7562b4-4420-462f-ad45-0b6af79b5f50"
 
 # ── D1 binding (PREVIEW / staging) ───────────────────────────────────────────
 # Preview deployments use this DB so test data never touches production.
@@ -29,7 +29,7 @@ database_id = "REPLACE_WITH_PROD_DATABASE_ID"
 [[env.preview.d1_databases]]
 binding = "DB"
 database_name = "prabhupadaslokas-db-staging"
-database_id = "REPLACE_WITH_STAGING_DATABASE_ID"
+database_id = "5b3547fe-9ba4-4683-be44-c83273be3ddc"
 
 # ── Vars for Access JWT verification (set real values as needed) ─────────────
 # ACCESS_TEAM_DOMAIN: your Zero Trust team domain, e.g. "yourteam.cloudflareaccess.com"
