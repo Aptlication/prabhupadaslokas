@@ -46,6 +46,11 @@ self.addEventListener("fetch", (event) => {
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
+  // API requests must NEVER be cached: responses are per-user and auth-scoped.
+  // Let them go straight to the network (no SW interception) so one user's data
+  // can never be served from cache to another.
+  if (url.pathname.startsWith("/api/")) return;
+
   // Navigations — network-first, cached shell as offline fallback.
   if (request.mode === "navigate") {
     event.respondWith(

@@ -1,0 +1,39 @@
+# wrangler.toml — Cloudflare Pages config for Prabhupada Slokas
+#
+# Placement: repo ROOT (/wrangler.toml), assuming the Pages project's
+# "Root directory" build setting is the repo root. If your Root directory is
+# instead "artifacts/sloka-hub", move this file there and change
+# pages_build_output_dir to "dist".  <-- VERIFY in CF dashboard:
+#   Workers & Pages -> prabhupadaslokas -> Settings -> Builds & deployments.
+#
+# This file makes the D1 binding version-controlled instead of dashboard-only.
+# Cloudflare Pages (native Git build) reads it automatically.
+
+name = "prabhupadaslokas"
+compatibility_date = "2025-05-01"
+
+# The static build output that Cloudflare serves (where index.html lands).
+pages_build_output_dir = "artifacts/sloka-hub/dist"
+
+# ── D1 binding (PRODUCTION) ──────────────────────────────────────────────────
+# Accessed in Pages Functions as `env.DB`. Fill database_id after you run:
+#   wrangler d1 create prabhupadaslokas-db
+[[d1_databases]]
+binding = "DB"
+database_name = "prabhupadaslokas-db"
+database_id = "REPLACE_WITH_PROD_DATABASE_ID"
+
+# ── D1 binding (PREVIEW / staging) ───────────────────────────────────────────
+# Preview deployments use this DB so test data never touches production.
+#   wrangler d1 create prabhupadaslokas-db-staging
+[[env.preview.d1_databases]]
+binding = "DB"
+database_name = "prabhupadaslokas-db-staging"
+database_id = "REPLACE_WITH_STAGING_DATABASE_ID"
+
+# ── Vars for Access JWT verification (set real values as needed) ─────────────
+# ACCESS_TEAM_DOMAIN: your Zero Trust team domain, e.g. "yourteam.cloudflareaccess.com"
+# ACCESS_AUD: the Application Audience (AUD) tag of the Access app guarding /api/*
+[vars]
+ACCESS_TEAM_DOMAIN = "REPLACE_WITH_TEAM.cloudflareaccess.com"
+ACCESS_AUD = "REPLACE_WITH_ACCESS_APPLICATION_AUD_TAG"
