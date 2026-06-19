@@ -74,7 +74,6 @@ export default function SlokaDetail() {
   const { getStatus, setProgress, isMySlokas, toggleMySlokas } = useApp();
 
   const sloka = slokas.find((s) => s.id === id);
-  const [showDevanagari, setShowDevanagari] = useState(true);
   const [showPurport, setShowPurport] = useState(false);
   const [repeatMode, setRepeatMode] = useState(false);
   const [rateIdx, setRateIdx] = useState(0);
@@ -91,7 +90,6 @@ export default function SlokaDetail() {
   }
 
   const isPP = sloka.id.startsWith("pp_");
-  const hasDevanagari = sloka.devanagari.length > 0;
   const hasWordByWord = sloka.word_by_word.length > 0;
 
   const clearTimer = () => {
@@ -194,38 +192,8 @@ export default function SlokaDetail() {
           </View>
         )}
 
-        {/* Devanagari toggle — only shown when there is Devanagari to display */}
-        {hasDevanagari && (
-          <View style={styles.toggleRow}>
-            <TouchableOpacity
-              style={[
-                styles.toggleBtn,
-                { borderColor: colors.border },
-                showDevanagari && { backgroundColor: colors.card },
-              ]}
-              onPress={() => setShowDevanagari(!showDevanagari)}
-            >
-              <Text style={[styles.toggleLabel, { color: colors.mutedForeground }]}>
-                {showDevanagari ? "Hide" : "Show"} Devanagari
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
-
-        {/* Devanagari */}
-        {hasDevanagari && showDevanagari && (
-          <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}>
-            <Text style={[styles.sectionTag, { color: colors.mutedForeground }]}>Devanagari</Text>
-            {sloka.devanagari.map((line, i) => (
-              <Text key={i} style={[styles.devanagari, { color: colors.goldLight }]}>
-                {line}
-              </Text>
-            ))}
-          </View>
-        )}
-
         {/* Transliteration */}
-        <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border, marginTop: hasDevanagari ? 12 : 14 }]}>
+        <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border, marginTop: 14 }]}>
           <Text style={[styles.sectionTag, { color: colors.mutedForeground }]}>Transliteration</Text>
           {sloka.transliteration.map((line, i) => (
             <View
@@ -411,11 +379,6 @@ const styles = StyleSheet.create({
     fontFamily: "Inter_600SemiBold",
     textTransform: "uppercase",
     letterSpacing: 0.5,
-  },
-  devanagari: {
-    fontSize: 18,
-    lineHeight: 30,
-    fontFamily: "Inter_400Regular",
   },
   transLine: {
     flexDirection: "row",

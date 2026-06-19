@@ -10,7 +10,6 @@ export interface Sloka {
   id: string;
   title: string;
   source: string;
-  devanagari: string[];
   transliteration: string[];
   translation: string;
   purport?: string;
