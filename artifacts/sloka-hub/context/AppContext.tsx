@@ -4,8 +4,20 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
+import { Platform } from "react-native";
+
+import {
+  checkAuth,
+  fetchState,
+  importState,
+  login as apiLogin,
+  logout as apiLogout,
+  pushFavorite,
+  pushProgress,
+} from "@/lib/api";
 
 export type ProgressStatus = "unstarted" | "learning" | "learned";
 
@@ -15,13 +27,12 @@ interface SlokaProgress {
   inMySlokas: boolean;
 }
 
-/**
- * Sync state is preserved on the public interface so existing components
- * (e.g. <SyncBadge>) keep compiling. In this local-only PWA build it
- * stays "idle" forever; cloud sync will be restored when a backend is
- * brought back online.
- */
 export type SyncState = "idle" | "syncing" | "synced" | "error" | "pending";
+
+interface AuthState {
+  loggedIn: boolean;
+  email: string | null;
+}
 
 interface AppContextType {
   progress: Record<string, SlokaProgress>;
@@ -31,6 +42,9 @@ interface AppContextType {
   getStatus: (id: string) => ProgressStatus;
   syncState: SyncState;
   lastSynced: Date | null;
+  auth: AuthState;
+  login: () => void;
+  logout: () => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
@@ -43,28 +57,77 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [progress, setProgressState] = useState<Record<string, SlokaProgress>>(
     {},
   );
+  const [syncState, setSyncState] = useState<SyncState>("idle");
+  const [lastSynced, setLastSynced] = useState<Date | null>(null);
+  const [auth, setAuth] = useState<AuthState>({ loggedIn: false, email: null });
 
-  // Local-only mode — cloud sync is intentionally disabled in this PWA build.
-  const syncState: SyncState = "idle";
-  const lastSynced: Date | null = null;
-
-  // Boot: hydrate from AsyncStorage (uses localStorage shim on web).
+  // Ref mirror of auth so mutation callbacks always read the latest value
+  // without being re-created (and without stale-closure bugs).
+  const loggedInRef = useRef(false);
   useEffect(() => {
-    AsyncStorage.getItem(STORAGE_KEY)
-      .then((data) => {
-        if (!data) return;
-        try {
-          setProgressState(JSON.parse(data));
-        } catch {
-          // Corrupt blob — wipe so we don't keep failing.
-          AsyncStorage.removeItem(STORAGE_KEY).catch(() => {});
-        }
-      })
-      .catch(() => {});
-  }, []);
+    loggedInRef.current = auth.loggedIn;
+  }, [auth.loggedIn]);
 
   const persist = useCallback((next: Record<string, SlokaProgress>) => {
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next)).catch(() => {});
+  }, []);
+
+  // Boot: hydrate local, then (web + logged in) reconcile with the cloud.
+  useEffect(() => {
+    (async () => {
+      let local: Record<string, SlokaProgress> = {};
+      try {
+        const raw = await AsyncStorage.getItem(STORAGE_KEY);
+        if (raw) local = JSON.parse(raw);
+      } catch {
+        AsyncStorage.removeItem(STORAGE_KEY).catch(() => {});
+      }
+      setProgressState(local);
+
+      if (Platform.OS !== "web") return; // native stays local-only for now
+
+      const who = await checkAuth();
+      setAuth(who);
+      if (!who.loggedIn) return;
+
+      setSyncState("syncing");
+      const cloud = await fetchState();
+      if (!cloud) {
+        setSyncState("error");
+        return;
+      }
+
+      // Cloud is authoritative for slokas it knows; local-only entries get
+      // pushed up so nothing on-device is lost on first login.
+      const merged = { ...local, ...(cloud as Record<string, SlokaProgress>) };
+      setProgressState(merged);
+      persist(merged);
+
+      const localOnly: Record<string, SlokaProgress> = {};
+      for (const id of Object.keys(local)) {
+        if (!(id in cloud)) localOnly[id] = local[id];
+      }
+      if (Object.keys(localOnly).length) {
+        const server = await importState(localOnly as any);
+        if (server) {
+          setProgressState(server as Record<string, SlokaProgress>);
+          persist(server as Record<string, SlokaProgress>);
+        }
+      }
+      setSyncState("synced");
+      setLastSynced(new Date());
+    })();
+  }, [persist]);
+
+  // Mark a write-through result on the sync indicator.
+  const markSync = useCallback((ok: boolean) => {
+    if (!loggedInRef.current) return;
+    if (ok) {
+      setSyncState("synced");
+      setLastSynced(new Date());
+    } else {
+      setSyncState("error");
+    }
   }, []);
 
   const setProgress = useCallback(
@@ -72,42 +135,41 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       setProgressState((current) => {
         const next = {
           ...current,
-          [id]: {
-            ...(current[id] ?? { inMySlokas: false }),
-            status,
-          },
+          [id]: { ...(current[id] ?? { inMySlokas: false }), status },
         };
         persist(next);
         return next;
       });
+      if (loggedInRef.current) {
+        pushProgress(id, status).then(markSync);
+      }
     },
-    [persist],
+    [persist, markSync],
   );
 
   const toggleMySlokas = useCallback(
     (id: string) => {
+      let nextInMySlokas = false;
       setProgressState((current) => {
         const entry =
-          current[id] ?? {
-            status: "unstarted" as ProgressStatus,
-            inMySlokas: false,
-          };
-        const nextInMySlokas = !entry.inMySlokas;
+          current[id] ?? { status: "unstarted" as ProgressStatus, inMySlokas: false };
+        nextInMySlokas = !entry.inMySlokas;
         const next = {
           ...current,
           [id]: {
             ...entry,
             inMySlokas: nextInMySlokas,
-            savedAt: nextInMySlokas
-              ? new Date().toISOString()
-              : undefined,
+            savedAt: nextInMySlokas ? new Date().toISOString() : undefined,
           },
         };
         persist(next);
         return next;
       });
+      if (loggedInRef.current) {
+        pushFavorite(id, nextInMySlokas).then(markSync);
+      }
     },
-    [persist],
+    [persist, markSync],
   );
 
   const isMySlokas = useCallback(
@@ -130,6 +192,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         getStatus,
         syncState,
         lastSynced,
+        auth,
+        login: apiLogin,
+        logout: apiLogout,
       }}
     >
       {children}
