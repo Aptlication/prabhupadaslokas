@@ -130,8 +130,25 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  // "Browse open, sign in to save": the two write actions require an account on
+  // web. When logged out, prompt and send the user through Access login instead
+  // of saving — so all saved progress is tied to a login. Native has no Access
+  // login, so it keeps the local-only behaviour.
+  const ensureAuth = useCallback((): boolean => {
+    if (Platform.OS !== "web") return true;
+    if (loggedInRef.current) return true;
+    if (typeof window !== "undefined") {
+      const ok = window.confirm(
+        "Sign in to save your progress and sync it across your devices?",
+      );
+      if (ok) apiLogin();
+    }
+    return false;
+  }, []);
+
   const setProgress = useCallback(
     (id: string, status: ProgressStatus) => {
+      if (!ensureAuth()) return;
       setProgressState((current) => {
         const next = {
           ...current,
@@ -140,15 +157,14 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         persist(next);
         return next;
       });
-      if (loggedInRef.current) {
-        pushProgress(id, status).then(markSync);
-      }
+      pushProgress(id, status).then(markSync);
     },
-    [persist, markSync],
+    [persist, markSync, ensureAuth],
   );
 
   const toggleMySlokas = useCallback(
     (id: string) => {
+      if (!ensureAuth()) return;
       let nextInMySlokas = false;
       setProgressState((current) => {
         const entry =
@@ -165,11 +181,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         persist(next);
         return next;
       });
-      if (loggedInRef.current) {
-        pushFavorite(id, nextInMySlokas).then(markSync);
-      }
+      pushFavorite(id, nextInMySlokas).then(markSync);
     },
-    [persist, markSync],
+    [persist, markSync, ensureAuth],
   );
 
   const isMySlokas = useCallback(
