@@ -35,5 +35,9 @@ database_id = "5b3547fe-9ba4-4683-be44-c83273be3ddc"
 # ACCESS_TEAM_DOMAIN: your Zero Trust team domain, e.g. "yourteam.cloudflareaccess.com"
 # ACCESS_AUD: the Application Audience (AUD) tag of the Access app guarding /api/*
 [vars]
-ACCESS_TEAM_DOMAIN = "REPLACE_WITH_TEAM.cloudflareaccess.com"
-ACCESS_AUD = "REPLACE_WITH_ACCESS_APPLICATION_AUD_TAG"
+ACCESS_TEAM_DOMAIN = "restless-glitter-a449.cloudflareaccess.com"
+ACCESS_AUD = "4b64f7005e0f29f796fab657f6c2a144d2e2c6bf5863dabd026ead068532cf5c"
+
+[env.preview.vars]
+ACCESS_TEAM_DOMAIN = "restless-glitter-a449.cloudflareaccess.com"
+ACCESS_AUD = "4b64f7005e0f29f796fab657f6c2a144d2e2c6bf5863dabd026ead068532cf5c"
