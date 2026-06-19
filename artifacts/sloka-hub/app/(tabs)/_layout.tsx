@@ -51,7 +51,11 @@ function ClassicTabLayout() {
           borderTopWidth: 1,
           borderTopColor: colors.border,
           elevation: 0,
-          ...(isWeb ? { height: 84 } : {}),
+          // Web: pin the bar to the viewport bottom so it stays visible on long,
+          // scrolling pages (e.g. the full sloka list), not just short ones.
+          ...(isWeb
+            ? ({ height: 84, position: "fixed", bottom: 0, left: 0, right: 0 } as any)
+            : {}),
         },
         tabBarBackground: () =>
           isIOS ? (
