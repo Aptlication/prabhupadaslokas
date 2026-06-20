@@ -11,7 +11,7 @@
  * old caches are evicted on activate.
  */
 
-const CACHE_VERSION = "sloka-hub-v1";
+const CACHE_VERSION = "sloka-hub-v2";
 const APP_SHELL = ["/", "/manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {

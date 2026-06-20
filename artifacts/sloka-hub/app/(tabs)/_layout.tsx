@@ -47,8 +47,8 @@ function ClassicTabLayout() {
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: isIOS ? "transparent" : colors.navyMid,
-          borderTopWidth: 1,
+          backgroundColor: isIOS ? "transparent" : colors.navyLight,
+          borderTopWidth: 2,
           borderTopColor: colors.border,
           elevation: 0,
           // Web: pin the bar to the viewport bottom so it stays visible on long,
@@ -66,7 +66,7 @@ function ClassicTabLayout() {
             />
           ) : isWeb ? (
             <View
-              style={[StyleSheet.absoluteFill, { backgroundColor: colors.navyMid }]}
+              style={[StyleSheet.absoluteFill, { backgroundColor: colors.navyLight }]}
             />
           ) : null,
       }}
