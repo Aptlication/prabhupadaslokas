@@ -1,7 +1,7 @@
 import { ExpoConfig, ConfigContext } from "expo/config";
 
 const APP_NAME = "Prabhupada Slokas";
-const APP_TAGLINE = "Chant it. Know it. Speak it with authority.";
+const APP_TAGLINE = "Chant it. Know it. Speak with authority.";
 const APP_DESCRIPTION =
   "Prabhupada Slokas helps ISKCON devotees learn slokas, improve pronunciation, understand meanings, and memorize them effectively through structured practice.";
 const APP_VERSION = "1.0.0";
