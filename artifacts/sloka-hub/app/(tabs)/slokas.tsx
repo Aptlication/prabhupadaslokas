@@ -13,7 +13,12 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { SlokaCard } from "@/components/SlokaCard";
-import { Sloka, groupBySource, sourceTexts, slokas } from "@/data/slokas";
+import {
+  Sloka,
+  groupBySourceAndChapter,
+  sourceTexts,
+  slokas,
+} from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
 
 export default function SlokasScreen() {
@@ -38,14 +43,14 @@ export default function SlokasScreen() {
     });
   }, [search, selectedSource]);
 
-  const sections = useMemo(() => groupBySource(filtered), [filtered]);
+  const sections = useMemo(() => groupBySourceAndChapter(filtered), [filtered]);
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
 
   const jumpToSource = (src: string) => {
     setSelectedSource(src === selectedSource ? null : src);
-    const idx = sections.findIndex((s) => s.title === src);
+    const idx = sections.findIndex((s) => s.source === src);
     if (idx >= 0) {
       sectionListRef.current?.scrollToLocation({
         sectionIndex: idx,
@@ -143,6 +148,20 @@ export default function SlokasScreen() {
         sections={sections}
         keyExtractor={(item) => item.id}
         stickySectionHeadersEnabled
+        ListHeaderComponent={
+          <View style={styles.intro}>
+            <Text style={[styles.introTitle, { color: colors.primary }]}>
+              Prabhupāda’s Slokas
+            </Text>
+            <Text style={[styles.introBody, { color: colors.foreground }]}>
+              The verses Śrīla Prabhupāda knew by heart and quoted again and
+              again — throughout his books, lectures, and conversations.
+            </Text>
+            <Text style={[styles.introMeta, { color: colors.mutedForeground }]}>
+              {slokas.length} verses · {sourceTexts.length} sources
+            </Text>
+          </View>
+        }
         renderSectionHeader={({ section }) => (
           <View
             style={[
@@ -193,6 +212,28 @@ export default function SlokasScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
+  intro: {
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 10,
+    gap: 6,
+  },
+  introTitle: {
+    fontSize: 22,
+    fontFamily: "GentiumBookPlus_700Bold",
+  },
+  introBody: {
+    fontSize: 15,
+    fontFamily: "GentiumBookPlus_400Regular",
+    lineHeight: 22,
+  },
+  introMeta: {
+    fontSize: 11,
+    fontFamily: "GentiumBookPlus_700Bold",
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+    marginTop: 2,
+  },
   header: {
     paddingHorizontal: 16,
     paddingBottom: 10,
