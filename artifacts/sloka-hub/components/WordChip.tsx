@@ -76,17 +76,17 @@ const styles = StyleSheet.create({
   },
   word: {
     fontSize: 14,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     fontStyle: "italic",
   },
   meaning: {
     fontSize: 11,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     textAlign: "center",
   },
   tap: {
     fontSize: 9,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     textTransform: "uppercase",
     letterSpacing: 0.5,
     marginTop: 1,

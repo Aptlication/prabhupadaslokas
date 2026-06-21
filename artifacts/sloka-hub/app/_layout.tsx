@@ -1,10 +1,9 @@
 import {
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
+  GentiumBookPlus_400Regular,
+  GentiumBookPlus_400Regular_Italic,
+  GentiumBookPlus_700Bold,
   useFonts,
-} from "@expo-google-fonts/inter";
+} from "@expo-google-fonts/gentium-book-plus";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -32,11 +31,14 @@ function RootLayoutNav() {
 }
 
 export default function RootLayout() {
+  // Gentium Book Plus — an old-style book serif with full IAST/Sanskrit
+  // diacritic coverage. Loaded from its Google Fonts package (same mechanism the
+  // app used for Inter). The family ships in two weights (400/700); the verse
+  // transliteration uses the true italic face for a typeset look.
   const [fontsLoaded, fontError] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
+    GentiumBookPlus_400Regular,
+    GentiumBookPlus_700Bold,
+    GentiumBookPlus_400Regular_Italic,
   });
   const [fontTimeout, setFontTimeout] = React.useState(false);
 

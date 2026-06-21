@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 22,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     color: C.primary,
     marginBottom: 4,
   },
   tagline: {
     fontSize: 13,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     color: C.mutedForeground,
     fontStyle: "italic",
   },

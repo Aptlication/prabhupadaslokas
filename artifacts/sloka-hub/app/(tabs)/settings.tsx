@@ -5,6 +5,7 @@ import {
   Pressable,
   ScrollView,
   StyleSheet,
+  Switch,
   Text,
   View,
 } from "react-native";
@@ -23,7 +24,9 @@ import { useColors } from "@/hooks/useColors";
 export default function SettingsScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
-  const { getStatus, auth, login, logout, syncState, lastSynced } = useApp();
+  const { getStatus, auth, login, logout, syncState, lastSynced, theme, setTheme } =
+    useApp();
+  const isNight = theme === "night";
 
   const learned = slokas.filter((s) => getStatus(s.id) === "learned").length;
   const learning = slokas.filter((s) => getStatus(s.id) === "learning").length;
@@ -68,6 +71,43 @@ export default function SettingsScreen() {
         <Text style={[styles.subtitle, { color: colors.mutedForeground }]}>
           Your learning progress
         </Text>
+      </View>
+
+      {/* Appearance — paper (off-white) / night (off-black) reading theme */}
+      <View style={{ paddingHorizontal: 16, gap: 10, marginBottom: 28 }}>
+        <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>
+          APPEARANCE
+        </Text>
+        <View
+          style={[
+            styles.row,
+            { backgroundColor: colors.card, borderColor: colors.border },
+          ]}
+        >
+          <View style={[styles.rowIcon, { backgroundColor: colors.muted }]}>
+            <Feather
+              name={isNight ? "moon" : "sun"}
+              size={18}
+              color={colors.primary}
+            />
+          </View>
+          <View style={{ flex: 1 }}>
+            <Text style={[styles.rowLabel, { color: colors.foreground }]}>
+              Night mode
+            </Text>
+            <Text style={[styles.rowHint, { color: colors.mutedForeground }]}>
+              {isNight ? "Off-black reading" : "Off-white reading"}
+            </Text>
+          </View>
+          <Switch
+            value={isNight}
+            onValueChange={(on) => setTheme(on ? "night" : "paper")}
+            trackColor={{ false: colors.border, true: colors.primary }}
+            thumbColor={colors.card}
+            ios_backgroundColor={colors.border}
+            testID="night-mode-switch"
+          />
+        </View>
       </View>
 
       {/* Account — login/logout + sync (web only; native is local-only for now) */}
@@ -192,11 +232,11 @@ export default function SettingsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1 },
-  title: { fontSize: 28, fontFamily: "Inter_700Bold" },
-  subtitle: { fontSize: 14, fontFamily: "Inter_400Regular", marginTop: 4 },
+  title: { fontSize: 28, fontFamily: "GentiumBookPlus_700Bold" },
+  subtitle: { fontSize: 14, fontFamily: "GentiumBookPlus_400Regular", marginTop: 4 },
   sectionLabel: {
     fontSize: 11,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     letterSpacing: 0.8,
     marginBottom: 2,
   },
@@ -215,18 +255,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  rowLabel: { flex: 1, fontSize: 15, fontFamily: "Inter_400Regular" },
-  rowValue: { fontSize: 16, fontFamily: "Inter_700Bold" },
+  rowLabel: { flex: 1, fontSize: 15, fontFamily: "GentiumBookPlus_400Regular" },
+  rowHint: { fontSize: 12, fontFamily: "GentiumBookPlus_400Regular", marginTop: 1 },
+  rowValue: { fontSize: 16, fontFamily: "GentiumBookPlus_700Bold" },
   aboutCard: { borderRadius: 14, borderWidth: 1, padding: 18, gap: 8 },
-  aboutTitle: { fontSize: 20, fontFamily: "Inter_700Bold" },
+  aboutTitle: { fontSize: 20, fontFamily: "GentiumBookPlus_700Bold" },
   aboutTagline: {
     fontSize: 13,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     fontStyle: "italic",
   },
-  aboutDesc: { fontSize: 14, fontFamily: "Inter_400Regular", lineHeight: 21 },
+  aboutDesc: { fontSize: 14, fontFamily: "GentiumBookPlus_400Regular", lineHeight: 21 },
   divider: { height: 1, marginVertical: 4 },
-  version: { fontSize: 12, fontFamily: "Inter_400Regular" },
+  version: { fontSize: 12, fontFamily: "GentiumBookPlus_400Regular" },
   btn: {
     flexDirection: "row",
     alignItems: "center",
@@ -246,5 +287,5 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginTop: 6,
   },
-  btnText: { fontSize: 15, fontFamily: "Inter_600SemiBold" },
+  btnText: { fontSize: 15, fontFamily: "GentiumBookPlus_700Bold" },
 });

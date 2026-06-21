@@ -95,6 +95,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: C.mutedForeground,
     letterSpacing: 1,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
 });

@@ -21,6 +21,9 @@ import {
 
 export type ProgressStatus = "unstarted" | "learning" | "learned";
 
+/** Reading theme. "paper" = off-white light; "night" = off-black reverse. */
+export type ThemeName = "paper" | "night";
+
 interface SlokaProgress {
   status: ProgressStatus;
   savedAt?: string;
@@ -45,11 +48,16 @@ interface AppContextType {
   auth: AuthState;
   login: () => void;
   logout: () => void;
+  theme: ThemeName;
+  setTheme: (t: ThemeName) => void;
+  toggleTheme: () => void;
 }
 
 const AppContext = createContext<AppContextType | null>(null);
 
 const STORAGE_KEY = "sloka_hub_progress";
+const THEME_KEY = "sloka_hub_theme";
+const DEFAULT_THEME: ThemeName = "paper";
 
 // ─── Provider ─────────────────────────────────────────────────────────────────
 
@@ -60,6 +68,29 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [syncState, setSyncState] = useState<SyncState>("idle");
   const [lastSynced, setLastSynced] = useState<Date | null>(null);
   const [auth, setAuth] = useState<AuthState>({ loggedIn: false, email: null });
+  const [theme, setThemeState] = useState<ThemeName>(DEFAULT_THEME);
+
+  // Boot: hydrate saved theme preference (separate from progress hydration).
+  useEffect(() => {
+    AsyncStorage.getItem(THEME_KEY)
+      .then((value) => {
+        if (value === "paper" || value === "night") setThemeState(value);
+      })
+      .catch(() => {});
+  }, []);
+
+  const setTheme = useCallback((t: ThemeName) => {
+    setThemeState(t);
+    AsyncStorage.setItem(THEME_KEY, t).catch(() => {});
+  }, []);
+
+  const toggleTheme = useCallback(() => {
+    setThemeState((current) => {
+      const next: ThemeName = current === "paper" ? "night" : "paper";
+      AsyncStorage.setItem(THEME_KEY, next).catch(() => {});
+      return next;
+    });
+  }, []);
 
   // Ref mirror of auth so mutation callbacks always read the latest value
   // without being re-created (and without stale-closure bugs).
@@ -209,6 +240,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         auth,
         login: apiLogin,
         logout: apiLogout,
+        theme,
+        setTheme,
+        toggleTheme,
       }}
     >
       {children}
@@ -220,4 +254,21 @@ export function useApp(): AppContextType {
   const ctx = useContext(AppContext);
   if (!ctx) throw new Error("useApp must be used within AppProvider");
   return ctx;
+}
+
+/**
+ * Theme preference, safe to call outside the provider (falls back to the
+ * default paper theme) so low-level hooks like useColors never crash.
+ */
+export function useThemePreference(): {
+  theme: ThemeName;
+  setTheme: (t: ThemeName) => void;
+  toggleTheme: () => void;
+} {
+  const ctx = useContext(AppContext);
+  return {
+    theme: ctx?.theme ?? DEFAULT_THEME,
+    setTheme: ctx?.setTheme ?? (() => {}),
+    toggleTheme: ctx?.toggleTheme ?? (() => {}),
+  };
 }

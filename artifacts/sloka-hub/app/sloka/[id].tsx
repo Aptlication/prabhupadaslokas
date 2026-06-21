@@ -217,13 +217,13 @@ const styles = StyleSheet.create({
   bookmarkBtn: { padding: 6 },
   headerSource: {
     fontSize: 11,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
   headerTitle: {
     fontSize: 16,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     marginTop: 1,
   },
   toggleRow: {
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   },
   toggleLabel: {
     fontSize: 12,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   card: {
     marginHorizontal: 16,
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   sectionTag: {
     fontSize: 11,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
@@ -262,15 +262,14 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   transText: {
-    fontSize: 16,
-    fontFamily: "Inter_500Medium",
-    fontStyle: "italic",
-    lineHeight: 24,
+    fontSize: 18,
+    fontFamily: "GentiumBookPlus_400Regular_Italic",
+    lineHeight: 27,
     flex: 1,
   },
   translation: {
     fontSize: 15,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     lineHeight: 23,
   },
   wordSection: {
@@ -290,7 +289,7 @@ const styles = StyleSheet.create({
   },
   purportText: {
     fontSize: 14,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     lineHeight: 22,
   },
 });
@@ -315,30 +314,30 @@ const ppStyles = StyleSheet.create({
   },
   rankNum: {
     fontSize: 15,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     lineHeight: 18,
   },
   rankLabel: {
     fontSize: 9,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
     textTransform: "uppercase",
     letterSpacing: 0.5,
   },
   metaDivider: {
     width: 1,
     height: 32,
-    backgroundColor: "rgba(255,255,255,0.08)",
+    backgroundColor: "rgba(120,90,60,0.20)",
   },
   metaCell: {
     gap: 2,
   },
   metaValue: {
     fontSize: 13,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   metaKey: {
     fontSize: 10,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     textTransform: "uppercase",
     letterSpacing: 0.3,
   },
