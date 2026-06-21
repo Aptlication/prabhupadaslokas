@@ -50,7 +50,7 @@ export function ProgressSelector({ status, onPress }: ProgressBadgeProps) {
             <Text
               style={[
                 styles.label,
-                { color: active ? col : colors.mutedForeground, fontFamily: active ? "Inter_600SemiBold" : "Inter_400Regular" },
+                { color: active ? col : colors.mutedForeground, fontFamily: active ? "GentiumBookPlus_700Bold" : "GentiumBookPlus_400Regular" },
               ]}
             >
               {opt.label}

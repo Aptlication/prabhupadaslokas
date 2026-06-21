@@ -151,21 +151,21 @@ const styles = StyleSheet.create({
   titleRow: { flexDirection: "row", alignItems: "center", gap: 6 },
   category: {
     fontSize: 11,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     letterSpacing: 0.5,
     textTransform: "uppercase",
   },
   bookmark: {},
-  title: { fontSize: 17, fontFamily: "Inter_700Bold" },
+  title: { fontSize: 17, fontFamily: "GentiumBookPlus_700Bold" },
   firstLine: {
     fontSize: 13,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     fontStyle: "italic",
     lineHeight: 20,
   },
   footer: { flexDirection: "row", alignItems: "center", gap: 6, marginTop: 2 },
   statusDot: { width: 7, height: 7, borderRadius: 4 },
-  statusText: { fontSize: 12, fontFamily: "Inter_500Medium" },
+  statusText: { fontSize: 12, fontFamily: "GentiumBookPlus_400Regular" },
   spacer: { flex: 1 },
 
   // PP compact card
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   rankText: {
     fontSize: 12,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   ppContent: {
     flex: 1,
@@ -206,17 +206,17 @@ const styles = StyleSheet.create({
   ppIncipit: {
     flex: 1,
     fontSize: 14,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     fontStyle: "italic",
   },
   ppRef: {
     fontSize: 11,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     letterSpacing: 0.2,
   },
   ppTheme: {
     fontSize: 12,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   ppRight: {
     flexDirection: "row",

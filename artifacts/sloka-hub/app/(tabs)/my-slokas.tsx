@@ -58,11 +58,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   subtitle: {
     fontSize: 14,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   empty: {
     alignItems: "center",
@@ -72,12 +72,12 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 17,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
     textAlign: "center",
   },
   emptyText: {
     fontSize: 14,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     textAlign: "center",
     lineHeight: 20,
   },

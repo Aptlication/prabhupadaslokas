@@ -159,12 +159,12 @@ const styles = StyleSheet.create({
   },
   appName: {
     fontSize: 28,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     letterSpacing: -0.5,
   },
   tagline: {
     fontSize: 13,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     marginTop: 2,
   },
   statsRow: {
@@ -181,11 +181,11 @@ const styles = StyleSheet.create({
   },
   statNumber: {
     fontSize: 26,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   statLabel: {
     fontSize: 11,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
     textTransform: "uppercase",
     letterSpacing: 0.4,
   },
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 18,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     marginBottom: 2,
   },
   actionsGrid: {
@@ -217,11 +217,11 @@ const styles = StyleSheet.create({
   },
   actionTitle: {
     fontSize: 15,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   actionSub: {
     fontSize: 12,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   comingSoonCard: {
     borderRadius: 14,
@@ -240,11 +240,11 @@ const styles = StyleSheet.create({
   },
   comingSoonTitle: {
     fontSize: 14,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   comingSoonDesc: {
     fontSize: 12,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     marginTop: 2,
   },
   comingSoonBadge: {
@@ -254,6 +254,6 @@ const styles = StyleSheet.create({
   },
   comingSoonBadgeText: {
     fontSize: 11,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
 });

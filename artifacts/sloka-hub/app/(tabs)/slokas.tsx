@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 15,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
     padding: 0,
   },
   pills: {},
@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
   },
   pillText: {
     fontSize: 13,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   sectionHeader: {
     flexDirection: "row",
@@ -241,7 +241,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     flex: 1,
     fontSize: 13,
-    fontFamily: "Inter_700Bold",
+    fontFamily: "GentiumBookPlus_700Bold",
     letterSpacing: 0.4,
     textTransform: "uppercase",
   },
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
   },
   countText: {
     fontSize: 11,
-    fontFamily: "Inter_500Medium",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
   empty: {
     alignItems: "center",
@@ -261,10 +261,10 @@ const styles = StyleSheet.create({
   },
   emptyTitle: {
     fontSize: 17,
-    fontFamily: "Inter_600SemiBold",
+    fontFamily: "GentiumBookPlus_700Bold",
   },
   emptyText: {
     fontSize: 14,
-    fontFamily: "Inter_400Regular",
+    fontFamily: "GentiumBookPlus_400Regular",
   },
 });

@@ -19,12 +19,12 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   orientation: "portrait",
   icon: "./assets/images/icon.png",
   scheme: "sloka-hub",
-  userInterfaceStyle: "dark",
+  userInterfaceStyle: "light",
   newArchEnabled: true,
   splash: {
     image: "./assets/images/icon.png",
     resizeMode: "contain",
-    backgroundColor: "#0D1B3E",
+    backgroundColor: "#F7F5F0",
   },
   ios: {
     supportsTablet: false,
@@ -32,8 +32,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   android: {},
   web: {
     favicon: "./assets/images/icon.png",
-    backgroundColor: "#0D1B3E",
-    themeColor: "#C9A84C",
+    backgroundColor: "#F7F5F0",
+    themeColor: "#8A3A2E",
     description: `${APP_DESCRIPTION} ${APP_TAGLINE}`,
     lang: "en",
     name: APP_NAME,
