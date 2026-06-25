@@ -1,53 +1,34 @@
-import express, { type Express } from "express";
-import cors from "cors";
-import pinoHttp from "pino-http";
-import { clerkMiddleware } from "@clerk/express";
-import { publishableKeyFromHost } from "@clerk/shared/keys";
-import {
-  CLERK_PROXY_PATH,
-  clerkProxyMiddleware,
-  getClerkProxyHost,
-} from "./middlewares/clerkProxyMiddleware.js";
-import router from "./routes/index.js";
-import { logger } from "./lib/logger.js";
+import { Hono } from "hono";
+import { cors } from "hono/cors";
 
-const app: Express = express();
+import auth from "./routes/auth";
+import bookmarks from "./routes/bookmarks";
+import health from "./routes/health";
+import progress from "./routes/progress";
+import type { AppEnv } from "./types";
 
+const app = new Hono<AppEnv>();
+
+// CORS: allow the PWA origin with credentials. Auth is bearer-token based (not
+// cookies), but credentials are enabled per the API contract.
 app.use(
-  pinoHttp({
-    logger,
-    serializers: {
-      req(req) {
-        return {
-          id: req.id,
-          method: req.method,
-          url: req.url?.split("?")[0],
-        };
-      },
-      res(res) {
-        return {
-          statusCode: res.statusCode,
-        };
-      },
-    },
+  "*",
+  cors({
+    origin: "https://prabhupadaslokas.com",
+    credentials: true,
+    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowHeaders: ["Authorization", "Content-Type"],
   }),
 );
 
-app.use(CLERK_PROXY_PATH, clerkProxyMiddleware());
+// Same surface as before, mounted under /api: /api/healthz, /api/auth/sync,
+// /api/progress, /api/bookmarks.
+const api = new Hono<AppEnv>();
+api.route("/", health);
+api.route("/auth", auth);
+api.route("/progress", progress);
+api.route("/bookmarks", bookmarks);
 
-app.use(cors({ credentials: true, origin: true }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(
-  clerkMiddleware((req) => ({
-    publishableKey: publishableKeyFromHost(
-      getClerkProxyHost(req) ?? "",
-      process.env.CLERK_PUBLISHABLE_KEY,
-    ),
-  })),
-);
-
-app.use("/api", router);
+app.route("/api", api);
 
 export default app;

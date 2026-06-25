@@ -1,11 +1,15 @@
-import { db, slokaProgressTable, usersTable } from "@workspace/db";
-import { and, eq } from "drizzle-orm";
-import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../middlewares/requireAuth.js";
+import { slokaProgressTable, usersTable, type Database } from "@workspace/db";
+import { eq } from "drizzle-orm";
+import { Hono } from "hono";
 
-const router = Router();
+import { withDb } from "../db";
+import { requireAuth } from "../middlewares/requireAuth";
+import type { AppEnv } from "../types";
 
-async function getDbUserId(clerkUserId: string): Promise<number | null> {
+const progress = new Hono<AppEnv>();
+progress.use("*", requireAuth, withDb);
+
+async function getDbUserId(db: Database, clerkUserId: string): Promise<number | null> {
   const rows = await db
     .select({ id: usersTable.id })
     .from(usersTable)
@@ -14,30 +18,31 @@ async function getDbUserId(clerkUserId: string): Promise<number | null> {
   return rows[0]?.id ?? null;
 }
 
-router.get("/", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const userId = await getDbUserId(clerkUserId);
-  if (!userId) { res.json([]); return; }
+progress.get("/", async (c) => {
+  const db = c.get("db");
+  const userId = await getDbUserId(db, c.get("clerkUserId"));
+  if (!userId) return c.json([]);
 
   const rows = await db
     .select()
     .from(slokaProgressTable)
     .where(eq(slokaProgressTable.userId, userId));
-  res.json(rows);
+  return c.json(rows);
 });
 
-router.put("/:slokaId", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const slokaId = String(req.params.slokaId);
-  const { status } = req.body as { status: string };
+progress.put("/:slokaId", async (c) => {
+  const slokaId = String(c.req.param("slokaId"));
+  const { status } = await c.req
+    .json<{ status?: string }>()
+    .catch(() => ({ status: undefined }));
 
-  if (!["unstarted", "learning", "learned"].includes(status)) {
-    res.status(400).json({ error: "Invalid status" });
-    return;
+  if (!status || !["unstarted", "learning", "learned"].includes(status)) {
+    return c.json({ error: "Invalid status" }, 400);
   }
 
-  const userId = await getDbUserId(clerkUserId);
-  if (!userId) { res.status(404).json({ error: "User not found" }); return; }
+  const db = c.get("db");
+  const userId = await getDbUserId(db, c.get("clerkUserId"));
+  if (!userId) return c.json({ error: "User not found" }, 404);
 
   try {
     const [row] = await db
@@ -48,11 +53,11 @@ router.put("/:slokaId", requireAuth, async (req, res) => {
         set: { status, updatedAt: new Date() },
       })
       .returning();
-    res.json(row);
+    return c.json(row);
   } catch (err) {
-    req.log.error({ err }, "progress update error");
-    res.status(500).json({ error: "Internal server error" });
+    console.error("progress update error", err);
+    return c.json({ error: "Internal server error" }, 500);
   }
 });
 
-export default router;
+export default progress;

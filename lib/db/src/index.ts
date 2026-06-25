@@ -2,15 +2,21 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import pg from "pg";
 import * as schema from "./schema";
 
-const { Pool } = pg;
+const { Client } = pg;
 
-if (!process.env.DATABASE_URL) {
-  throw new Error(
-    "DATABASE_URL must be set. Did you forget to provision a database?",
-  );
+/**
+ * Create a Drizzle client over a single node-postgres connection.
+ *
+ * Workers have no module-scope `process.env`, and Hyperdrive hands us a fresh
+ * connection string per request, so the client is built on demand rather than
+ * eagerly at import time. The caller connects the returned `client` and is
+ * responsible for closing it (e.g. `ctx.waitUntil(client.end())`).
+ */
+export function createDb(connectionString: string) {
+  const client = new Client({ connectionString });
+  return { client, db: drizzle(client, { schema }) };
 }
 
-export const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-export const db = drizzle(pool, { schema });
+export type Database = ReturnType<typeof createDb>["db"];
 
 export * from "./schema";

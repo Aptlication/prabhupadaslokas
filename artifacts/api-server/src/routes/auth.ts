@@ -1,19 +1,24 @@
-import { db, usersTable } from "@workspace/db";
+import { usersTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
-import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../middlewares/requireAuth.js";
+import { Hono } from "hono";
 
-const router = Router();
+import { withDb } from "../db";
+import { requireAuth } from "../middlewares/requireAuth";
+import type { AppEnv } from "../types";
 
-router.post("/sync", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const { email, displayName } = req.body as { email: string; displayName?: string };
+const auth = new Hono<AppEnv>();
+
+auth.post("/sync", requireAuth, withDb, async (c) => {
+  const clerkUserId = c.get("clerkUserId");
+  const { email, displayName } = await c.req
+    .json<{ email?: string; displayName?: string }>()
+    .catch(() => ({}) as { email?: string; displayName?: string });
 
   if (!email) {
-    res.status(400).json({ error: "email is required" });
-    return;
+    return c.json({ error: "email is required" }, 400);
   }
 
+  const db = c.get("db");
   try {
     const existing = await db
       .select()
@@ -27,18 +32,18 @@ router.post("/sync", requireAuth, async (req, res) => {
         .set({ email, displayName: displayName ?? existing[0].displayName })
         .where(eq(usersTable.clerkUserId, clerkUserId))
         .returning();
-      res.json(updated);
+      return c.json(updated);
     } else {
       const [created] = await db
         .insert(usersTable)
         .values({ clerkUserId, email, displayName })
         .returning();
-      res.status(201).json(created);
+      return c.json(created, 201);
     }
   } catch (err) {
-    req.log.error({ err }, "auth sync error");
-    res.status(500).json({ error: "Internal server error" });
+    console.error("auth sync error", err);
+    return c.json({ error: "Internal server error" }, 500);
   }
 });
 
-export default router;
+export default auth;

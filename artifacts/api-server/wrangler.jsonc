@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "prabhupada-api",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-01",
+  // nodejs_compat lets node-postgres ("pg") run in the Worker.
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+
+  // ── Custom domain ──────────────────────────────────────────────────────────
+  // Requires the prabhupadaslokas.com zone to be on Cloudflare (Namecheap
+  // nameservers -> Cloudflare). <-- INFRA: adjust the hostname if needed.
+  "routes": [{ "pattern": "api.prabhupadaslokas.com", "custom_domain": true }],
+
+  // ── Hyperdrive -> Neon ─────────────────────────────────────────────────────
+  // Connection string is supplied by Hyperdrive at runtime as
+  // env.HYPERDRIVE.connectionString (no DATABASE_URL). Create the config with the
+  // pooled Neon URL, then paste the returned id below:
+  //   wrangler hyperdrive create prabhupada-neon \
+  //     --connection-string="postgresql://USER:PASS@HOST/neondb?sslmode=require"
+  "hyperdrive": [
+    { "binding": "HYPERDRIVE", "id": "REPLACE_WITH_HYPERDRIVE_ID" }
+  ]
+
+  // ── Secrets (NEVER committed) ──────────────────────────────────────────────
+  // Set out-of-band, not in this file:
+  //   wrangler secret put CLERK_SECRET_KEY
+  //   wrangler secret put CLERK_PUBLISHABLE_KEY
+  //
+  // CORS (allow https://prabhupadaslokas.com with credentials) is handled in
+  // application code — see src/app.ts (hono/cors).
+}

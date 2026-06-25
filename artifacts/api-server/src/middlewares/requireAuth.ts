@@ -1,17 +1,33 @@
-import { getAuth } from "@clerk/express";
-import { type NextFunction, type Request, type Response } from "express";
+import { verifyToken } from "@clerk/backend";
+import type { MiddlewareHandler } from "hono";
 
-export interface AuthedRequest extends Request {
-  clerkUserId: string;
-}
+import type { AppEnv } from "../types";
 
-export function requireAuth(req: Request, res: Response, next: NextFunction) {
-  const auth = getAuth(req);
-  const userId = auth?.userId;
-  if (!userId) {
-    res.status(401).json({ error: "Unauthorized" });
-    return;
+/**
+ * Auth guard — identical semantics to the previous @clerk/express version:
+ * verify the caller's Clerk session token and expose the Clerk user id, else
+ * reject with 401. The token arrives as `Authorization: Bearer <token>` (the
+ * frontend sends Clerk's `getToken()`); @clerk/backend verifies the JWT against
+ * Clerk's JWKS using the secret key.
+ */
+export const requireAuth: MiddlewareHandler<AppEnv> = async (c, next) => {
+  const header = c.req.header("Authorization");
+  const token = header?.startsWith("Bearer ") ? header.slice(7) : undefined;
+  if (!token) {
+    return c.json({ error: "Unauthorized" }, 401);
   }
-  (req as AuthedRequest).clerkUserId = userId;
-  next();
-}
+
+  try {
+    const claims = await verifyToken(token, {
+      secretKey: c.env.CLERK_SECRET_KEY,
+    });
+    if (!claims.sub) {
+      return c.json({ error: "Unauthorized" }, 401);
+    }
+    c.set("clerkUserId", claims.sub);
+  } catch {
+    return c.json({ error: "Unauthorized" }, 401);
+  }
+
+  return next();
+};

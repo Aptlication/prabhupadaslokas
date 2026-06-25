@@ -1,11 +1,15 @@
-import { db, slokaBookmarksTable, usersTable } from "@workspace/db";
+import { slokaBookmarksTable, usersTable, type Database } from "@workspace/db";
 import { and, eq } from "drizzle-orm";
-import { Router } from "express";
-import { requireAuth, type AuthedRequest } from "../middlewares/requireAuth.js";
+import { Hono } from "hono";
 
-const router = Router();
+import { withDb } from "../db";
+import { requireAuth } from "../middlewares/requireAuth";
+import type { AppEnv } from "../types";
 
-async function getDbUserId(clerkUserId: string): Promise<number | null> {
+const bookmarks = new Hono<AppEnv>();
+bookmarks.use("*", requireAuth, withDb);
+
+async function getDbUserId(db: Database, clerkUserId: string): Promise<number | null> {
   const rows = await db
     .select({ id: usersTable.id })
     .from(usersTable)
@@ -14,24 +18,23 @@ async function getDbUserId(clerkUserId: string): Promise<number | null> {
   return rows[0]?.id ?? null;
 }
 
-router.get("/", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const userId = await getDbUserId(clerkUserId);
-  if (!userId) { res.json([]); return; }
+bookmarks.get("/", async (c) => {
+  const db = c.get("db");
+  const userId = await getDbUserId(db, c.get("clerkUserId"));
+  if (!userId) return c.json([]);
 
   const rows = await db
     .select()
     .from(slokaBookmarksTable)
     .where(eq(slokaBookmarksTable.userId, userId));
-  res.json(rows);
+  return c.json(rows);
 });
 
-router.post("/:slokaId", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const slokaId = String(req.params.slokaId);
-
-  const userId = await getDbUserId(clerkUserId);
-  if (!userId) { res.status(404).json({ error: "User not found" }); return; }
+bookmarks.post("/:slokaId", async (c) => {
+  const slokaId = String(c.req.param("slokaId"));
+  const db = c.get("db");
+  const userId = await getDbUserId(db, c.get("clerkUserId"));
+  if (!userId) return c.json({ error: "User not found" }, 404);
 
   try {
     const [row] = await db
@@ -39,19 +42,18 @@ router.post("/:slokaId", requireAuth, async (req, res) => {
       .values({ userId, slokaId })
       .onConflictDoNothing()
       .returning();
-    res.status(201).json(row ?? { userId, slokaId });
+    return c.json(row ?? { userId, slokaId }, 201);
   } catch (err) {
-    req.log.error({ err }, "bookmark add error");
-    res.status(500).json({ error: "Internal server error" });
+    console.error("bookmark add error", err);
+    return c.json({ error: "Internal server error" }, 500);
   }
 });
 
-router.delete("/:slokaId", requireAuth, async (req, res) => {
-  const { clerkUserId } = req as AuthedRequest;
-  const slokaId = String(req.params.slokaId);
-
-  const userId = await getDbUserId(clerkUserId);
-  if (!userId) { res.status(404).json({ error: "User not found" }); return; }
+bookmarks.delete("/:slokaId", async (c) => {
+  const slokaId = String(c.req.param("slokaId"));
+  const db = c.get("db");
+  const userId = await getDbUserId(db, c.get("clerkUserId"));
+  if (!userId) return c.json({ error: "User not found" }, 404);
 
   await db
     .delete(slokaBookmarksTable)
@@ -61,7 +63,7 @@ router.delete("/:slokaId", requireAuth, async (req, res) => {
         eq(slokaBookmarksTable.slokaId, slokaId),
       ),
     );
-  res.status(204).send();
+  return c.body(null, 204);
 });
 
-export default router;
+export default bookmarks;
