@@ -2,7 +2,7 @@
 
 **Re-read this at the start of every session.** Canonical repo: `code/prabhupadaslokas`
 (the OneDrive "Prabhupada Slokas" folder is a stale snapshot — not canonical).
-_Last updated: 2026-06-25._
+_Last updated: 2026-06-25 (read-only launch shipped)._
 
 ## Hard decisions — do not contradict or re-derive
 - **NO REPLIT. Permanent.** Do not deploy, configure, reference, or "bring live"
@@ -34,11 +34,11 @@ _Last updated: 2026-06-25._
   backend that isn't built.
 - **Neon DB (`neondb`):** provisioned. `users` / `sloka_progress` / `sloka_bookmarks`
   created (empty); `slokas` seeded with exactly **180** canonical rows (verified).
-- **⚠ LAUNCH GAP:** production still runs the pre-Clerk `AppContext`, which gates web
-  SAVE actions ("mark learned" / "My Slokas") behind a **Cloudflare Access** login
-  prompt ("Sign in to save your progress" → `/api/login` → `cdn-cgi/access`). This
-  contradicts "no accounts, progress on-device" and must be removed for a true
-  read-only launch. (Reading is already open; only saving is gated.)
+- **✅ READ-ONLY LAUNCH SHIPPED (commit `e3e3e1e`):** the Cloudflare Access save-gate
+  is removed. Web "mark learned" / "My Slokas" now save on-device (AsyncStorage) with
+  no prompt, no identity check, no `/api/*` sync — web matches native. Verified on the
+  live bundle: no `cdn-cgi/access` / `get-identity` / `/api/login` / "Sign in to save"
+  strings, no Clerk key inlined (ungated). `lib/api.ts` (the Access client) deleted.
 
 ## Branches
 - `pwa-cloudflare` — **production / live**. Has `clerk-auth` (full-gate Clerk, inert)
@@ -49,9 +49,8 @@ _Last updated: 2026-06-25._
 - `clerk-auth` — merged into `pwa-cloudflare`.
 
 ## Next actions
-1. **LAUNCH:** remove the Cloudflare Access save-prompt so web saves go on-device
-   with no account prompt. (Decision pending: minimal patch on `pwa-cloudflare`, vs.
-   adapting `clerk-clean-switch` to ship ungated.)
+1. ~~LAUNCH: remove the Cloudflare Access save-prompt~~ — **DONE** (commit `e3e3e1e`,
+   live on `prabhupadaslokas.com`).
 2. **Phase 0–1 (mostly done):** Neon provisioned + schema + 180 slokas seeded.
    Remaining (Phase-2 prerequisite): move DNS Namecheap → Cloudflare for `api.<domain>`.
 3. **Phase 2 (deferred):** port `api-server` → Cloudflare Worker (Hono + `@clerk/backend`
