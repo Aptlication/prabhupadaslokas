@@ -2,7 +2,7 @@
 
 **Re-read this at the start of every session.** Canonical repo: `code/prabhupadaslokas`
 (the OneDrive "Prabhupada Slokas" folder is a stale snapshot — not canonical).
-_Last updated: 2026-06-25 (Phase 2 backend deployed to Cloudflare Workers)._
+_Last updated: 2026-06-25 (accounts/sync live — Phase 2 complete)._
 
 ## Hard decisions — do not contradict or re-derive
 - **NO REPLIT. Permanent.** Do not deploy, configure, reference, or "bring live"
@@ -27,11 +27,13 @@ _Last updated: 2026-06-25 (Phase 2 backend deployed to Cloudflare Workers)._
 ## Current status (2026-06-25)
 - **Frontend:** Expo PWA live on Cloudflare Pages (`prabhupadaslokas.com`), branch
   `pwa-cloudflare`. Ships the 180 verses on-device; reading works with no backend.
-- **Clerk gate is INERT on the live frontend:** the publishable key is NOT in the
-  Pages build env, so `isClerkConfigured=false` and the app is ungated. The backend
-  now exists, so wiring `EXPO_PUBLIC_API_URL` + `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY`
-  into the Pages env (and merging `clerk-clean-switch`) is the remaining step to turn
-  accounts/sync on — see Next actions.
+- **✅ ACCOUNTS/SYNC LIVE (Clerk active):** `clerk-clean-switch` merged into
+  `pwa-cloudflare` (merge `23557c0`); `artifacts/sloka-hub/.env.production` (committed,
+  public values) inlines `EXPO_PUBLIC_API_URL=https://api.prabhupadaslokas.com` +
+  `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY` at build time (live bundle confirmed to carry
+  both). Model: browse-open; sign-in (Clerk verified-squid-2) to save; progress/
+  bookmarks sync to the Worker. App shell 200, FAPI reachable (won't hang). To
+  revert to read-only, remove `.env.production` (the app falls back to ungated/local).
 - **Neon DB (`neondb`):** provisioned. `users` / `sloka_progress` / `sloka_bookmarks`
   created (empty); `slokas` seeded with exactly **180** canonical rows (verified).
 - **✅ READ-ONLY LAUNCH SHIPPED (commit `e3e3e1e`):** the Cloudflare Access save-gate
@@ -52,9 +54,8 @@ _Last updated: 2026-06-25 (Phase 2 backend deployed to Cloudflare Workers)._
 - `phase2-api-worker` (pushed) — the **deployed** Hono Worker backend;
   `api.prabhupadaslokas.com` deploys from here. Merge into `pwa-cloudflare` to bring
   the backend source onto the trunk.
-- `clerk-clean-switch` (pushed, PR open) — **Phase 2 frontend**: browse-open Clerk +
-  sync via `lib/api → ${EXPO_PUBLIC_API_URL}/api`. Merge to turn accounts on (after
-  the Pages env vars are set).
+- `clerk-clean-switch` — **Phase 2 frontend**, now MERGED into `pwa-cloudflare`
+  (`23557c0`); accounts-on is live. The open PR can be closed/marked merged.
 - `clerk-auth` — merged into `pwa-cloudflare`.
 
 ## Next actions
@@ -63,8 +64,9 @@ _Last updated: 2026-06-25 (Phase 2 backend deployed to Cloudflare Workers)._
    already on Cloudflare; no Namecheap change needed.)
 3. ~~Phase 2 backend: port to Worker, Hyperdrive, secrets, custom domain, deploy~~ —
    **DONE & DEPLOYED** (`api.prabhupadaslokas.com`).
-4. **TURN ACCOUNTS ON (frontend — the remaining work):** set
-   `EXPO_PUBLIC_API_URL=https://api.prabhupadaslokas.com` +
-   `EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_dmVy…` in the Pages build env, rebuild,
-   then merge `clerk-clean-switch`. End-to-end test `/api/auth/sync` with a real token.
+4. ~~TURN ACCOUNTS ON: env vars + merge clerk-clean-switch~~ — **DONE & LIVE**
+   (`.env.production` committed; merge `23557c0` deployed; live bundle carries both).
+   REMAINING: a real **browser** sign-in test (sign up → `/api/auth/sync` writes the
+   `users` row → progress/bookmarks sync). Confirm Clerk verified-squid-2 has
+   **password + Google enabled** and `prabhupadaslokas.com` in allowed origins.
 5. **Decommission:** delete the Replit deployment + Replit DB if any remnants exist.
