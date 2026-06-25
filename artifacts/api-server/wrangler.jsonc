@@ -14,12 +14,10 @@
 
   // ── Hyperdrive -> Neon ─────────────────────────────────────────────────────
   // Connection string is supplied by Hyperdrive at runtime as
-  // env.HYPERDRIVE.connectionString (no DATABASE_URL). Create the config with the
-  // pooled Neon URL, then paste the returned id below:
-  //   wrangler hyperdrive create prabhupada-neon \
-  //     --connection-string="postgresql://USER:PASS@HOST/neondb?sslmode=require"
+  // env.HYPERDRIVE.connectionString (no DATABASE_URL). Config created via
+  // `wrangler hyperdrive create prabhupada-neon --connection-string="<neon url>"`.
   "hyperdrive": [
-    { "binding": "HYPERDRIVE", "id": "REPLACE_WITH_HYPERDRIVE_ID" }
+    { "binding": "HYPERDRIVE", "id": "15ad30da283549b2a025b88feb4bc8fe" }
   ]
 
   // ── Secrets (NEVER committed) ──────────────────────────────────────────────
