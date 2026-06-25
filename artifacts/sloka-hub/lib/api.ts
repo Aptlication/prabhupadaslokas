@@ -39,7 +39,7 @@ interface ProgressRow {
 }
 interface BookmarkRow {
   slokaId: string;
-  createdAt?: string | null;
+  savedAt?: string | null;
 }
 
 /**
@@ -75,7 +75,7 @@ export async function fetchState(getToken: TokenGetter): Promise<StateMap | null
         inMySlokas: false,
         savedAt: null,
       };
-      map[b.slokaId] = { ...e, inMySlokas: true, savedAt: b.createdAt ?? e.savedAt };
+      map[b.slokaId] = { ...e, inMySlokas: true, savedAt: b.savedAt ?? e.savedAt };
     }
     return map;
   } catch {
