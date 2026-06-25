@@ -1,3 +1,4 @@
+import { ClerkLoaded, ClerkProvider, useAuth } from "@clerk/clerk-expo";
 import {
   GentiumBookPlus_400Regular,
   GentiumBookPlus_400Regular_Italic,
@@ -5,7 +6,7 @@ import {
   useFonts,
 } from "@expo-google-fonts/gentium-book-plus";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Stack } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
 import { Platform } from "react-native";
@@ -16,17 +17,75 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { AppProvider } from "@/context/AppContext";
+import { CLERK_PUBLISHABLE_KEY, isClerkConfigured } from "@/lib/auth/config";
+import { tokenCache } from "@/lib/auth/tokenCache";
+import { useAuthSync } from "@/lib/auth/useAuthSync";
 
 SplashScreen.preventAutoHideAsync();
 
 const queryClient = new QueryClient();
 
+/**
+ * Redirects between the (auth) stack and the app based on session state, and
+ * keeps the backend `users` row in sync once signed in. Mounted inside
+ * ClerkProvider so the Clerk hooks are available.
+ */
+function AuthGate({ children }: { children: React.ReactNode }) {
+  const { isLoaded, isSignedIn } = useAuth();
+  const segments = useSegments();
+  const router = useRouter();
+  useAuthSync();
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    const inAuthGroup = segments[0] === "(auth)";
+    if (!isSignedIn && !inAuthGroup) {
+      router.replace("/(auth)/sign-in");
+    } else if (isSignedIn && inAuthGroup) {
+      router.replace("/(tabs)");
+    }
+  }, [isLoaded, isSignedIn, segments, router]);
+
+  if (!isLoaded) return <LoadingScreen />;
+  return <>{children}</>;
+}
+
 function RootLayoutNav() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="sloka/[id]" options={{ headerShown: false }} />
     </Stack>
+  );
+}
+
+/**
+ * The app tree below the auth layer. When Clerk is configured we wrap it in
+ * ClerkProvider + AuthGate so every route is gated; if no publishable key is
+ * present (e.g. a local build before EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY is set)
+ * we render the app ungated so it still runs — auth switches on the moment the
+ * key is provided.
+ */
+function AppTree() {
+  if (!isClerkConfigured) {
+    if (__DEV__) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        "[auth] EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY not set — running without login.",
+      );
+    }
+    return <RootLayoutNav />;
+  }
+
+  return (
+    <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
+      <ClerkLoaded>
+        <AuthGate>
+          <RootLayoutNav />
+        </AuthGate>
+      </ClerkLoaded>
+    </ClerkProvider>
   );
 }
 
@@ -81,7 +140,7 @@ export default function RootLayout() {
           <AppProvider>
             <GestureHandlerRootView>
               <KeyboardProvider>
-                <RootLayoutNav />
+                <AppTree />
               </KeyboardProvider>
             </GestureHandlerRootView>
           </AppProvider>
