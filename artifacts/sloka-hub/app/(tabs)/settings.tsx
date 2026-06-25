@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
+import { AccountSection } from "@/components/auth/AccountSection";
 import { useApp } from "@/context/AppContext";
 import {
   APP_DESCRIPTION,
@@ -98,6 +99,9 @@ export default function SettingsScreen() {
           />
         </View>
       </View>
+
+      {/* Account — Clerk sign-in/out + sync (web only; native is local-only). */}
+      <AccountSection />
 
       {/* Progress Overview */}
       <View style={{ paddingHorizontal: 16, gap: 10, marginBottom: 28 }}>

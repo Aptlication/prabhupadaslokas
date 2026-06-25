@@ -14,6 +14,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { ClerkSyncBridge } from "@/components/auth/ClerkSyncBridge";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { AppProvider } from "@/context/AppContext";
@@ -38,10 +39,9 @@ function AuthGate({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     if (!isLoaded) return;
-    const inAuthGroup = segments[0] === "(auth)";
-    if (!isSignedIn && !inAuthGroup) {
-      router.replace("/(auth)/sign-in");
-    } else if (isSignedIn && inAuthGroup) {
+    // Browse-open: signed-out users may use the app. Only bounce a signed-in
+    // user off the auth screens back into the app.
+    if (isSignedIn && segments[0] === "(auth)") {
       router.replace("/(tabs)");
     }
   }, [isLoaded, isSignedIn, segments, router]);
@@ -62,10 +62,11 @@ function RootLayoutNav() {
 
 /**
  * The app tree below the auth layer. When Clerk is configured we wrap it in
- * ClerkProvider + AuthGate so every route is gated; if no publishable key is
- * present (e.g. a local build before EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY is set)
- * we render the app ungated so it still runs — auth switches on the moment the
- * key is provided.
+ * ClerkProvider + the ClerkSyncBridge (which feeds the session into AppContext)
+ * + AuthGate. Browsing is open; signing in is required only to save/sync (see
+ * AppContext.ensureAuth). If no publishable key is present (e.g. a local build
+ * before EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY is set) we render the app ungated so
+ * it still runs — auth switches on the moment the key is provided.
  */
 function AppTree() {
   if (!isClerkConfigured) {
@@ -81,6 +82,7 @@ function AppTree() {
   return (
     <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY} tokenCache={tokenCache}>
       <ClerkLoaded>
+        <ClerkSyncBridge />
         <AuthGate>
           <RootLayoutNav />
         </AuthGate>
