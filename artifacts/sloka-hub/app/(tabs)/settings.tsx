@@ -2,7 +2,6 @@ import { Feather } from "@expo/vector-icons";
 import React from "react";
 import {
   Platform,
-  Pressable,
   ScrollView,
   StyleSheet,
   Switch,
@@ -24,8 +23,7 @@ import { useColors } from "@/hooks/useColors";
 export default function SettingsScreen() {
   const colors = useColors();
   const insets = useSafeAreaInsets();
-  const { getStatus, auth, login, logout, syncState, lastSynced, theme, setTheme } =
-    useApp();
+  const { getStatus, theme, setTheme } = useApp();
   const isNight = theme === "night";
 
   const learned = slokas.filter((s) => getStatus(s.id) === "learned").length;
@@ -34,15 +32,6 @@ export default function SettingsScreen() {
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
-
-  const syncLabel =
-    syncState === "syncing"
-      ? "Syncing…"
-      : syncState === "error"
-        ? "Sync error — changes saved on this device"
-        : lastSynced
-          ? `Synced ${lastSynced.toLocaleTimeString()}`
-          : "Synced";
 
   const infoRows = [
     { icon: "book-open", label: "Total Slokas", value: String(total) },
@@ -109,66 +98,6 @@ export default function SettingsScreen() {
           />
         </View>
       </View>
-
-      {/* Account — login/logout + sync (web only; native is local-only for now) */}
-      {Platform.OS === "web" && (
-        <View style={{ paddingHorizontal: 16, gap: 10, marginBottom: 28 }}>
-          <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>
-            ACCOUNT
-          </Text>
-          <View
-            style={[
-              styles.aboutCard,
-              { backgroundColor: colors.card, borderColor: colors.border },
-            ]}
-          >
-            {auth.loggedIn ? (
-              <>
-                <Text style={[styles.aboutTitle, { color: colors.primary }]}>
-                  Signed in
-                </Text>
-                {auth.email ? (
-                  <Text style={[styles.aboutDesc, { color: colors.foreground }]}>
-                    {auth.email}
-                  </Text>
-                ) : null}
-                <Text style={[styles.aboutTagline, { color: colors.mutedForeground }]}>
-                  {syncLabel}
-                </Text>
-                <Pressable
-                  onPress={logout}
-                  style={[styles.btn, { borderColor: colors.border }]}
-                >
-                  <Feather name="log-out" size={16} color={colors.foreground} />
-                  <Text style={[styles.btnText, { color: colors.foreground }]}>
-                    Sign out
-                  </Text>
-                </Pressable>
-              </>
-            ) : (
-              <>
-                <Text style={[styles.aboutTitle, { color: colors.primary }]}>
-                  Sync across devices
-                </Text>
-                <Text style={[styles.aboutDesc, { color: colors.mutedForeground }]}>
-                  Sign in to save your progress and My Slokas to your account, so
-                  they follow you to any device. Your data stays on this device
-                  until you do.
-                </Text>
-                <Pressable
-                  onPress={login}
-                  style={[styles.btnPrimary, { backgroundColor: colors.primary }]}
-                >
-                  <Feather name="log-in" size={16} color={colors.background} />
-                  <Text style={[styles.btnText, { color: colors.background }]}>
-                    Sign in
-                  </Text>
-                </Pressable>
-              </>
-            )}
-          </View>
-        </View>
-      )}
 
       {/* Progress Overview */}
       <View style={{ paddingHorizontal: 16, gap: 10, marginBottom: 28 }}>
