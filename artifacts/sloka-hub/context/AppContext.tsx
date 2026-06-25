@@ -1,4 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { router } from "expo-router";
 import React, {
   createContext,
   useCallback,
@@ -10,14 +11,12 @@ import React, {
 import { Platform } from "react-native";
 
 import {
-  checkAuth,
   fetchState,
-  importState,
-  login as apiLogin,
-  logout as apiLogout,
   pushFavorite,
   pushProgress,
+  type TokenGetter,
 } from "@/lib/api";
+import { isClerkConfigured } from "@/lib/auth/config";
 
 export type ProgressStatus = "unstarted" | "learning" | "learned";
 
@@ -37,6 +36,13 @@ interface AuthState {
   email: string | null;
 }
 
+/** What the ClerkSyncBridge feeds in from inside ClerkProvider. */
+interface ClerkAuth {
+  isSignedIn: boolean;
+  getToken: TokenGetter;
+  email: string | null;
+}
+
 interface AppContextType {
   progress: Record<string, SlokaProgress>;
   setProgress: (id: string, status: ProgressStatus) => void;
@@ -46,8 +52,8 @@ interface AppContextType {
   syncState: SyncState;
   lastSynced: Date | null;
   auth: AuthState;
-  login: () => void;
-  logout: () => void;
+  /** Called by ClerkSyncBridge to mirror the Clerk session into the context. */
+  syncAuth: (a: ClerkAuth) => void;
   theme: ThemeName;
   setTheme: (t: ThemeName) => void;
   toggleTheme: () => void;
@@ -92,67 +98,83 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     });
   }, []);
 
-  // Ref mirror of auth so mutation callbacks always read the latest value
-  // without being re-created (and without stale-closure bugs).
-  const loggedInRef = useRef(false);
-  useEffect(() => {
-    loggedInRef.current = auth.loggedIn;
-  }, [auth.loggedIn]);
+  // Ref mirrors of the Clerk session so mutation callbacks always read the
+  // latest value without being re-created. getToken is null until the bridge
+  // reports a signed-in session; signedIn gates the "sign-in to save" flow.
+  const signedInRef = useRef(false);
+  const getTokenRef = useRef<TokenGetter | null>(null);
 
   const persist = useCallback((next: Record<string, SlokaProgress>) => {
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next)).catch(() => {});
   }, []);
 
-  // Boot: hydrate local, then (web + logged in) reconcile with the cloud.
+  // Boot: hydrate local storage. Cloud reconciliation happens later, when the
+  // ClerkSyncBridge reports a signed-in session (see syncAuth).
   useEffect(() => {
     (async () => {
-      let local: Record<string, SlokaProgress> = {};
       try {
         const raw = await AsyncStorage.getItem(STORAGE_KEY);
-        if (raw) local = JSON.parse(raw);
+        if (raw) setProgressState(JSON.parse(raw));
       } catch {
         AsyncStorage.removeItem(STORAGE_KEY).catch(() => {});
       }
-      setProgressState(local);
-
-      if (Platform.OS !== "web") return; // native stays local-only for now
-
-      const who = await checkAuth();
-      setAuth(who);
-      if (!who.loggedIn) return;
-
-      setSyncState("syncing");
-      const cloud = await fetchState();
-      if (!cloud) {
-        setSyncState("error");
-        return;
-      }
-
-      // Cloud is authoritative for slokas it knows; local-only entries get
-      // pushed up so nothing on-device is lost on first login.
-      const merged = { ...local, ...(cloud as Record<string, SlokaProgress>) };
-      setProgressState(merged);
-      persist(merged);
-
-      const localOnly: Record<string, SlokaProgress> = {};
-      for (const id of Object.keys(local)) {
-        if (!(id in cloud)) localOnly[id] = local[id];
-      }
-      if (Object.keys(localOnly).length) {
-        const server = await importState(localOnly as any);
-        if (server) {
-          setProgressState(server as Record<string, SlokaProgress>);
-          persist(server as Record<string, SlokaProgress>);
-        }
-      }
-      setSyncState("synced");
-      setLastSynced(new Date());
     })();
+  }, []);
+
+  // Pull the signed-in user's cloud state and merge it over local (cloud is
+  // authoritative; local-only entries are kept on-device but not migrated up —
+  // this is the agreed clean switch). Web only for now.
+  const reconcileFromCloud = useCallback(async () => {
+    if (Platform.OS !== "web") return;
+    const getToken = getTokenRef.current;
+    if (!getToken) return;
+
+    setSyncState("syncing");
+    const cloud = await fetchState(getToken);
+    if (!cloud) {
+      setSyncState("error");
+      return;
+    }
+    setProgressState((local) => {
+      const merged: Record<string, SlokaProgress> = { ...local };
+      for (const [id, s] of Object.entries(cloud)) {
+        merged[id] = {
+          status: s.status,
+          inMySlokas: s.inMySlokas,
+          savedAt: s.savedAt ?? undefined,
+        };
+      }
+      persist(merged);
+      return merged;
+    });
+    setSyncState("synced");
+    setLastSynced(new Date());
   }, [persist]);
+
+  // Receive the Clerk session from the bridge. Kick a cloud reconcile when the
+  // session transitions from signed-out to signed-in.
+  const syncAuth = useCallback(
+    ({ isSignedIn, getToken, email }: ClerkAuth) => {
+      getTokenRef.current = getToken;
+      const wasSignedIn = signedInRef.current;
+      signedInRef.current = isSignedIn;
+      // Keep the same object when nothing changed so an unstable getToken/user
+      // identity from Clerk can't trigger a re-render loop.
+      setAuth((prev) =>
+        prev.loggedIn === isSignedIn && prev.email === email
+          ? prev
+          : { loggedIn: isSignedIn, email },
+      );
+      if (isSignedIn && !wasSignedIn) {
+        reconcileFromCloud();
+      }
+    },
+    [reconcileFromCloud],
+  );
 
   // Mark a write-through result on the sync indicator.
   const markSync = useCallback((ok: boolean) => {
-    if (!loggedInRef.current) return;
+    if (!signedInRef.current) return;
     if (ok) {
       setSyncState("synced");
       setLastSynced(new Date());
@@ -161,19 +183,15 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
-  // "Browse open, sign in to save": the two write actions require an account on
-  // web. When logged out, prompt and send the user through Access login instead
-  // of saving — so all saved progress is tied to a login. Native has no Access
-  // login, so it keeps the local-only behaviour.
+  // "Browse open, sign in to save": the two write actions require a Clerk
+  // session on web. When signed out, send the user to the sign-in screen instead
+  // of saving — so all synced progress is tied to an account. When Clerk isn't
+  // configured (local-only build) or on native, saving stays local and allowed.
   const ensureAuth = useCallback((): boolean => {
     if (Platform.OS !== "web") return true;
-    if (loggedInRef.current) return true;
-    if (typeof window !== "undefined") {
-      const ok = window.confirm(
-        "Sign in to save your progress and sync it across your devices?",
-      );
-      if (ok) apiLogin();
-    }
+    if (!isClerkConfigured) return true;
+    if (signedInRef.current) return true;
+    router.push("/(auth)/sign-in");
     return false;
   }, []);
 
@@ -188,7 +206,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         persist(next);
         return next;
       });
-      pushProgress(id, status).then(markSync);
+      const getToken = getTokenRef.current;
+      if (getToken) pushProgress(getToken, id, status).then(markSync);
     },
     [persist, markSync, ensureAuth],
   );
@@ -212,7 +231,8 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         persist(next);
         return next;
       });
-      pushFavorite(id, nextInMySlokas).then(markSync);
+      const getToken = getTokenRef.current;
+      if (getToken) pushFavorite(getToken, id, nextInMySlokas).then(markSync);
     },
     [persist, markSync, ensureAuth],
   );
@@ -238,8 +258,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         syncState,
         lastSynced,
         auth,
-        login: apiLogin,
-        logout: apiLogout,
+        syncAuth,
         theme,
         setTheme,
         toggleTheme,
