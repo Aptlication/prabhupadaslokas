@@ -36,7 +36,7 @@ export default function SettingsScreen() {
 
   const infoRows = [
     { icon: "book-open", label: "Total Slokas", value: String(total) },
-    { icon: "check-circle", label: "Learned", value: String(learned) },
+    { icon: "check-circle", label: "Learnt", value: String(learned) },
     { icon: "clock", label: "In Progress", value: String(learning) },
     {
       icon: "target",

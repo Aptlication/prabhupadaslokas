@@ -2,7 +2,7 @@
 
 **Re-read this at the start of every session.** Canonical repo: `code/prabhupadaslokas`
 (the OneDrive "Prabhupada Slokas" folder is a stale snapshot — not canonical).
-_Last updated: 2026-06-25 (accounts/sync live — Phase 2 complete)._
+_Last updated: 2026-06-26 (prev/next nav + "Learnt" rename shipped)._
 
 ## Hard decisions — do not contradict or re-derive
 - **NO REPLIT. Permanent.** Do not deploy, configure, reference, or "bring live"
@@ -24,7 +24,22 @@ _Last updated: 2026-06-25 (accounts/sync live — Phase 2 complete)._
 - **Auth:** Clerk instance `verified-squid-2`; frontend publishable key wired.
   Accounts are deferred — do NOT gate launch on auth.
 
-## Current status (2026-06-25)
+## Current status (2026-06-26)
+- **✅ PREV/NEXT NAVIGATION SHIPPED:** the sloka detail screen
+  (`app/sloka/[id].tsx`) walks the list context the user came from — My Slokas,
+  the chapter/source browse view, or search results — by receiving the ordered
+  ids as a `list` route param; falls back to the global source→chapter_verse
+  order when there's no context. Stays within the 180-set. Controls: slim bottom
+  "‹ Prev · N/total · Next ›" bar + horizontal swipe (PanResponder). Each verse
+  opens fresh (Purport collapses, word-by-word chips reset on prev/next).
+- **✅ "LEARNT" RENAME SHIPPED (display only):** every user-facing "Learned"
+  label now reads "Learnt" (detail My Progress control, Home stat, Settings
+  overview, card status). The `'learned'` status value in the schema/API is
+  unchanged.
+- **⚠️ CLERK STILL ON DEV KEYS — production promotion pending.** Accounts/sync
+  run against the `verified-squid-2` **dev** instance; promoting Clerk to
+  production keys is the remaining launch gate.
+
 - **Frontend:** Expo PWA live on Cloudflare Pages (`prabhupadaslokas.com`), branch
   `pwa-cloudflare`. Ships the 180 verses on-device; reading works with no backend.
 - **✅ ACCOUNTS/SYNC LIVE (Clerk active):** `clerk-clean-switch` merged into

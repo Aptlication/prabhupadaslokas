@@ -58,7 +58,7 @@ export default function HomeScreen() {
         <View style={styles.statsRow}>
           <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
             <Text style={[styles.statNumber, { color: colors.learned }]}>{totalLearned}</Text>
-            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learned</Text>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learnt</Text>
           </View>
           <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
             <Text style={[styles.statNumber, { color: colors.learning }]}>{totalLearning}</Text>
