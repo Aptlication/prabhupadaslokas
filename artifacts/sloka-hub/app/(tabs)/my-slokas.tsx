@@ -14,6 +14,7 @@ export default function MySlokas() {
   const { isMySlokas } = useApp();
 
   const saved = slokas.filter((s) => isMySlokas(s.id));
+  const savedIds = saved.map((s) => s.id);
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
@@ -30,7 +31,7 @@ export default function MySlokas() {
       <FlatList
         data={saved}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <SlokaCard sloka={item} />}
+        renderItem={({ item }) => <SlokaCard sloka={item} listIds={savedIds} />}
         contentContainerStyle={{ paddingTop: 8, paddingBottom: bottomPad }}
         scrollEnabled={!!saved.length}
         showsVerticalScrollIndicator={false}

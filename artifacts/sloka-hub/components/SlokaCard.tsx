@@ -9,9 +9,20 @@ import { useColors } from "@/hooks/useColors";
 
 interface SlokaCardProps {
   sloka: Sloka;
+  /** Ordered ids of the list this card belongs to, so the detail screen can
+   *  walk prev/next within the same context the user is browsing. */
+  listIds?: string[];
 }
 
-function PPSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
+/** Build the navigation target, carrying the browsing context as a `list` param. */
+function slokaHref(id: string, listIds?: string[]) {
+  return {
+    pathname: "/sloka/[id]" as const,
+    params: listIds?.length ? { id, list: listIds.join(",") } : { id },
+  };
+}
+
+function PPSlokaCard({ sloka, listIds, colors, router }: { sloka: Sloka; listIds?: string[]; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
   const { getStatus, isMySlokas } = useApp();
   const status = getStatus(sloka.id);
   const saved = isMySlokas(sloka.id);
@@ -26,7 +37,7 @@ function PPSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnTy
     <TouchableOpacity
       style={[styles.ppCard, { backgroundColor: colors.card, borderColor: colors.border }]}
       activeOpacity={0.75}
-      onPress={() => router.push(`/sloka/${sloka.id}` as never)}
+      onPress={() => router.push(slokaHref(sloka.id, listIds) as never)}
       testID={`sloka-card-${sloka.id}`}
     >
       <View style={styles.ppRow}>
@@ -77,7 +88,7 @@ function PPSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnTy
   );
 }
 
-function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
+function FullSlokaCard({ sloka, listIds, colors, router }: { sloka: Sloka; listIds?: string[]; colors: ReturnType<typeof useColors>; router: ReturnType<typeof useRouter> }) {
   const { getStatus, isMySlokas } = useApp();
   const status = getStatus(sloka.id);
   const saved = isMySlokas(sloka.id);
@@ -89,7 +100,7 @@ function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: Return
   };
 
   const statusLabels: Record<string, string> = {
-    learned: "Learned",
+    learned: "Learnt",
     learning: "Learning",
     unstarted: "Not started",
   };
@@ -98,7 +109,7 @@ function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: Return
     <TouchableOpacity
       style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border }]}
       activeOpacity={0.75}
-      onPress={() => router.push(`/sloka/${sloka.id}` as never)}
+      onPress={() => router.push(slokaHref(sloka.id, listIds) as never)}
       testID={`sloka-card-${sloka.id}`}
     >
       <View style={styles.header}>
@@ -127,14 +138,14 @@ function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: Return
   );
 }
 
-export function SlokaCard({ sloka }: SlokaCardProps) {
+export function SlokaCard({ sloka, listIds }: SlokaCardProps) {
   const colors = useColors();
   const router = useRouter();
 
   if (sloka.id.startsWith("pp_")) {
-    return <PPSlokaCard sloka={sloka} colors={colors} router={router} />;
+    return <PPSlokaCard sloka={sloka} listIds={listIds} colors={colors} router={router} />;
   }
-  return <FullSlokaCard sloka={sloka} colors={colors} router={router} />;
+  return <FullSlokaCard sloka={sloka} listIds={listIds} colors={colors} router={router} />;
 }
 
 const styles = StyleSheet.create({

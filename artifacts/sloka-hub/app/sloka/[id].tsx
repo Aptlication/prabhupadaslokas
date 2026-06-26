@@ -1,8 +1,9 @@
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
+  PanResponder,
   Platform,
   ScrollView,
   StyleSheet,
@@ -15,8 +16,14 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { ProgressSelector } from "@/components/ProgressBadge";
 import { WordChip } from "@/components/WordChip";
 import { useApp } from "@/context/AppContext";
-import { slokas } from "@/data/slokas";
+import { groupBySourceAndChapter, slokas } from "@/data/slokas";
 import { useColors } from "@/hooks/useColors";
+
+// The global fallback order (source → chapter_verse) used when the detail screen
+// is opened without a list context (e.g. a deep link or page reload).
+const globalOrderIds = groupBySourceAndChapter(slokas)
+  .flatMap((sec) => sec.data)
+  .map((s) => s.id);
 
 function PPMetaRow({
   rank,
@@ -63,14 +70,63 @@ function PPMetaRow({
 }
 
 export default function SlokaDetail() {
-  const { id } = useLocalSearchParams<{ id: string }>();
+  const { id, list } = useLocalSearchParams<{ id: string; list?: string }>();
   const router = useRouter();
   const colors = useColors();
   const insets = useSafeAreaInsets();
   const { getStatus, setProgress, isMySlokas, toggleMySlokas } = useApp();
 
-  const sloka = slokas.find((s) => s.id === id);
   const [showPurport, setShowPurport] = useState(false);
+
+  // Each verse opens fresh: collapse the Purport when prev/next switches verse.
+  // (The word-by-word chips reset via their `key` below, which remounts them.)
+  useEffect(() => {
+    setShowPurport(false);
+  }, [id]);
+
+  // The ordered ids the user is walking: the list context they came from
+  // (My Slokas, the chapter/source view, or search results), restricted to the
+  // 180-set, falling back to the global order when there's no context.
+  const orderedIds = useMemo(() => {
+    if (list) {
+      const valid = new Set(globalOrderIds);
+      const ids = list.split(",").filter((x) => valid.has(x));
+      if (ids.length) return ids;
+    }
+    return globalOrderIds;
+  }, [list]);
+
+  const index = orderedIds.indexOf(typeof id === "string" ? id : "");
+  const prevId = index > 0 ? orderedIds[index - 1] : undefined;
+  const nextId =
+    index >= 0 && index < orderedIds.length - 1 ? orderedIds[index + 1] : undefined;
+
+  const go = (targetId?: string) => {
+    if (!targetId) return;
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    router.replace({
+      pathname: "/sloka/[id]",
+      params: list ? { id: targetId, list } : { id: targetId },
+    });
+  };
+
+  // Horizontal swipe: left → next, right → prev. A ref keeps the handler fresh
+  // while the PanResponder is created once; the move-claim only fires on a
+  // horizontal-dominant gesture so vertical scrolling still works.
+  const swipeRef = useRef<(dir: -1 | 1) => void>(() => {});
+  swipeRef.current = (dir) => go(dir === 1 ? nextId : prevId);
+  const pan = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: (_e, g) =>
+        Math.abs(g.dx) > 24 && Math.abs(g.dx) > Math.abs(g.dy) * 1.5,
+      onPanResponderRelease: (_e, g) => {
+        if (g.dx <= -50) swipeRef.current(1);
+        else if (g.dx >= 50) swipeRef.current(-1);
+      },
+    }),
+  ).current;
+
+  const sloka = slokas.find((s) => s.id === id);
 
   if (!sloka) {
     return (
@@ -89,7 +145,10 @@ export default function SlokaDetail() {
   const bottomPad = Platform.OS === "web" ? 34 : insets.bottom + 16;
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <View
+      style={[styles.container, { backgroundColor: colors.background }]}
+      {...pan.panHandlers}
+    >
       {/* Header */}
       <View style={[styles.header, { paddingTop: topPad + 8, borderBottomColor: colors.border }]}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backBtn} testID="back-btn">
@@ -120,7 +179,8 @@ export default function SlokaDetail() {
       </View>
 
       <ScrollView
-        contentContainerStyle={{ paddingBottom: bottomPad + 20 }}
+        style={{ flex: 1 }}
+        contentContainerStyle={{ paddingBottom: 24 }}
         showsVerticalScrollIndicator={false}
       >
         {/* PP Metadata row */}
@@ -161,7 +221,7 @@ export default function SlokaDetail() {
             </Text>
             <View style={styles.wordGrid}>
               {sloka.word_by_word.map((item, i) => (
-                <WordChip key={i} item={item} index={i} />
+                <WordChip key={`${sloka.id}-${i}`} item={item} index={i} />
               ))}
             </View>
           </View>
@@ -198,6 +258,44 @@ export default function SlokaDetail() {
           />
         </View>
       </ScrollView>
+
+      {/* Prev / Next bar — walks the list context the user came from */}
+      <View
+        style={[
+          styles.navBar,
+          {
+            borderTopColor: colors.border,
+            backgroundColor: colors.background,
+            paddingBottom: bottomPad,
+          },
+        ]}
+      >
+        <TouchableOpacity
+          onPress={() => go(prevId)}
+          disabled={!prevId}
+          style={[styles.navBtn, { opacity: prevId ? 1 : 0.35 }]}
+          testID="prev-btn"
+        >
+          <Feather name="chevron-left" size={18} color={colors.primary} />
+          <Text style={[styles.navText, { color: colors.primary }]}>Prev</Text>
+        </TouchableOpacity>
+
+        {index >= 0 && (
+          <Text style={[styles.navPos, { color: colors.mutedForeground }]}>
+            {index + 1} / {orderedIds.length}
+          </Text>
+        )}
+
+        <TouchableOpacity
+          onPress={() => go(nextId)}
+          disabled={!nextId}
+          style={[styles.navBtn, { opacity: nextId ? 1 : 0.35 }]}
+          testID="next-btn"
+        >
+          <Text style={[styles.navText, { color: colors.primary }]}>Next</Text>
+          <Feather name="chevron-right" size={18} color={colors.primary} />
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -291,6 +389,29 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "GentiumBookPlus_400Regular",
     lineHeight: 22,
+  },
+  navBar: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingTop: 10,
+    borderTopWidth: 1,
+  },
+  navBtn: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    paddingVertical: 6,
+  },
+  navText: {
+    fontSize: 14,
+    fontFamily: "GentiumBookPlus_700Bold",
+  },
+  navPos: {
+    fontSize: 12,
+    fontFamily: "GentiumBookPlus_400Regular",
+    letterSpacing: 0.3,
   },
 });
 
