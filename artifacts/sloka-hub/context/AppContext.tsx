@@ -121,9 +121,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     })();
   }, []);
 
-  // Pull the signed-in user's cloud state and merge it over local (cloud is
-  // authoritative; local-only entries are kept on-device but not migrated up —
-  // this is the agreed clean switch). Web only for now.
+  // Pull the signed-in user's cloud state. Cloud is authoritative: REPLACE the
+  // local store entirely (do NOT merge) so stale pre-sign-up bookmarks/progress
+  // never leak into a freshly created account. Web only for now.
   const reconcileFromCloud = useCallback(async () => {
     if (Platform.OS !== "web") return;
     const getToken = getTokenRef.current;
@@ -135,18 +135,16 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       setSyncState("error");
       return;
     }
-    setProgressState((local) => {
-      const merged: Record<string, SlokaProgress> = { ...local };
-      for (const [id, s] of Object.entries(cloud)) {
-        merged[id] = {
-          status: s.status,
-          inMySlokas: s.inMySlokas,
-          savedAt: s.savedAt ?? undefined,
-        };
-      }
-      persist(merged);
-      return merged;
-    });
+    const next: Record<string, SlokaProgress> = {};
+    for (const [id, s] of Object.entries(cloud)) {
+      next[id] = {
+        status: s.status,
+        inMySlokas: s.inMySlokas,
+        savedAt: s.savedAt ?? undefined,
+      };
+    }
+    setProgressState(next);
+    persist(next);
     setSyncState("synced");
     setLastSynced(new Date());
   }, [persist]);
@@ -167,6 +165,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       );
       if (isSignedIn && !wasSignedIn) {
         reconcileFromCloud();
+      } else if (!isSignedIn && wasSignedIn) {
+        // Signed out: drop the in-memory + on-device store so the next session
+        // (or a different account) on this device never inherits it.
+        setProgressState({});
+        AsyncStorage.removeItem(STORAGE_KEY).catch(() => {});
       }
     },
     [reconcileFromCloud],

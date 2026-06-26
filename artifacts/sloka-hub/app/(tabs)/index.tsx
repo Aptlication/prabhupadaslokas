@@ -26,7 +26,9 @@ export default function HomeScreen() {
 
   const totalLearned = slokas.filter((s) => getStatus(s.id) === "learned").length;
   const totalLearning = slokas.filter((s) => getStatus(s.id) === "learning").length;
-  const totalSaved = Object.values(progress).filter((p) => p.inMySlokas).length;
+  // Count over the current sloka set (like My Slokas) so the two screens always
+  // agree and orphaned bookmarks for removed slokas are never counted.
+  const totalSaved = slokas.filter((s) => progress[s.id]?.inMySlokas).length;
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
 
