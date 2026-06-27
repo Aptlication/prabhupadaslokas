@@ -25,13 +25,14 @@ _Last updated: 2026-06-26 (prev/next nav + "Learnt" rename shipped)._
   Accounts are deferred — do NOT gate launch on auth.
 
 ## Current status (2026-06-26)
-- **✅ PREV/NEXT NAVIGATION SHIPPED:** the sloka detail screen
-  (`app/sloka/[id].tsx`) walks the list context the user came from — My Slokas,
-  the chapter/source browse view, or search results — by receiving the ordered
-  ids as a `list` route param; falls back to the global source→chapter_verse
-  order when there's no context. Stays within the 180-set. Controls: slim bottom
-  "‹ Prev · N/total · Next ›" bar + horizontal swipe (PanResponder). Each verse
-  opens fresh (Purport collapses, word-by-word chips reset on prev/next).
+- **✅ PREV/NEXT NAVIGATION SHIPPED (My Slokas only):** the sloka detail screen
+  (`app/sloka/[id].tsx`) offers prev/next **only when opened from the My Slokas
+  saved list**, which passes the saved ids (in saved order) as a `list` route
+  param; it walks that saved set, disabled at the ends, within the 180-set.
+  Opened from the Slokas tab, search, or a direct link → no `list` → no
+  prev/next. Controls are small ‹ › arrows in the header next to the verse
+  reference (no bottom bar, no swipe — both removed). Each verse opens fresh
+  (Purport collapses, word-by-word chips reset on prev/next).
 - **✅ "LEARNT" RENAME SHIPPED (display only):** every user-facing "Learned"
   label now reads "Learnt" (detail My Progress control, Home stat, Settings
   overview, card status). The `'learned'` status value in the schema/API is
