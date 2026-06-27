@@ -45,13 +45,6 @@ export default function SlokasScreen() {
 
   const sections = useMemo(() => groupBySourceAndChapter(filtered), [filtered]);
 
-  // The flattened display order — passed to each card so the detail screen can
-  // walk prev/next within the current search/source context.
-  const orderedIds = useMemo(
-    () => sections.flatMap((s) => s.data).map((s) => s.id),
-    [sections],
-  );
-
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
 
@@ -198,7 +191,7 @@ export default function SlokasScreen() {
             </View>
           </View>
         )}
-        renderItem={({ item }) => <SlokaCard sloka={item} listIds={orderedIds} />}
+        renderItem={({ item }) => <SlokaCard sloka={item} />}
         contentContainerStyle={{ paddingBottom: bottomPad }}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
