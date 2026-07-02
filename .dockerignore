@@ -1,0 +1,9 @@
+# Build context = repo root. Keep it lean and force a clean build:
+# node_modules and dist are regenerated inside the image, so never ship the
+# local (possibly stale) copies.
+**/node_modules
+**/dist
+.git
+**/.expo
+**/*.log
+**/.DS_Store
