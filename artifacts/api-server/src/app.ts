@@ -2,12 +2,6 @@ import express, { type Express } from "express";
 import cors from "cors";
 import pinoHttp from "pino-http";
 import { clerkMiddleware } from "@clerk/express";
-import { publishableKeyFromHost } from "@clerk/shared/keys";
-import {
-  CLERK_PROXY_PATH,
-  clerkProxyMiddleware,
-  getClerkProxyHost,
-} from "./middlewares/clerkProxyMiddleware.js";
 import router from "./routes/index.js";
 import { logger } from "./lib/logger.js";
 
@@ -33,20 +27,16 @@ app.use(
   }),
 );
 
-app.use(CLERK_PROXY_PATH, clerkProxyMiddleware());
-
 app.use(cors({ credentials: true, origin: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  clerkMiddleware((req) => ({
-    publishableKey: publishableKeyFromHost(
-      getClerkProxyHost(req) ?? "",
-      process.env.CLERK_PUBLISHABLE_KEY,
-    ),
-  })),
-);
+// Verify Clerk session tokens using the instance encoded in the env keys
+// (CLERK_SECRET_KEY + CLERK_PUBLISHABLE_KEY → clerk.prabhupadaslokas.com).
+// Do NOT derive the publishable key from the request host: this API is served
+// from api.prabhupadaslokas.com, so host-derivation targets the non-existent
+// FAPI "clerk.api.prabhupadaslokas.com" and 401s every request.
+app.use(clerkMiddleware());
 
 app.use("/api", router);
 
