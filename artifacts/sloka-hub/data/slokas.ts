@@ -1,4 +1,4 @@
-import rawPPSlokas from "./pp-slokas.json";
+import rawSlokas from "./slokas-180.json";
 
 export interface WordMeaning {
   word: string;
@@ -16,14 +16,14 @@ export interface Sloka {
   audio_url?: string;
   category: string;
   rank?: number;
-  times_quoted_approx?: number;
+  times_quoted_approx?: string | null;
   chapter_verse?: string;
 }
 
 // The app ships only Prabhupada's favourite verses. The full 700-verse
 // "Bhagavad Gita As It Is" dataset was removed — see
 // PLAN-remove-full-bg-and-chapter-grouping.md.
-export const slokas: Sloka[] = [...(rawPPSlokas as Sloka[])];
+export const slokas: Sloka[] = [...(rawSlokas as Sloka[])];
 
 export const categories = [...new Set(slokas.map((s) => s.category))];
 
