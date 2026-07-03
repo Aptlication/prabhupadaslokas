@@ -47,7 +47,7 @@ function PPMetaRow({
       {timesQuoted != null && (
         <>
           <View style={ppStyles.metaCell}>
-            <Text style={[ppStyles.metaValue, { color: colors.foreground }]}>{timesQuoted}×</Text>
+            <Text style={[ppStyles.metaValue, { color: colors.foreground }]}>{timesQuoted}</Text>
             <Text style={[ppStyles.metaKey, { color: colors.mutedForeground }]}>quoted</Text>
           </View>
           <View style={ppStyles.metaDivider} />
