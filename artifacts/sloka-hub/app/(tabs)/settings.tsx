@@ -1,4 +1,5 @@
 import { Feather } from "@expo/vector-icons";
+import { Link } from "expo-router";
 import React from "react";
 import {
   Platform,
@@ -221,6 +222,11 @@ export default function SettingsScreen() {
             {APP_DESCRIPTION}
           </Text>
           <View style={[styles.divider, { backgroundColor: colors.border }]} />
+          <Link href="/privacy">
+          <Text style={[styles.privacyLink, { color: colors.primary }]}>
+          Privacy Policy
+          </Text>
+          </Link>
           <Text style={[styles.version, { color: colors.mutedForeground }]}>
             {APP_VERSION_LABEL}
           </Text>
@@ -267,6 +273,7 @@ const styles = StyleSheet.create({
   },
   aboutDesc: { fontSize: 14, fontFamily: "GentiumBookPlus_400Regular", lineHeight: 21 },
   divider: { height: 1, marginVertical: 4 },
+  privacyLink: { fontSize: 13, fontFamily: "GentiumBookPlus_700Bold", marginBottom: 6 },
   version: { fontSize: 12, fontFamily: "GentiumBookPlus_400Regular" },
   btn: {
     flexDirection: "row",
