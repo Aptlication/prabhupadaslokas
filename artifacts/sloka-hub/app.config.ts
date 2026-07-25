@@ -28,7 +28,18 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   ios: {
     supportsTablet: false,
+    bundleIdentifier: "com.prabhupadaslokas.app",
+    buildNumber: "1",
+    // App Store Connect requires a 1024x1024 icon; upscaled from the 600px master.
+    icon: "./assets/images/icon-ios.png",
+    infoPlist: {
+      // Standard HTTPS only — no proprietary encryption, so no export
+      // compliance questionnaire is needed on each submission.
+      ITSAppUsesNonExemptEncryption: false,
+    },
   },
+  // After `eas init`, paste the generated projectId here:
+  // extra: { eas: { projectId: "<from eas init>" } },
   android: {},
   web: {
     favicon: "./assets/images/icon.png",
