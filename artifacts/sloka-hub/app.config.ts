@@ -39,7 +39,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
     },
   },
   // After `eas init`, paste the generated projectId here:
-  // extra: { eas: { projectId: "<from eas init>" } },
+  extra: { eas: { projectId: "6105f008-f170-4ca9-889d-4d0778ddbb36" } },
   android: {},
   web: {
     favicon: "./assets/images/icon.png",
