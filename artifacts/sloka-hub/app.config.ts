@@ -29,7 +29,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ios: {
     supportsTablet: false,
     bundleIdentifier: "com.prabhupadaslokas.app",
-    buildNumber: "1",
+    buildNumber: "2",
     // App Store Connect requires a 1024x1024 icon; upscaled from the 600px master.
     icon: "./assets/images/icon-ios.png",
     infoPlist: {
