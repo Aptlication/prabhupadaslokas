@@ -52,20 +52,35 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* Stats row */}
+        {/* Stats row — each card opens its list in My Slokas */}
         <View style={styles.statsRow}>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=learned" as never)}
+            testID="stat-learned"
+          >
             <Text style={[styles.statNumber, { color: colors.learned }]}>{totalLearned}</Text>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learned</Text>
-          </View>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=learning" as never)}
+            testID="stat-learning"
+          >
             <Text style={[styles.statNumber, { color: colors.learning }]}>{totalLearning}</Text>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learning</Text>
-          </View>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=saved" as never)}
+            testID="stat-saved"
+          >
             <Text style={[styles.statNumber, { color: colors.primary }]}>{totalSaved}</Text>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Saved</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -95,7 +110,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={[styles.actionCard, { backgroundColor: colors.card, borderColor: colors.border }]}
             activeOpacity={0.75}
-            onPress={() => router.push("/(tabs)/my-slokas" as never)}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=saved" as never)}
             testID="my-slokas-btn"
           >
             <Feather name="bookmark" size={28} color={colors.mutedForeground} />
