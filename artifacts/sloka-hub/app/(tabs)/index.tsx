@@ -29,6 +29,10 @@ export default function HomeScreen() {
   // Count only slokas that exist in the current dataset, so this always
   // matches the Saved list (old entries from earlier datasets are ignored).
   const totalSaved = slokas.filter((s) => isMySlokas(s.id)).length;
+  // Whole collection: saved, learning or learnt — each sloka counted once.
+  const totalMySlokas = slokas.filter(
+    (s) => isMySlokas(s.id) || getStatus(s.id) !== "unstarted",
+  ).length;
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
 
@@ -54,20 +58,35 @@ export default function HomeScreen() {
           </View>
         </View>
 
-        {/* Stats row */}
+        {/* Stats row — each card opens its list in My Slokas */}
         <View style={styles.statsRow}>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=learned" as never)}
+            testID="stat-learned"
+          >
             <Text style={[styles.statNumber, { color: colors.learned }]}>{totalLearned}</Text>
-            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learned</Text>
-          </View>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learnt</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=learning" as never)}
+            testID="stat-learning"
+          >
             <Text style={[styles.statNumber, { color: colors.learning }]}>{totalLearning}</Text>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Learning</Text>
-          </View>
-          <View style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.statCard, { backgroundColor: colors.card, borderColor: colors.border }]}
+            activeOpacity={0.75}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=saved" as never)}
+            testID="stat-saved"
+          >
             <Text style={[styles.statNumber, { color: colors.primary }]}>{totalSaved}</Text>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Saved</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
 
@@ -97,13 +116,13 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={[styles.actionCard, { backgroundColor: colors.card, borderColor: colors.border }]}
             activeOpacity={0.75}
-            onPress={() => router.push("/(tabs)/my-slokas" as never)}
+            onPress={() => router.push("/(tabs)/my-slokas?filter=saved" as never)}
             testID="my-slokas-btn"
           >
             <Feather name="bookmark" size={28} color={colors.mutedForeground} />
             <Text style={[styles.actionTitle, { color: colors.foreground }]}>My Slokas</Text>
             <Text style={[styles.actionSub, { color: colors.mutedForeground }]}>
-              {totalSaved} saved
+              {totalMySlokas} {totalMySlokas === 1 ? "sloka" : "slokas"}
             </Text>
           </TouchableOpacity>
         </View>

@@ -13,7 +13,7 @@ interface ProgressBadgeProps {
 const OPTIONS: { label: string; value: ProgressStatus }[] = [
   { label: "Not Started", value: "unstarted" },
   { label: "Learning", value: "learning" },
-  { label: "Learned", value: "learned" },
+  { label: "Learnt", value: "learned" },
 ];
 
 export function ProgressSelector({ status, onPress }: ProgressBadgeProps) {
