@@ -89,7 +89,7 @@ function FullSlokaCard({ sloka, colors, router }: { sloka: Sloka; colors: Return
   };
 
   const statusLabels: Record<string, string> = {
-    learned: "Learned",
+    learned: "Learnt",
     learning: "Learning",
     unstarted: "Not started",
   };

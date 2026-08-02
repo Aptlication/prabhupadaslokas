@@ -23,7 +23,7 @@ export type MySlokasFilter = "saved" | "learning" | "learned";
 const FILTERS: { value: MySlokasFilter; label: string; icon: FeatherIconName }[] = [
   { value: "saved", label: "Saved", icon: "bookmark" },
   { value: "learning", label: "Learning", icon: "book-open" },
-  { value: "learned", label: "Learned", icon: "check-circle" },
+  { value: "learned", label: "Learnt", icon: "check-circle" },
 ];
 
 const EMPTY_COPY: Record<
@@ -42,8 +42,8 @@ const EMPTY_COPY: Record<
   },
   learned: {
     icon: "check-circle",
-    title: "Nothing learned yet",
-    text: "Open a sloka and set My Progress to “Learned” once you know it by heart",
+    title: "Nothing learnt yet",
+    text: "Open a sloka and set My Progress to “Learnt” once you know it by heart",
   },
 };
 
@@ -96,6 +96,27 @@ export default function MySlokas() {
     });
   }, [filter, progress, isMySlokas, getStatus]);
 
+  // Collection totals: every sloka that is saved, learning or learnt —
+  // counted once for the header total, per-category for the pills.
+  const totals = useMemo(() => {
+    let saved = 0;
+    let learning = 0;
+    let learnt = 0;
+    let total = 0;
+    for (const s of slokas) {
+      const inSaved = isMySlokas(s.id);
+      const st = getStatus(s.id);
+      if (inSaved) saved++;
+      if (st === "learning") learning++;
+      if (st === "learned") learnt++;
+      if (inSaved || st !== "unstarted") total++;
+    }
+    return { saved, learning, learnt, total };
+  }, [progress, isMySlokas, getStatus]);
+
+  const countOf = (f: MySlokasFilter) =>
+    f === "saved" ? totals.saved : f === "learning" ? totals.learning : totals.learnt;
+
   const empty = EMPTY_COPY[filter];
   const topPad = Platform.OS === "web" ? 67 : insets.top;
   const bottomPad = Platform.OS === "web" ? 34 + 84 : insets.bottom + 90;
@@ -105,7 +126,7 @@ export default function MySlokas() {
       <View style={[styles.header, { paddingTop: topPad + 12, borderBottomColor: colors.border }]}>
         <Text style={[styles.title, { color: colors.foreground }]}>My Slokas</Text>
         <Text style={[styles.subtitle, { color: colors.mutedForeground }]}>
-          {filtered.length} {filtered.length === 1 ? "sloka" : "slokas"} {filter}
+          {totals.total} {totals.total === 1 ? "sloka" : "slokas"} in your collection · {filtered.length} {filter === "learned" ? "learnt" : filter}
         </Text>
 
         {/* Saved / Learning / Learned filter pills */}
@@ -143,7 +164,7 @@ export default function MySlokas() {
                     },
                   ]}
                 >
-                  {f.label}
+                  {f.label} · {countOf(f.value)}
                 </Text>
               </TouchableOpacity>
             );
