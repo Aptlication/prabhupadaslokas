@@ -27,6 +27,8 @@ export type ThemeName = "paper" | "night";
 interface SlokaProgress {
   status: ProgressStatus;
   savedAt?: string;
+  /** When the status was last changed — lets lists sort most-recent-first. */
+  statusChangedAt?: string;
   inMySlokas: boolean;
 }
 
@@ -183,7 +185,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       setProgressState((current) => {
         const next = {
           ...current,
-          [id]: { ...(current[id] ?? { inMySlokas: false }), status },
+          [id]: {
+            ...(current[id] ?? { inMySlokas: false }),
+            status,
+            statusChangedAt: new Date().toISOString(),
+          },
         };
         persist(next);
         return next;

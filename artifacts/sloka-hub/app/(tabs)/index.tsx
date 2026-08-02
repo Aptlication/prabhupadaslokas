@@ -22,11 +22,13 @@ export default function HomeScreen() {
   const colors = useColors();
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { getStatus, progress } = useApp();
+  const { getStatus, isMySlokas } = useApp();
 
   const totalLearned = slokas.filter((s) => getStatus(s.id) === "learned").length;
   const totalLearning = slokas.filter((s) => getStatus(s.id) === "learning").length;
-  const totalSaved = Object.values(progress).filter((p) => p.inMySlokas).length;
+  // Count only slokas that exist in the current dataset, so this always
+  // matches the Saved list (old entries from earlier datasets are ignored).
+  const totalSaved = slokas.filter((s) => isMySlokas(s.id)).length;
 
   const topPad = Platform.OS === "web" ? 67 : insets.top;
 

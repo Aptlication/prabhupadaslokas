@@ -1,3 +1,19 @@
+# Prabhupada Slokas
+
+## Attribution requirement (BBT permission)
+
+All acknowledgments of the translations — in the app, the App Store
+listing, the website, and any other materials — MUST credit exactly:
+
+> **Bhaktivedanta Book Trust**
+
+and NOT “The Bhaktivedanta Book Trust” (no leading “The”). This is a
+condition of the permission granted to use the original pre-1978 BBT
+translations. Check any new acknowledgment text against this before it
+ships.
+
+---
+
 # P3 — Frontend wired to the API (change-set)
 
 Makes the app sync progress + "My Slokas" to the account when signed in, while
